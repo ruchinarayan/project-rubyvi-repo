@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20150406155448) do
 
+  create_table "courses", force: :cascade do |t|
+    t.string   "course_id"
+    t.string   "course_name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "students", force: :cascade do |t|
     t.integer  "UID"
     t.string   "firstName"
@@ -20,12 +27,6 @@ ActiveRecord::Schema.define(version: 20150406155448) do
     t.string   "email"
     t.integer  "phoneNumber"
     t.string   "status"
-  end
-
-
-  create_table "courses", force: :cascade do |t|
-    t.string   "course_id"
-    t.string   "course_name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
