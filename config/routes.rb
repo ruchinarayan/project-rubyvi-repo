@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get '/courses' , to: 'courses#index', as: 'courses'
+  get '/adminHome' , to: 'users#adminHome', as: 'adminHome'
+
   root 'users#new'
 
   get 'signup' => 'users#new'
