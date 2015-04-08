@@ -1,0 +1,14 @@
+<% content_for :title, "Studnet-List"%>
+
+<p>This page lists all failed students</p>
+
+<table align="center" border="1">
+	
+	<% @failstud.each do|student| %>
+	 <% if student.status=="fail" %>
+	<tr><th><%= (student.firstName+" "+student.lastName) %></th></tr>
+	<% end %>
+	<% end %>
+
+</table>
+

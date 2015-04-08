@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'student/studentList'
+
   root 'users#new'
 
   get 'signup' => 'users#new'
 
+  get    'studentList' => 'student#studentList'
+  get    '/student/failStu' => 'student#failStu'
+  get    '/student/studentIfo' => 'student#studentIfo'
+  get    '/student/IfoRevise' => 'student#IfoRevise'
   get    'login'  => 'sessions#new'
   post   'login'  => 'sessions#create'
   delete 'logout' => 'sessions#destroy'

@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Student.create(UID: 12,firstName: "yehui",lastName: "tank",email: "fjklda@gmail.com",phoneNumber: 12345,status: "pass");
+Student.create(UID: 13,firstName: "yfdhui",lastName: "tank",email: "fjklda@gmail.com",phoneNumber: 12345,status: "pass");
+Student.create(UID: 13,firstName: "fdewak",lastName: "tank",email: "fjklda@gmail.com",phoneNumber: 12345,status: "pass");
+Student.create(UID: 13,firstName: "esr",lastName: "tank",email: "fjklda@gmail.com",phoneNumber: 12345,status: "pass");
+Student.create(UID: 13,firstName: "fea",lastName: "tank",email: "fjklda@gmail.com",phoneNumber: 12345,status: "pass");
+Student.create(UID: 13,firstName: "fea",lastName: "tank",email: "fjklda@gmail.com",phoneNumber: 12345,status: "fail");
