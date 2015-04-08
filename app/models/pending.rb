@@ -4,7 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  contract_id  :integer
-#  uid          :integer
+#  uid          :string
 #  firstName    :string
 #  lastName     :string
 #  email        :string

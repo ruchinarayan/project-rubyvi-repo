@@ -3,7 +3,7 @@
 # Table name: students
 #
 #  id          :integer          not null, primary key
-#  UID         :integer
+#  UID         :string
 #  firstName   :string
 #  lastName    :string
 #  email       :string
