@@ -20,6 +20,37 @@ ActiveRecord::Schema.define(version: 20150407164202) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "honors", force: :cascade do |t|
+    t.integer  "contract_id"
+    t.string   "uid"
+    t.string   "course_id"
+    t.string   "prof_email"
+    t.string   "semester"
+    t.integer  "year"
+    t.string   "grade"
+    t.binary   "pdf"
+    t.date     "dates"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "pendings", force: :cascade do |t|
+    t.integer  "contract_id"
+    t.string   "uid"
+    t.string   "firstName"
+    t.string   "lastName"
+    t.string   "email"
+    t.integer  "phoneNumber"
+    t.string   "semester"
+    t.string   "profName"
+    t.string   "profEmail"
+    t.string   "course_id"
+    t.integer  "year"
+    t.string   "present_date"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "professors", force: :cascade do |t|
     t.string   "profName"
     t.string   "profEmail"
@@ -28,7 +59,7 @@ ActiveRecord::Schema.define(version: 20150407164202) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.integer  "UID"
+    t.string   "UID"
     t.string   "firstName"
     t.string   "lastName"
     t.string   "email"
@@ -36,6 +67,7 @@ ActiveRecord::Schema.define(version: 20150407164202) do
     t.string   "status"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "notes"
   end
 
   create_table "users", force: :cascade do |t|
