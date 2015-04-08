@@ -1,31 +1,41 @@
+# == Schema Information
+#
+# Table name: honors
+#
+#  id          :integer          not null, primary key
+#  contract_id :integer
+#  uid         :string
+#  course_id   :string
+#  prof_email  :string
+#  semester    :string
+#  year        :integer
+#  grade       :string
+#  pdf         :binary
+#  dates       :date
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  contract_id: MyString
-  int: MyString
+  contract_id: 1
   uid: MyString
-  int: MyString
   course_id: MyString
   prof_email: MyString
   semester: MyString
-  year: MyString
-  int: MyString
+  year: 1
   grade: MyString
-  pdf: MyString
-  dates: MyString
-  : 2015-04-08
+  pdf: 
+  dates: 2015-04-08
 
 two:
-  contract_id: MyString
-  int: MyString
+  contract_id: 1
   uid: MyString
-  int: MyString
   course_id: MyString
   prof_email: MyString
   semester: MyString
-  year: MyString
-  int: MyString
+  year: 1
   grade: MyString
-  pdf: MyString
-  dates: MyString
-  : 2015-04-08
+  pdf: 
+  dates: 2015-04-08

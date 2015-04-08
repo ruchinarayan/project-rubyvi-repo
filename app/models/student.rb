@@ -13,5 +13,6 @@
 #  updated_at  :datetime         not null
 #
 
+
 class Student < ActiveRecord::Base
 end
