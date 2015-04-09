@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Honor.create(contract_id: 00001,  uid: U00564017,  course_id: comp7012,  prof_email: sflem@memphis.edu,  semester: spring,  year: 2015,  grade: A,  pdf: "",  dates: 2015-04-08)
+Honor.create(contract_id: 00001,  uid: "U00564017",  course_id: "comp7012",  prof_email: "sflem@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08")
