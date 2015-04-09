@@ -8,7 +8,7 @@
 #  firstName    :string
 #  lastName     :string
 #  email        :string
-#  phoneNumber  :integer
+#  phoneNumber  :string
 #  semester     :string
 #  profName     :string
 #  profEmail    :string

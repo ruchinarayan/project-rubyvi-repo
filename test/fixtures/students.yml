@@ -7,7 +7,7 @@
 #  firstName   :string
 #  lastName    :string
 #  email       :string
-#  phoneNumber :integer
+#  phoneNumber :string
 #  status      :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
