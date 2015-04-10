@@ -41,4 +41,4 @@ class Pending < ActiveRecord::Base
 	end 
 	
 end
->>>>>>> iqbal0410
+
