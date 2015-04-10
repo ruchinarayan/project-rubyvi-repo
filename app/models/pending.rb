@@ -33,5 +33,10 @@ class Pending < ActiveRecord::Base
 	validates :course_id, presence: true,   length: {maximum: 100 }
 	validates :year, presence: true, length: {maximum: 100 }
 	validates :present_date, presence: true,   length: {maximum: 100 }
-	 
+	
+	def self.search(search)
+	  search_condition = "%" + search + "%"
+	  find(:all, :conditions => ['contract_id LIKE ? OR uid LIKE ?', search_condition, search_condition])
+	end 
+	
 end

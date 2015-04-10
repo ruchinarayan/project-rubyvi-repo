@@ -22,15 +22,26 @@
                         <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
                      </td>
                      <td class="search">
-                     <p><b>Login as: </b><i><%= @user.email %>  </i><b>Role: </b> Give Role here</p>
+                     <p><b>Logged in as: </b><i><%= @user.email %>  </i><b>Role: </b> Give Role here</p>
                      <p><%= link_to "Log out", logout_path, method: "delete" %></p>
-               </td>
+                     </td>
 
                      </tr>
                     </tbody>
                </table>
             </td>
          </tr>
+         <tr>
+            <td > Search for pending contracts with UID or Contract id:                
+               <%= form_tag :controller => 'pendings', :action => 'search', :method => 'get' do %>
+               <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+               <%= submit_tag "Search", :name => nil %> 
+               <!%= link_to_function "Clear", "$('search_field').clear()" %>
+               <% end %> 
+            </td>
+
+         </tr>
+
          <tr>
             <td >
                <table border="2" cellpadding="1" cellspacing="1" width="100%" summary="Honors Contract Dashboard"align="center" >
@@ -41,7 +52,7 @@
                         <th bgcolor="gray"> Deactivated/Deleted Contracts</th>
                      </tr>
                      <tr>
-                        <td align= center><br><br><br><br><br>There are  <%= link_to 5, root_path %> pending Honor's contract requests <br><br><br><br><br><br><br><br><br><br><br><br><br></td>
+                        <td align= center><br><br><br><br><br>There are  <%= link_to 5, pendings_list_path %> pending Honor's contract requests <br><br><br><br><br><br><br><br><br><br><br><br><br></td>
                         <td align= center><br><br><br><br><br>There are  <%= link_to "X", root_path %> active Honor's contracts<br><br><br><br><br><br><br><br><br><br><br><br><br></td>                          
                         <td align= center><br><br><br><br><br>There are  <%= link_to "X", root_path %> Deactivated/Deleted Contract Honor's contracts.<br><br><br><br><br><br><br><br><br><br><br><br><br></td>
 

@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'pendings/index'
+
   get '/courses' , to: 'courses#index', as: 'courses'
   get '/adminHome' , to: 'users#adminHome', as: 'adminHome'
+
+  get '/pendings/List', to: 'pendings#index', as: 'pendings_list'
+  get '/pendings' , to: 'pendings#search', as: 'pending_search_list'
+  post '/pendings', to: 'pendings#search'
 
   root 'users#new'
 
