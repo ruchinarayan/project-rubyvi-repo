@@ -1,0 +1,140 @@
+<% provide(:title, "Display-Student") %>
+<!DOCTYPE html>
+<head>
+<%= stylesheet_link_tag "student.scss" %>
+</head>
+<body>
+
+<div class="graduation">
+<table align="center">
+<tr>
+<td><h2>Graduation Checklist</h2></td>
+</tr>
+<tr>
+<td>
+<select>
+<option value="1">1. University Honors with Thesis</option>
+<option value="2">2. University Honors</option>
+</select>
+</td>
+</tr>
+</table>
+</div>
+
+<div class="graduation2">
+<table align="center">
+<tr>
+<td align="center"><h2>Notes</h2></td>
+</tr>
+<tr>
+<td>
+<textarea>
+</textarea>
+</td>
+</tr>
+</table>
+</div>
+
+<div class="graduation1">
+<table border="0">
+<tr>
+<td><h2>First Name</h2></td>
+<td width="10%"></td>
+<td><h2>Last Name</h2></td>
+<td width="10%"></td>
+<td><h2>UID</h2></td>
+<td width="10%"></td>
+<td><h2>Start Date</h2></td>
+<td width="10%"></td>
+<td><h2>End Date</h2></td>
+</tr>
+
+<tr>
+	<td><input type="text" disabled="true" name="firstName"></td>
+	<td width="10%"></td>
+	<td><input type="text" disabled="true" name="lastName"></td>
+	<td width="10%"></td>
+	<td><input type="text" disabled="true" name="uid"></td>
+	<td width="10%"></td>
+	<td><input type="text" disabled="true" name="startDate"></td>
+	<td width="10%"></td>
+	<td><input type="text" disabled="true" name="endDate"></td>
+</tr>
+</table>
+
+</div>
+
+<img src="C:\\workspace\\AddCourse.png"/>
+
+<div>
+<table border = "0">
+<tr>
+	<th>Course</th>
+	<th width="20%"></th>
+	<th>Semester</th>
+	<th width="20%"></th>
+	<th>Grade</th>
+	<th width="20%"></th>
+	<th>Professor</th>
+	<th></th>
+</tr>
+
+<tr>
+	<td>UNHP</td>
+	<td></td>
+	<td>F12</td>
+	<td></td>
+	<td>A+</td>
+	<td></td>
+	<td>ABC</td>
+	 <td>[<%= link_to "Show"%>],
+         [<%= link_to "Edit"%>],
+         [<%= link_to "Delete"%>]</td>
+</tr>
+<tr>
+	<td>Biology 1010</td>
+	<td></td>
+	<td>Sp12</td>
+	<td></td>
+	<td>B</td>
+	<td></td>
+	<td>ABC</td>
+	<td>[<%= link_to "Show"%>],
+         [<%= link_to "Edit"%>],
+         [<%= link_to "Delete"%>]</td>
+</tr>
+<tr>
+	<td>Algebra</td>
+	<td></td>
+	<td>Sp12</td>
+	<td></td>
+	<td>A</td>
+	<td></td>
+	<td>ABC</td>
+	<td>[<%= link_to "Show"%>],
+         [<%= link_to "Edit"%>],
+         [<%= link_to "Delete"%>]</td>
+</tr>
+<tr>
+	<td>Comp Sci</td>
+	<td></td>
+	<td>F13</td>
+	<td></td>
+	<td>B+</td>
+	<td></td>
+	<td>ABC</td>
+	<td>[<%= link_to "Show"%>],
+         [<%= link_to "Edit"%>],
+         [<%= link_to "Delete"%>]</td>
+</tr>
+</table>
+
+<table>
+<tr>
+	<td><button type="button">Add New Course</button></td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>
