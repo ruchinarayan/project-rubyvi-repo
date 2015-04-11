@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'honors/new'
+
   get '/courses' , to: 'courses#index', as: 'courses'
   get '/adminHome' , to: 'users#adminHome', as: 'adminHome'
 
@@ -12,6 +14,13 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users
+
+
+#newHonor create
+  get '/honors/new',  to: 'honors#new', as: 'new_honor'
+  post '/honors', to: 'honors#create'
+#show
+  get '/honors/:id', to: 'honors#show' , as: 'honor'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

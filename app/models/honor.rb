@@ -18,17 +18,17 @@
 
 class Honor < ActiveRecord::Base
 	before_save { self.prof_email = prof_email.downcase }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+ # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :prof_email,
             presence: true,
-            length: { maximum: 255 },
-            format: { with: VALID_EMAIL_REGEX },
-            uniqueness: { case_sensitive: false }
-  validates :uid, presence: true, length: { maximum: 9}
+            length: { maximum: 255 }
+            #format: { with: VALID_EMAIL_REGEX },
+       #     uniqueness: { case_sensitive: false }
+   validates :uid, presence: true, length: { maximum: 9}
   validates :contract_id, presence: true
-  validates :course_id, presence: true
-  validates :semester, presence: true
-  validates :year, presence: true
-  validates :grade, presence: true
+   validates :course_id, presence: true
+   validates :semester, presence: true
+   validates :year, presence: true
+   validates :grade, presence: true
   validates :dates, presence: true
 end
