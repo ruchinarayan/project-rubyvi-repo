@@ -52,8 +52,10 @@
                         <th bgcolor="gray"> Deactivated/Deleted Contracts</th>
                      </tr>
                      <tr>
-                        <td align= center><br><br><br><br><br>There are  <%= link_to 5, pendings_list_path %> pending Honor's contract requests <br><br><br><br><br><br><br><br><br><br><br><br><br></td>
-                        <td align= center><br><br><br><br><br>There are  <%= link_to "X", root_path %> active Honor's contracts<br><br><br><br><br><br><br><br><br><br><br><br><br></td>                          
+                        <%=@pendings= Pending.all%>
+                        <%=@honors= Honor.all%>
+                        <td align= center><br><br><br><br><br>There are  <%= link_to @pendings.length, pendings_list_path %> pending Honor's contract requests <br><br><br><br><br><br><br><br><br><br><br><br><br></td>
+                        <td align= center><br><br><br><br><br>There are  <%= link_to @honors.length, root_path %> active Honor's contracts<br><br><br><br><br><br><br><br><br><br><br><br><br></td>                          
                         <td align= center><br><br><br><br><br>There are  <%= link_to "X", root_path %> Deactivated/Deleted Contract Honor's contracts.<br><br><br><br><br><br><br><br><br><br><br><br><br></td>
 
                      </tr>

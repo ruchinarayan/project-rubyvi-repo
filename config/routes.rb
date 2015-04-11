@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'honors/index'
+
   get 'pendings/index'
 
   get '/courses' , to: 'courses#index', as: 'courses'
   get '/adminHome' , to: 'users#adminHome', as: 'adminHome'
 
-  get '/pendings/List', to: 'pendings#index', as: 'pendings_list'
+  get '/pendings', to: 'pendings#index', as: 'pendings_list'
+  get '/pendings/:id', to: 'pendings#show', as: 'pendings'
+  delete '/pendings/:id', to: 'pendings#destroy'
+
   get '/pendings' , to: 'pendings#search', as: 'pending_search_list'
   post '/pendings', to: 'pendings#search'
+ 
 
   root 'users#new'
 
