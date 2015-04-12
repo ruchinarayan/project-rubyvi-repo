@@ -1,9 +1,25 @@
 Rails.application.routes.draw do
 
+  get 'honors/index'
+
+  get 'pendings/index'
+
   get 'honors/new'
 
   get '/courses' , to: 'courses#index', as: 'courses'
   get '/adminHome' , to: 'users#adminHome', as: 'adminHome'
+  
+  get '/messagehonor', to: 'honors#message', as: 'message_honors'
+  get '/messagecourse', to: 'courses#message', as: 'message_courses'
+  get '/messagestudent', to: 'student#message', as: 'message_student'
+
+  get '/pendings', to: 'pendings#index', as: 'pendings_list'
+  get '/pendings/:id', to: 'pendings#show', as: 'pendings'
+  delete '/pendings/:id', to: 'pendings#destroy'
+
+  get '/pendings' , to: 'pendings#search', as: 'pending_search_list'
+  post '/pendings', to: 'pendings#search'
+ 
 
   root 'users#new'
 
@@ -15,12 +31,17 @@ Rails.application.routes.draw do
 
   resources :users
 
-
+  resources :honors
+  resources :student
+  resources :courses
 #newHonor create
-  get '/honors/new',  to: 'honors#new', as: 'new_honor'
-  post '/honors', to: 'honors#create'
+  #get '/honors/new',  to: 'honors#new', as: 'new_honor'
+ # post '/honors', to: 'honors#create'
 #show
-  get '/honors/:id', to: 'honors#show' , as: 'honor'
+#  get '/honors/:id', to: 'honors#show' , as: 'honor'
+
+
+  get 'displayStudent' => 'student#displayStudent'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

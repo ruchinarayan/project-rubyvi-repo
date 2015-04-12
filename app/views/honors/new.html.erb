@@ -1,4 +1,4 @@
-
+<% provide(:title, 'Add new course') %>
  
 <link href="1.css" rel="stylesheet" type="text/css" /> 
 <link type="text/css" rel="stylesheet" href="2.css" /> 
@@ -62,8 +62,9 @@
       <li class="form-line" data-type="control_textbox" id="id_4">
         <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Course Id </label>
         <div id="cid_4" class="form-input jf-required">
-          <%= f.text_field :course_id, size: 25  %>
+          <!-- <%= f.text_field :course_id, size: 25  %> -->
            
+          <%= f.collection_select :course_id, Course.all, :course_id, :course_id, :include_blank => "Select a Course" %>&nbsp;&nbsp; <%= link_to "    Add New Course", new_course_path %>
         </div>
       </li>
       <li class="form-line" data-type="control_textbox" id="id_3">

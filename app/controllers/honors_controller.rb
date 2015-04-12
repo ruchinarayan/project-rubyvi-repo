@@ -1,16 +1,22 @@
 class HonorsController < ApplicationController
-   def new
+
+  def index
+  	@honors= Honor.all
+    @courses=Course.all
+  end
+  
+  def new
   	@honor = Honor.new 
   end
 
   def create
  
   @honor = Honor.new(params.require(:honor).permit(:contract_id,:uid,:course_id, :prof_email, :semester, :year, :grade, :dates))
- @honor.dates = DateTime.now 
+  @honor.dates = DateTime.now 
   	if  @honor.save
   		redirect_to honor_url(@honor)
   	else
-  		redirect_to honor_url(1)
+  		redirect_to message_honors_path
   	end 
  end 
  def show
