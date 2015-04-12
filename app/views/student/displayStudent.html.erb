@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <head>
 <%= stylesheet_link_tag "student.scss" %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
 <body>
 
@@ -12,12 +13,22 @@
 </tr>
 <tr>
 <td>
-<select>
+<select id="honours" onchange="showGradList();">
 <option value="1">1. University Honors with Thesis</option>
 <option value="2">2. University Honors</option>
 </select>
 </td>
 </tr>
+<tr>
+	<td>
+		<div><input type="checkbox" id="c1">UNCP</div>
+		<div><input type="checkbox" id="c2">Honors Experience-Junior Year</div>
+		<div id="d1" hidden="true"><input type="checkbox" id="s1c3">Honors Experience-Senior Year</div>
+		<div id="d2"><input type="checkbox" id="s2c3">Honors Thesis-Senior Year</div>
+		<div><input type="checkbox" id="c4">GPA: 3.25</div>
+	</td>
+</tr>
+
 </table>
 </div>
 

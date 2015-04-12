@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 #show
   get '/honors/:id', to: 'honors#show' , as: 'honor'
 
+  get 'displayStudent' => 'student#displayStudent'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
