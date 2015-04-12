@@ -29,3 +29,5 @@ Pending.create(contract_id: 1248, uid: "U0005355", firstName: "Krishna", lastNam
 
 
 Honor.create(contract_id: 00001,  uid: "U00564017",  course_id: "comp7012",  prof_email: "sflem@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08")
+
+Professor.create(profName: 'Scott Fleming', prof_email: 'sflem@memphis.edu' )
