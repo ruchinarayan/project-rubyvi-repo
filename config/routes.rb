@@ -27,12 +27,14 @@ Rails.application.routes.draw do
 
   resources :users
 
-
+  resources :honors
+  resources :student
 #newHonor create
-  get '/honors/new',  to: 'honors#new', as: 'new_honor'
-  post '/honors', to: 'honors#create'
+  #get '/honors/new',  to: 'honors#new', as: 'new_honor'
+ # post '/honors', to: 'honors#create'
 #show
-  get '/honors/:id', to: 'honors#show' , as: 'honor'
+#  get '/honors/:id', to: 'honors#show' , as: 'honor'
+
 
   get 'displayStudent' => 'student#displayStudent'
 
