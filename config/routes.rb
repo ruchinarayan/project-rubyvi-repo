@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   get '/courses' , to: 'courses#index', as: 'courses'
   get '/adminHome' , to: 'users#adminHome', as: 'adminHome'
+  
+  get '/messagehonor', to: 'honors#message', as: 'message_honors'
+  get '/messagecourse', to: 'courses#message', as: 'message_courses'
+  get '/messagestudent', to: 'student#message', as: 'message_student'
 
   get '/pendings', to: 'pendings#index', as: 'pendings_list'
   get '/pendings/:id', to: 'pendings#show', as: 'pendings'
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
 
   resources :honors
   resources :student
+  resources :courses
 #newHonor create
   #get '/honors/new',  to: 'honors#new', as: 'new_honor'
  # post '/honors', to: 'honors#create'

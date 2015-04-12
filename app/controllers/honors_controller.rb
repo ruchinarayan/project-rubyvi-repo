@@ -1,7 +1,8 @@
 class HonorsController < ApplicationController
-<<<<<<< HEAD
+
   def index
   	@honors= Honor.all
+    @courses=Course.all
   end
   
   def new
@@ -15,7 +16,7 @@ class HonorsController < ApplicationController
   	if  @honor.save
   		redirect_to honor_url(@honor)
   	else
-  		redirect_to honor_url(1)
+  		redirect_to message_honors_path
   	end 
  end 
  def show
