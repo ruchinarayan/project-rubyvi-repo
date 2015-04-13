@@ -1,5 +1,5 @@
 class StudentController < ApplicationController
-<<<<<<< HEAD
+
   def studentList
   	@students = Student.all
 

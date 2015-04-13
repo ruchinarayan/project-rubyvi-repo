@@ -9,6 +9,7 @@
 #  updated_at :datetime         not null
 #
 
+
 class Professor < ActiveRecord::Base
 end
 
