@@ -1,0 +1,128 @@
+<% provide(:title, "Display-Student") %>
+<!DOCTYPE html>
+<head>
+<%= stylesheet_link_tag "student.scss" %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</head>
+<body>
+<table>
+	<tr>
+		<%= form_tag index_search_list_path, method:  'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %> 
+        <% end %>
+	</tr>
+</table>
+<div class="graduation">
+<table align="center">
+<tr>
+<td><h2>Graduation Checklist</h2></td>
+</tr>
+<tr>
+<td>
+<select id="honours" onchange="showGradList();">
+<option value="1">1. University Honors with Thesis</option>
+<option value="2">2. University Honors</option>
+</select>
+</td>
+</tr>
+<tr>
+	<td>
+		<div><input type="checkbox" id="c1">UNCP</div>
+		<div><input type="checkbox" id="c2">Honors Experience-Junior Year</div>
+		<div id="d1" hidden="true"><input type="checkbox" id="s1c3">Honors Experience-Senior Year</div>
+		<div id="d2"><input type="checkbox" id="s2c3">Honors Thesis-Senior Year</div>
+		<div><input type="checkbox" id="c4">GPA: 3.25</div>
+	</td>
+</tr>
+
+</table>
+</div>
+
+<div class="graduation2">
+<table align="center">
+<tr>
+<td align="center"><h2>Notes</h2></td>
+</tr>
+<tr>
+<td>
+<textarea>
+</textarea>
+</td>
+</tr>
+</table>
+</div>
+
+<div class="graduation1">
+<table border="0">
+<tr>
+<td><h2>First Name</h2></td>
+<td width="10%"></td>
+<td><h2>Last Name</h2></td>
+<td width="10%"></td>
+<td><h2>UID</h2></td>
+<td width="10%"></td>
+<td><h2>Start Date</h2></td>
+<td width="10%"></td>
+<td><h2>End Date</h2></td>
+</tr>
+
+<tr>
+	<% if @student != nil then %>
+	<td><h3><%= @student.firstName %></h3></td>
+	<td width="10%"></td>
+	<td><h3><%= @student.lastName %></h3></td>
+	<td width="10%"></td>
+	<td><h3><%= @student.uid %></h3></td>
+	<td width="10%"></td>
+	<td><h3><%= @student.present_date %></h3></td>
+	<td width="10%"></td>
+    <td><h3><%= @student.present_date %></h3></td>
+    <% end %>
+</tr>
+
+
+</div>
+
+<img src="C:\\workspace\\AddCourse.png"/>
+
+<div>
+<table border = "0">
+<tr>
+	<th>Course</th>
+	<th width="20%"></th>
+	<th>Semester</th>
+	<th width="20%"></th>
+	<th>Grade</th>
+	<th width="20%"></th>
+	<th>Professor</th>
+	<th></th>
+</tr>
+<% @pendings.each do |f|%>
+<tr>
+	
+	<td><%= f.course_id %></td>
+	<td></td>
+	<td><%= f.semester %></td>
+	<td></td>
+	<td>N/A</td>
+	<td></td>
+	<td><%= f.profName %></td>
+	 <td>[<%= link_to "Show"%>],
+         [<%= link_to "Edit"%>],
+         [<%= link_to "Delete"%>]</td>
+</tr>
+<% end %>
+
+
+</table>
+
+<table>
+<tr>
+	<td><button type="button">Add New Course</button></td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>

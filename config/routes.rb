@@ -1,20 +1,56 @@
 Rails.application.routes.draw do
 
   get 'student/studentList'
+  get 'honors/index'
+
+  get 'pendings/index'
+
+  get 'honors/new'
+
+  get '/courses' , to: 'courses#index', as: 'courses'
+  get '/adminHome' , to: 'users#adminHome', as: 'adminHome'
+  
+  get '/messagehonor', to: 'honors#message', as: 'message_honors'
+  get '/messagecourse', to: 'courses#message', as: 'message_courses'
+  get '/messagestudent', to: 'student#message', as: 'message_student'
+
+  get '/pendings', to: 'pendings#index', as: 'pendings_list'
+  get '/pendings/:id', to: 'pendings#show', as: 'pendings'
+  delete '/pendings/:id', to: 'pendings#destroy'
+
+  get '/pendings' , to: 'pendings#index', as: 'pending_search_list'
+  post '/pendings', to: 'pendings#index'
+ 
+  get '/search' , to: 'users#show', as: 'main_search_list'
+  post '/search', to: 'users#show'
 
   root 'users#new'
 
   get 'signup' => 'users#new'
 
-  get    'studentList' => 'student#studentList'
-  get    '/student/failStu' => 'student#failStu'
-  get    '/student/studentIfo' => 'student#studentIfo'
-  get    '/student/IfoRevise' => 'student#IfoRevise'
+  get    'studentList', to: 'student#studentList',  as: 'student_List'
+  get    '/student/failStu', to: 'student#failStu'
+  get    '/student/studentIfo', to: 'student#studentIfo'
+  get    '/student/IfoRevise', to: 'student#IfoRevise'
   get    'login'  => 'sessions#new'
   post   'login'  => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
   resources :users
+
+  resources :honors
+  resources :student
+  resources :courses
+#newHonor create
+  #get '/honors/new',  to: 'honors#new', as: 'new_honor'
+ # post '/honors', to: 'honors#create'
+#show
+#  get '/honors/:id', to: 'honors#show' , as: 'honor'
+
+
+  get 'displayStudent' => 'students#index'
+  get '/displayStudent' , to: 'students#index', as: 'index_search_list'
+  post '/displayStudent', to: 'students#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -71,3 +107,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+

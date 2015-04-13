@@ -5,6 +5,18 @@
 </head>
 <body>
 
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</head>
+<body>
+<table>
+	<tr>
+		<%= form_tag displayStudent_search_list_path, method:  'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %> 
+        <% end %>
+	</tr>
+</table>
+>>>>>>> 29b010e486dc8916fcac1d07add68f05d6d3db30
 <div class="graduation">
 <table align="center">
 <tr>
@@ -13,11 +25,22 @@
 <tr>
 <td>
 <select>
+<select id="honours" onchange="showGradList();">
 <option value="1">1. University Honors with Thesis</option>
 <option value="2">2. University Honors</option>
 </select>
 </td>
 </tr>
+<tr>
+	<td>
+		<div><input type="checkbox" id="c1">UNCP</div>
+		<div><input type="checkbox" id="c2">Honors Experience-Junior Year</div>
+		<div id="d1" hidden="true"><input type="checkbox" id="s1c3">Honors Experience-Senior Year</div>
+		<div id="d2"><input type="checkbox" id="s2c3">Honors Thesis-Senior Year</div>
+		<div><input type="checkbox" id="c4">GPA: 3.25</div>
+	</td>
+</tr>
+
 </table>
 </div>
 
@@ -59,6 +82,14 @@
 	<td><input type="text" disabled="true" name="startDate"></td>
 	<td width="10%"></td>
 	<td><input type="text" disabled="true" name="endDate"></td>
+</tr>
+
+<tr>
+	<% @pendings.each do |f|%>
+	<td><%= f.firstName %></td>
+	<td><%= f.lastName %></td>
+	<td><%= f.uid %></td>
+	<% end %>
 </tr>
 </table>
 

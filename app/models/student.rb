@@ -7,7 +7,7 @@
 #  firstName   :string
 #  lastName    :string
 #  email       :string
-#  phoneNumber :integer
+#  phoneNumber :string
 #  status      :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -16,4 +16,13 @@
 
 
 class Student < ActiveRecord::Base
+	def self.to_csv(options = {})
+	 CSV.generate(options) do |csv|
+    csv << column_names
+    all.each do |student|
+      csv << student.attributes.values_at(*column_names)
+    end
+  end
 end
+end
+

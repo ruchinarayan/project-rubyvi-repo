@@ -5,3 +5,81 @@
   <%= link_to "Log out", logout_path, method: "delete" %>
 </p>
   
+<!DOCTYPE html>
+<html>
+<head>
+<title>Honors Program User</title>
+<%=stylesheet_link_tag 'application' %> 
+<% provide(:title, 'Index') %>
+</head>
+<body>
+<table class="bigtable" align="center" border="0" cellpadding="0" cellspacing="0" >
+         <tbody><tr>
+            <td valign="top" colspan="3" class="topstripes" align="left"><image_tag("/images/spacer.gif",size:"1")></td>
+         </tr>
+         <tr>
+            <td valign="top" colspan="3">
+               <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100" summary="University of Memphis brand logo" div id="tableContainer-2">
+                  <tbody>
+                     <tr>
+                     <td class="logo">
+                        <a href="http://www.memphis.edu/"><img src="/images/brandnew.jpg" alt="University of Memphis logo" border="0" width="174" height="89"></a>
+                     </td>
+                     <td class="motto">
+                        <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
+                     </td>
+                     <td class="search">
+                     <p><b>Logged in as: </b><i><%= @user.email %>  </i><b>Role: </b> Give Role here</p>
+                     <p><%= link_to "Log out", logout_path, method: "delete" %></p>
+                     </td>
+
+                     </tr>
+                    </tbody>
+               </table>
+            </td>
+         </tr>
+         <tr>
+            <td > <p>Search for pending contracts with UID or Contract id:                
+               <%= form_tag pending_search_list_path, method:  'get' do %>
+               <%= text_field_tag :search, params[:search] %>
+               <%= submit_tag "Search", :name => nil %> 
+               <!%= link_to_function "Clear", "$('search_field').clear()" %>
+               <% end %> </p>
+            </td>
+
+         </tr>
+
+         <tr>
+            <td >
+               <table border="2" cellpadding="1" cellspacing="1" width="100%" summary="Honors Contract Dashboard"align="center" >
+                  <tbody>
+                     <tr>
+                        <th bgcolor="cyan"> Pending Requests</th>
+                        <th bgcolor="lightblue"> Active Contracts</th>
+                        <th bgcolor="gray"> Deactivated/Deleted Contracts</th>
+                     </tr>
+                     <tr>
+                        <td align= center>There are  <%= link_to (Pending.all).length, pendings_list_path %> pending Honor's contract requests </td>
+                        <td align= center>There are  <%= link_to (Honor.all).length, root_path %> active Honor's contracts</td>
+                        <td align= center>There are  <%= link_to "X", root_path %> Deactivated/Deleted Honor's contracts.</td>
+
+                     </tr>
+
+                    </tbody>
+               </table>
+            </td>
+         </tr>
+
+
+
+
+
+         <!https://we.riseup.net/rails/simple-search-tutorial>
+
+</table>
+
+<center>
+   <%= link_to "Home", root_path %>
+</center>
+</body>
+</html>

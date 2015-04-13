@@ -14,3 +14,22 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+function showGradList()
+{
+	//val = document.forms[0].honours;
+	val = document.getElementById('honours');
+	//alert(val.value);
+	if(val.value=="1")
+{
+document.getElementById("d1").hidden=true;
+document.getElementById("d2").hidden=false;
+}
+else
+{
+document.getElementById("d2").hidden=true;
+document.getElementById("d1").hidden=false;
+}
+}
+
