@@ -103,6 +103,7 @@
 	<th>Professor</th>
 	<th></th>
 </tr>
+<% if @student != nil then %>
 <% @pendings.each do |f|%>
 <tr>
 	
@@ -119,7 +120,7 @@
 </tr>
 <% end %>
 
-
+<% end %>
 </table>
 
 <table>
