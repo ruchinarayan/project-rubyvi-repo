@@ -1,7 +1,14 @@
 class PendingsController < ApplicationController
-  def index
-  	@pendings= Pending.all
-  end
+  	#@pendings= Pending.all
+  	def index
+  		if params[:search] #if value exists
+  		@pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Penging model class
+    else
+    	@pendings= Pending.all
+    end
+
+    end
+
 
   def show
   end

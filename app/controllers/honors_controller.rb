@@ -1,5 +1,4 @@
 class HonorsController < ApplicationController
-<<<<<<< HEAD
   def index
   	@honors= Honor.all
   end
