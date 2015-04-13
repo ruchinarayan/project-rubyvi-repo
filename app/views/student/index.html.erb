@@ -7,7 +7,7 @@
 <body>
 <table>
 	<tr>
-		<%= form_tag displayStudent_search_list_path, method:  'get' do %>
+		<%= form_tag index_search_list_path, method:  'get' do %>
         <%= text_field_tag :search, params[:search] %>
         <%= submit_tag "Search", :name => nil %> 
         <% end %>
@@ -68,24 +68,19 @@
 </tr>
 
 <tr>
-	<td><input type="text" disabled="true" name="firstName"></td>
+	<% if @student != nil then %>
+	<td><h3><%= @student.firstName %></h3></td>
 	<td width="10%"></td>
-	<td><input type="text" disabled="true" name="lastName"></td>
+	<td><h3><%= @student.lastName %></h3></td>
 	<td width="10%"></td>
-	<td><input type="text" disabled="true" name="uid"></td>
+	<td><h3><%= @student.uid %></h3></td>
 	<td width="10%"></td>
-	<td><input type="text" disabled="true" name="startDate"></td>
+	<td><h3><%= @student.present_date %></h3></td>
 	<td width="10%"></td>
-	<td><input type="text" disabled="true" name="endDate"></td>
+    <td><h3><%= @student.present_date %></h3></td>
+    <% end %>
 </tr>
-<tr>
-	<% @pendings.each do |f|%>
-	<td><%= f.firstName %></td>
-	<td><%= f.lastName %></td>
-	<td><%= f.uid %></td>
-	<% end %>
-</tr>
-</table>
+
 
 </div>
 
@@ -103,55 +98,23 @@
 	<th>Professor</th>
 	<th></th>
 </tr>
-
+<% @pendings.each do |f|%>
 <tr>
-	<td>UNHP</td>
+	
+	<td><%= f.course_id %></td>
 	<td></td>
-	<td>F12</td>
+	<td><%= f.semester %></td>
 	<td></td>
-	<td>A+</td>
+	<td>N/A</td>
 	<td></td>
-	<td>ABC</td>
+	<td><%= f.profName %></td>
 	 <td>[<%= link_to "Show"%>],
          [<%= link_to "Edit"%>],
          [<%= link_to "Delete"%>]</td>
 </tr>
-<tr>
-	<td>Biology 1010</td>
-	<td></td>
-	<td>Sp12</td>
-	<td></td>
-	<td>B</td>
-	<td></td>
-	<td>ABC</td>
-	<td>[<%= link_to "Show"%>],
-         [<%= link_to "Edit"%>],
-         [<%= link_to "Delete"%>]</td>
-</tr>
-<tr>
-	<td>Algebra</td>
-	<td></td>
-	<td>Sp12</td>
-	<td></td>
-	<td>A</td>
-	<td></td>
-	<td>ABC</td>
-	<td>[<%= link_to "Show"%>],
-         [<%= link_to "Edit"%>],
-         [<%= link_to "Delete"%>]</td>
-</tr>
-<tr>
-	<td>Comp Sci</td>
-	<td></td>
-	<td>F13</td>
-	<td></td>
-	<td>B+</td>
-	<td></td>
-	<td>ABC</td>
-	<td>[<%= link_to "Show"%>],
-         [<%= link_to "Edit"%>],
-         [<%= link_to "Delete"%>]</td>
-</tr>
+<% end %>
+
+
 </table>
 
 <table>
