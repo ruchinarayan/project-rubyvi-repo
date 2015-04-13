@@ -22,4 +22,17 @@ class HonorsController < ApplicationController
  def show
   	@honor = Honor.find(params[:id])
   end
+
+   def edit
+     @honor = Honor.find(params[:id])
+  end
+
+  def update
+     @honor = Honor.find(params[:id])
+     if @honor.update(params.require(:honor).permit(:course_id, :semester, :grade, :prof_email))
+          redirect_to index_search_list_url(@honor)
+    else
+         redirect_to index_search_list_url
+     end
+  end
 end

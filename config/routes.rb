@@ -47,6 +47,10 @@ Rails.application.routes.draw do
   get '/displayStudent' , to: 'students#index', as: 'index_search_list'
   post '/displayStudent', to: 'students#index'
 
+get '/displayStudent/:id/edit', to: 'honors#edit', as: "course_edit"
+patch '/displayStudent/:id', to: 'honors#update'
+put '/displayStudent/:id', to: 'honors#update'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
