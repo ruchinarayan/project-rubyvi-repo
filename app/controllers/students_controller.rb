@@ -1,4 +1,8 @@
 class StudentsController < ApplicationController
+
+before_action :logged_in_user, only: [:show]
+before_action :correct_user,   only: [:show]
+
 def new
   	@student =Student.new
 
@@ -20,23 +24,29 @@ if @student.update(params.require(:student).permit(:UID, :firstName, :lastName, 
 end
 
 def index
-  		if params[:search] #if value exists
-  		#@pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Pending model class
-  		#@pendings = Pending.find_by uid: 'U0005355'
-      #@pendings = Pending.where(uid: (params[:search]) ).find_each
-
+  @user = User.new(user_params)
+  		if params[:search] 
+  	
      @pendings = Honor.where(uid: params[:search])
      @student = Student.where(UID: params[:search] ).take
-
-     # @pendings = Pending.where("uid = ?",params[:search])
-      #@student = Pending.where("uid = ?",params[:search]).take
-
-     #@pendings = Pending.where(uid: 'U0005355')
-     #@student = Pending.where(uid: 'U0005355').take
     else
     	@pendings= Honor.all
     end
 
     end
+
+  # Confirms a logged-in user.
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
+  # Confirms the correct user.
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
 	
 end
