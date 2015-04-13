@@ -33,7 +33,7 @@
          </tr>
          <tr>
             <td > <p>Search for pending contracts with UID or Contract id:                
-               <%= form_tag pending_search_list_path, method:  'get' do %>
+               <%= form_tag main_search_list_path, method:  'get' do %>
                <%= text_field_tag :search, params[:search] %>
                <%= submit_tag "Search", :name => nil %> 
                <!%= link_to_function "Clear", "$('search_field').clear()" %>
@@ -47,7 +47,7 @@
                <table border="2" cellpadding="1" cellspacing="1" width="100%" summary="Honors Contract Dashboard"align="center" >
                   <tbody>
                      <tr>
-                        <th bgcolor="cyan"> Pending Requests</th>
+                        <th bgcolor="lightgreen"> Pending Requests</th>
                         <th bgcolor="lightblue"> Active Contracts</th>
                         <th bgcolor="gray"> Deactivated/Deleted Contracts</th>
                      </tr>
