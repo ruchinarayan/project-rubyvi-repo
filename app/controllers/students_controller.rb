@@ -24,7 +24,7 @@ if @student.update(params.require(:student).permit(:UID, :firstName, :lastName, 
 end
 
 def index
-  @user = User.new(user_params)
+ 
   		if params[:search] 
   	
      @pendings = Honor.where(uid: params[:search])
@@ -50,4 +50,3 @@ def index
   end
 	
 end
->>>>>>> Commit10
