@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 #  get '/honors/:id', to: 'honors#show' , as: 'honor'
 
 
-  get 'displayStudent' => 'students#index'
+  #get 'displayStudent' => 'students#index'
   get '/displayStudent' , to: 'students#index', as: 'index_search_list'
   post '/displayStudent', to: 'students#index'
 

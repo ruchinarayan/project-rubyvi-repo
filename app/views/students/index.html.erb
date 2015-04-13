@@ -3,28 +3,54 @@
 <head>
 <%= stylesheet_link_tag "students.scss" %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 </head>
 <body>
-<table>
+
+<table class="bigtable" align="center" border="0" cellpadding="0" cellspacing="0" summary="www -  - ">
+         <tbody><tr>
+            <td valign="top" colspan="3" class="topstripes" align="left"><image_tag("/images/spacer.gif",size:"1")></td>
+         </tr>
+         <tr>
+            <td valign="top" colspan="3">
+               <table border="0" cellpadding="0" cellspacing="0" width="100%" summary="University of Memphis brand logo">
+                  <tbody><tr>
+                     <td class="logo">
+                        <a href="http://www.memphis.edu/"><img src="/images/brandnew.jpg" alt="University of Memphis logo" border="0" width="174" height="89"></a>
+                     </td>
+                     <td class="motto">
+                        <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
+                     </td>
+                     <td class="search">
+                      
+                     </td>
+                  </tr>
+               </tbody></table>
+            </td>
+         </tr>
+</table>
+
+<table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
 	<tr>
-      <td>Enter UID of Student : </td>
+      <td>Enter UID of Student to search student details with registered courses: </td>
 	</tr>
 </table>
-<table>
-	<tr>
+<table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
+	<tr><td>
 		<%= form_tag index_search_list_path, method:  'get' do %>
         <%= text_field_tag :search, params[:search] %>
         <%= submit_tag "Search", :name => nil %> 
         <% end %>
+    </td>
 	</tr>
 </table>
-<div class="graduation">
-<table align="center">
+<div>
+<table border="2" cellpadding="1" cellspacing="1" width="15%" align="right" >
 <tr>
-<td><h2>Graduation Checklist</h2></td>
+<th bgcolor="gray">Graduation Checklist</th>
 </tr>
 <tr>
-<td>
+<td align="center">
 <select id="honours" onchange="showGradList();">
 <option value="1">1. University Honors with Thesis</option>
 <option value="2">2. University Honors</option>
@@ -40,17 +66,11 @@
 		<div><input type="checkbox" id="c4">GPA: 3.25</div>
 	</td>
 </tr>
-
-</table>
-</div>
-
-<div class="graduation2">
-<table align="center">
 <tr>
-<td align="center"><h2>Notes</h2></td>
+<th align="center" bgcolor="gray">Notes</th>
 </tr>
 <tr>
-<td>
+<td align="center">
 <textarea>
 </textarea>
 </td>
@@ -58,65 +78,47 @@
 </table>
 </div>
 
-<div class="graduation1">
-<table border="0">
+<div>
+<table border="2" cellpadding="1" cellspacing="1" width="50%" align="center" >
+
 <tr>
-<td><h2>First Name</h2></td>
-<td width="10%"></td>
-<td><h2>Last Name</h2></td>
-<td width="10%"></td>
-<td><h2>UID</h2></td>
-<td width="10%"></td>
-<td><h2>Start Date</h2></td>
-<td width="10%"></td>
-<td><h2>End Date</h2></td>
+<th bgcolor="gray">First Name</th>
+<th bgcolor="gray">Last Name</th>
+<th bgcolor="gray">UID</th>
+<th bgcolor="gray">Start Date</th>
+<th bgcolor="gray">End Date</th>
 </tr>
 
 <tr>
 	<% if @student != nil then %>
-	<td><h3><%= @student.firstName %></h3></td>
-	<td width="10%"></td>
-	<td><h3><%= @student.lastName %></h3></td>
-	<td width="10%"></td>
-	<td><h3><%= @student.UID %></h3></td>
-	<td width="10%"></td>
-	<!--<td><h3><%= @student.UID %></h3></td>-->
-	<td><h3>04/13/2014</h3></td>
-	<td width="10%"></td>
-    <!--<td><h3><%= @student.UID %></h3></td>-->
-    <td><h3>09/13/2014</h3></td>
+	<td align="center"><%= @student.firstName %></td>
+	<td align="center"><%= @student.lastName %></td>
+	<td align="center"><%= @student.UID %></td>
+	<td align="center">NA</td>
+    <td align="center">NA</td>
     <% end %>
 </tr>
-
+</table>
 
 </div>
 
-<img src="C:\\workspace\\AddCourse.png"/>
-
 <div>
-<table border = "0">
+<table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
 <tr>
 	<th>Course</th>
-	<th width="20%"></th>
 	<th>Semester</th>
-	<th width="20%"></th>
 	<th>Grade</th>
-	<th width="20%"></th>
 	<th>Professor</th>
-	<th></th>
 </tr>
 <% if @student != nil then %>
 <% @pendings.each do |f|%>
 <tr>
 	
-	<td><%= f.course_id %></td>
-	<td></td>
-	<td><%= f.semester %></td>
-	<td></td>
-	<td><%= f.grade %></td>
-	<td></td>
-	<td><%= f.prof_email %></td>
-	 <td>[<%= link_to "Show"%>],
+	<td align="center"><%= f.course_id %></td>
+	<td align="center"><%= f.semester %></td>
+	<td align="center"><%= f.grade %></td>
+	<td align="center"><%= f.prof_email %></td>
+	<td>[<%= link_to "Show"%>],
          [<%= link_to "Edit"%>],
          [<%= link_to "Delete"%>]</td>
 </tr>
@@ -125,7 +127,7 @@
 <% end %>
 </table>
 
-<table>
+<table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
 <tr>
 	<td><!-- <button type="button">Add New Course</button> -->
 
@@ -133,6 +135,11 @@
 
 	</td>
 </tr>
+</table>
+<table align="center">
+<tr><td>
+<%= link_to "Home", root_path %>
+</td></tr>
 </table>
 </div>
 
