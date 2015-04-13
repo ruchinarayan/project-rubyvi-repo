@@ -47,4 +47,10 @@ class UsersController < ApplicationController
     redirect_to(root_url) unless current_user?(@user)
   end
 
+  def search
+    q = params[:search]
+    @pendingConts = Pending.search(contract_id: q).result 
+    @honorConts = Honor.search(contract_id: q).result
+    redirect_to show_url
+  end
 end

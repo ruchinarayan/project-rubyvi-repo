@@ -35,10 +35,15 @@ class Pending < ActiveRecord::Base
 	validates :present_date, presence: true,   length: {maximum: 100 }
 	 
 	
-	def self.search(search)
-	  search_condition = "%" + search + "%"
-	  find(:all, :conditions => ['contract_id LIKE ? OR uid LIKE ?', search_condition, search_condition])
-	end 
-	
+	def self.Keyword_search(keyword)
+    keyword = "%"+keyword+"%"
+        @pendings= Pending.where('contract_id LIKE ? or uid LIKE ? or firstName LIKE ? or lastName LIKE ? or email LIKE ? or phoneNumber LIKE ? or semester LIKE ? or profName LIKE ? or profEmail LIKE ? or course_id LIKE ? or year LIKE ? or present_date LIKE ?',keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword)
+    end
+
+	#if search
+    #    find(:all, :conditions => ['id LIKE ?', "%#{search}%","%#{search}%"])
+    #else
+     #   find(:all)
+   # end
 end
 

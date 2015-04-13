@@ -28,4 +28,9 @@ class Honor < ActiveRecord::Base
    validates :year, presence: true
    validates :grade, presence: true
   validates :dates, presence: true
+
+  def self.search(search)
+    search_condition = "%" + search + "%"
+    find(:all, :conditions => ['contract_id LIKE ? OR uid LIKE ?', search_condition, search_condition])
+  end 
 end

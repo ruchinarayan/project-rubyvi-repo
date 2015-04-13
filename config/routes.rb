@@ -17,9 +17,11 @@ Rails.application.routes.draw do
   get '/pendings/:id', to: 'pendings#show', as: 'pendings'
   delete '/pendings/:id', to: 'pendings#destroy'
 
-  get '/pendings' , to: 'pendings#search', as: 'pending_search_list'
-  post '/pendings', to: 'pendings#search'
+  get '/pendings' , to: 'pendings#index', as: 'pending_search_list'
+  post '/pendings', to: 'pendings#index'
  
+  get '/search' , to: 'users#show', as: 'main_search_list'
+  post '/search', to: 'users#show'
 
   root 'users#new'
 
@@ -41,7 +43,9 @@ Rails.application.routes.draw do
 #  get '/honors/:id', to: 'honors#show' , as: 'honor'
 
 
-  get 'displayStudent' => 'student#displayStudent'
+  get 'displayStudent' => 'students#index'
+  get '/displayStudent' , to: 'students#index', as: 'index_search_list'
+  post '/displayStudent', to: 'students#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
