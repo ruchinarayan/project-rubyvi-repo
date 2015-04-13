@@ -29,3 +29,13 @@ Pending.create(contract_id: 1248, uid: "U0005355", firstName: "Krishna", lastNam
 
 
 Honor.create(contract_id: 00001,  uid: "U00564017",  course_id: "comp7012",  prof_email: "sflem@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08")
+
+ 
+Professor.create(profName: 'Scott Fleming', profEmail: 'sflem@memphis.edu' )
+ 
+
+   
+
+Student.create( UID: "584001", firstName: "krishna", lastName: "chikkala", email: "vkchkkla@memphis.edu", phoneNumber: "9016049107",status: "passed" )
+Student.create( UID: "999584001", firstName: "krishna1", lastName: "chikkala1", email: "xvechik@memphis.edu", phoneNumber: "9016044449107",status: "failed" )
+ 

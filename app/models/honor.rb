@@ -18,7 +18,7 @@
 
 class Honor < ActiveRecord::Base
 	before_save { self.prof_email = prof_email.downcase }
- # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+ # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-zR\d\-.]+\.[a-z]+\z/i
   validates :prof_email,
             presence: true,
             length: { maximum: 255 }
