@@ -1,10 +1,15 @@
 <% provide(:title, "Display-Student") %>
 <!DOCTYPE html>
 <head>
-<%= stylesheet_link_tag "student.scss" %>
+<%= stylesheet_link_tag "students.scss" %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
 <body>
+<table>
+	<tr>
+      <td>Enter UID of Student : </td>
+	</tr>
+</table>
 <table>
 	<tr>
 		<%= form_tag index_search_list_path, method:  'get' do %>
