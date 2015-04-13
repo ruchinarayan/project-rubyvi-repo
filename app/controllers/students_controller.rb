@@ -25,8 +25,8 @@ def index
   		#@pendings = Pending.find_by uid: 'U0005355'
       #@pendings = Pending.where(uid: (params[:search]) ).find_each
 
-     @pendings = Pending.where(uid: params[:search])
-     @student = Pending.where(uid: params[:search] ).take
+     @pendings = Honor.where(uid: params[:search])
+     @student = Student.where(UID: params[:search] ).take
 
      # @pendings = Pending.where("uid = ?",params[:search])
       #@student = Pending.where("uid = ?",params[:search]).take
@@ -34,7 +34,7 @@ def index
      #@pendings = Pending.where(uid: 'U0005355')
      #@student = Pending.where(uid: 'U0005355').take
     else
-    	@pendings= Pending.all
+    	@pendings= Honor.all
     end
 
     end

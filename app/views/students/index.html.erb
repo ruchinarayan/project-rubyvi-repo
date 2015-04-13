@@ -78,11 +78,13 @@
 	<td width="10%"></td>
 	<td><h3><%= @student.lastName %></h3></td>
 	<td width="10%"></td>
-	<td><h3><%= @student.uid %></h3></td>
+	<td><h3><%= @student.UID %></h3></td>
 	<td width="10%"></td>
-	<td><h3><%= @student.present_date %></h3></td>
+	<!--<td><h3><%= @student.UID %></h3></td>-->
+	<td><h3>04/13/2014</h3></td>
 	<td width="10%"></td>
-    <td><h3><%= @student.present_date %></h3></td>
+    <!--<td><h3><%= @student.UID %></h3></td>-->
+    <td><h3>09/13/2014</h3></td>
     <% end %>
 </tr>
 
@@ -111,9 +113,9 @@
 	<td></td>
 	<td><%= f.semester %></td>
 	<td></td>
-	<td>N/A</td>
+	<td><%= f.grade %></td>
 	<td></td>
-	<td><%= f.profName %></td>
+	<td><%= f.prof_email %></td>
 	 <td>[<%= link_to "Show"%>],
          [<%= link_to "Edit"%>],
          [<%= link_to "Delete"%>]</td>
