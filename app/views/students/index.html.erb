@@ -124,7 +124,11 @@
 
 <table>
 <tr>
-	<td><button type="button">Add New Course</button></td>
+	<td><!-- <button type="button">Add New Course</button> -->
+
+<%= button_to "Add New Course", new_honor_path, :class => "button", :method => :get  %>
+
+	</td>
 </tr>
 </table>
 </div>

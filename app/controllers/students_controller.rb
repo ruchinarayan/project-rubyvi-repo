@@ -27,8 +27,7 @@ def index
 
      @pendings = Pending.where(uid: params[:search])
      @student = Pending.where(uid: params[:search] ).take
-
-     # @pendings = Pending.where("uid = ?",params[:search])
+          # @pendings = Pending.where("uid = ?",params[:search])
       #@student = Pending.where("uid = ?",params[:search]).take
 
      #@pendings = Pending.where(uid: 'U0005355')

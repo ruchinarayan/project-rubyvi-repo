@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :honors
-  resources :student
+  resources :students
   resources :courses
 #newHonor create
   #get '/honors/new',  to: 'honors#new', as: 'new_honor'
