@@ -15,4 +15,19 @@ class ProfessorTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+  def setup
+    @professor = Pending.new(profName: "Ruchi", profEmail: "rruchi@memphis.edu")
+  end
+
+  test "should be valid" do
+    assert @professor.valid?
+  end
+  test "Professor Name should be present" do
+    @pending.profName = "     "
+    assert_not @pending.valid?
+  end
+  test "Professor Email should be present" do
+    @pending.profEmail = "     "
+    assert_not @pending.valid?
+  end
 end
