@@ -14,21 +14,21 @@ Rails.application.routes.draw do
   get '/messagecourse', to: 'courses#message', as: 'message_courses'
   get '/messagestudent', to: 'student#message', as: 'message_student'
 
-  get '/pendings', to: 'pendings#index', as: 'pendings_list'
+  get '/pendings/:id', to: 'pendings#index', as: 'pendings_list'
   get '/pendings/:id', to: 'pendings#show', as: 'pendings'
   delete '/pendings/:id', to: 'pendings#destroy'
 
-  get '/pendings' , to: 'pendings#index', as: 'pending_search_list'
+  get '/pendings/:id' , to: 'pendings#index', as: 'pending_search_list'
   post '/pendings', to: 'pendings#index'
  
-  get '/search' , to: 'users#show', as: 'main_search_list'
-  post '/search', to: 'users#show'
+  get '/search/:id' , to: 'users#showSearch', as: 'main_search_list'
+  post '/search/:id', to: 'users#showSearch'
 
   root 'users#new'
 
   get 'signup' => 'users#new'
 
-  get    'studentList', to: 'student#studentList',  as: 'student_List'
+  
   get    '/student/failStu', to: 'student#failStu'
   get    '/student/studentIfo', to: 'student#studentIfo'
   get    '/student/IfoRevise', to: 'student#IfoRevise'
@@ -48,9 +48,10 @@ Rails.application.routes.draw do
 #  get '/honors/:id', to: 'honors#show' , as: 'honor'
 
 
-  get 'displayStudent' => 'students#index'
-  get '/displayStudent' , to: 'students#index', as: 'index_search_list'
-  post '/displayStudent', to: 'students#index'
+  #get 'displayStudent' => 'students#index'
+  get  '/student', to: 'student#index',  as: 'student_List'
+  get '/student/:id' , to: 'student#show', as: 'index_search_list'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

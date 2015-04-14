@@ -1,10 +1,3 @@
-
-<h1><%= @user.email %></h1>
-
-<p>
-  <%= link_to "Log out", logout_path, method: "delete" %>
-</p>
-  
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +33,7 @@
          </tr>
          <tr>
             <td > <p>Search for pending contracts with UID or Contract id:                
-               <%= form_tag pending_search_list_path, method:  'get' do %>
+               <%= form_tag main_search_list_path, method:  'get' do %>
                <%= text_field_tag :search, params[:search] %>
                <%= submit_tag "Search", :name => nil %> 
                <!%= link_to_function "Clear", "$('search_field').clear()" %>
@@ -54,13 +47,13 @@
                <table border="2" cellpadding="1" cellspacing="1" width="100%" summary="Honors Contract Dashboard"align="center" >
                   <tbody>
                      <tr>
-                        <th bgcolor="cyan"> Pending Requests</th>
+                        <th bgcolor="lightgreen"> Pending Requests</th>
                         <th bgcolor="lightblue"> Active Contracts</th>
                         <th bgcolor="gray"> Deactivated/Deleted Contracts</th>
                      </tr>
                      <tr>
                         <td align= center>There are  <%= link_to (Pending.all).length, pendings_list_path %> pending Honor's contract requests </td>
-                        <td align= center>There are  <%= link_to (Honor.all).length, root_path %> active Honor's contracts</td>
+                        <td align= center>There are  <%= link_to (Student.all).length, student_List_path(@user) %> active Honor's contracts</td>
                         <td align= center>There are  <%= link_to "X", root_path %> Deactivated/Deleted Honor's contracts.</td>
 
                      </tr>

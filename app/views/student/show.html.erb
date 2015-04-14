@@ -1,15 +1,147 @@
+<% provide(:title, "Display-Student") %>
+<!DOCTYPE html>
+<head>
+<%= stylesheet_link_tag "students.scss" %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-<% provide(:title, "Review")%>
+</head>
+<body>
 
-<h2>Review</h2>
- <ul>
-    <li>uid: <%= @student.UID %></li>
-    <li>uid: <%= @student.firstName %></li>
-    <li>uid: <%= @student.lastName %></li>
-   
-</ul>
-<p>
-<%= link_to "Edit", edit_student_path(@student) %>
-  
-	</p>
+<table class="bigtable" align="center" border="0" cellpadding="0" cellspacing="0" summary="www -  - ">
+         <tbody><tr>
+            <td valign="top" colspan="3" class="topstripes" align="left"><image_tag("/images/spacer.gif",size:"1")></td>
+         </tr>
+         <tr>
+            <td valign="top" colspan="3">
+               <table border="0" cellpadding="0" cellspacing="0" width="100%" summary="University of Memphis brand logo">
+                  <tbody><tr>
+                     <td class="logo">
+                        <a href="http://www.memphis.edu/"><img src="/images/brandnew.jpg" alt="University of Memphis logo" border="0" width="174" height="89"></a>
+                     </td>
+                     <td class="motto">
+                        <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
+                     </td>
+                     <td class="search">
+                      
+                     </td>
+                  </tr>
+               </tbody></table>
+            </td>
+         </tr>
+</table>
 
+<table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
+	<tr>
+      <td>Enter UID of Student to search student details with registered courses: </td>
+	</tr>
+</table>
+<table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
+	<tr><td>
+		<%= form_tag index_search_list_path, method:  'get' do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %> 
+        <% end %>
+    </td>
+	</tr>
+</table>
+<div>
+<table border="2" cellpadding="1" cellspacing="1" width="15%" align="right" >
+<tr>
+<th bgcolor="gray">Graduation Checklist</th>
+</tr>
+<tr>
+<td align="center">
+<select id="honours" onchange="showGradList();">
+<option value="1">1. University Honors with Thesis</option>
+<option value="2">2. University Honors</option>
+</select>
+</td>
+</tr>
+<tr>
+	<td>
+		<div><input type="checkbox" id="c1">UNCP</div>
+		<div><input type="checkbox" id="c2">Honors Experience-Junior Year</div>
+		<div id="d1" hidden="true"><input type="checkbox" id="s1c3">Honors Experience-Senior Year</div>
+		<div id="d2"><input type="checkbox" id="s2c3">Honors Thesis-Senior Year</div>
+		<div><input type="checkbox" id="c4">GPA: 3.25</div>
+	</td>
+</tr>
+<tr>
+<th align="center" bgcolor="gray">Notes</th>
+</tr>
+<tr>
+<td align="center">
+<textarea>
+</textarea>
+</td>
+</tr>
+</table>
+</div>
+
+<div>
+<table border="2" cellpadding="1" cellspacing="1" width="50%" align="center" >
+
+<tr>
+<th bgcolor="gray">First Name</th>
+<th bgcolor="gray">Last Name</th>
+<th bgcolor="gray">UID</th>
+<th bgcolor="gray">Start Date</th>
+<th bgcolor="gray">End Date</th>
+</tr>
+
+<tr>
+	<% if @student != nil then %>
+	<td align="center"><%= @student.firstName %></td>
+	<td align="center"><%= @student.lastName %></td>
+	<td align="center"><%= @student.UID %></td>
+	<td align="center">NA</td>
+    <td align="center">NA</td>
+    <% end %>
+</tr>
+</table>
+
+</div>
+
+<div>
+<table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
+<tr>
+	<th>Course</th>
+	<th>Semester</th>
+	<th>Grade</th>
+	<th>Professor</th>
+</tr>
+<% if @student != nil then %>
+<% @pendings.each do |f|%>
+<tr>
+	
+	<td align="center"><%= f.course_id %></td>
+	<td align="center"><%= f.semester %></td>
+	<td align="center"><%= f.grade %></td>
+	<td align="center"><%= f.prof_email %></td>
+	<td>[<%= link_to "Show"%>],
+         [<%= link_to "Edit"%>],
+         [<%= link_to "Delete"%>]</td>
+</tr>
+<% end %>
+
+<% end %>
+</table>
+
+<table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
+<tr>
+	<td><!-- <button type="button">Add New Course</button> -->
+
+<%= button_to "Add New Course", new_honor_path, :class => "button", :method => :get  %>
+
+	</td>
+</tr>
+</table>
+<table align="center">
+<tr><td>
+<%= link_to "Home", root_path %>
+</td></tr>
+</table>
+</div>
+
+</body>
+</html>

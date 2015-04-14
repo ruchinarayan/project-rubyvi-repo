@@ -7,20 +7,30 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def showSearch
+    @user = User.find(params[:id])
+    @pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Penging model class
+    @honors = Honor.Keyword_search (params[:search])
+    
+  end
+
+
   def new
     @user = User.new
   end
 
+  
   def create
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Welcome to the Sample App!"
+    #  flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else
       render 'new'
     end
   end
+
 
   private
 

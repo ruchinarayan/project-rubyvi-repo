@@ -32,21 +32,21 @@ class Honor < ActiveRecord::Base
   validates :grade, presence: true
   validates :dates, presence: true
  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-zR\d\-.]+\.[a-z]+\z/i
-  validates :prof_email,
+   validates :prof_email,
             presence: true,
-            length: { maximum: 255 }
-            #format: { with: VALID_EMAIL_REGEX },
-       #     uniqueness: { case_sensitive: false }
+            length: { maximum: 100 }
    validates :uid, presence: true, length: { maximum: 9}
-  validates :contract_id, presence: true
+   validates :contract_id, presence: true
    validates :course_id, presence: true
    validates :semester, presence: true
    validates :year, presence: true
    validates :grade, presence: true
-  validates :dates, presence: true
+   validates :dates, presence: true
 
-  def self.search(search)
-    search_condition = "%" + search + "%"
-    find(:all, :conditions => ['contract_id LIKE ? OR uid LIKE ?', search_condition, search_condition])
-  end 
+  def self.Keyword_search(keyword)
+    keyword = "%"+keyword+"%"
+       # @honors= Honor.where('contract_id LIKE ? or uid LIKE ? or firstName LIKE ? or lastName LIKE ? or email LIKE ? or phoneNumber LIKE ? or semester LIKE ? or profName LIKE ? or profEmail LIKE ? or course_id LIKE ? or year LIKE ? or present_date LIKE ?',keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword)
+    @honors= Honor.where('course_id LIKE ?' ,keyword)
+
+    end
 end
