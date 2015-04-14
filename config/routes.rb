@@ -23,7 +23,8 @@ Rails.application.routes.draw do
   get '/search/:id' , to: 'users#showSearch', as: 'main_search_list'
   post '/search/:id', to: 'users#showSearch'
 
-  root 'users#new'
+  #root 'users#new'
+  root 'sessions#new'
 
   get 'signup' => 'users#new'
 

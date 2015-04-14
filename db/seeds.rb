@@ -5,8 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Course.create(course_id: 'EECE7012', course_name: 'Software Engineering' )
-Course.create(course_id: 'COMP7012', course_name: 'Software Engineering' )
+Course.create!(course_id: 'EECE7012', course_name: 'Software Engineering' )
+Course.create!(course_id: 'COMP7012', course_name: 'Software Engineering' )
 
 
 # This file should contain all the record creation needed to seed the database with its default values.
@@ -81,3 +81,6 @@ Professor.create(profName: 'Scott Fleming', profEmail: 'sflem@memphis.edu' )
 Student.create( UID: "584001", firstName: "krishna", lastName: "chikkala", email: "vkchkkla@memphis.edu", phoneNumber: "9016049107",status: "passed" )
 Student.create( UID: "999584001", firstName: "krishna1", lastName: "chikkala1", email: "xvechik@memphis.edu", phoneNumber: "9016044449107",status: "failed" )
  
+User.create! :email => 'admin@memphis.edu', :password => 'letmein', :password_confirmation => 'letmein',:role => 'Admin'
+User.create! :email => 'secretary@memphis.edu', :password => 'letmein', :password_confirmation => 'letmein',:role => 'Secretary'
+User.create! :email => 'director@memphis.edu', :password => 'letmein', :password_confirmation => 'letmein',:role => 'Director'

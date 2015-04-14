@@ -1,24 +1,76 @@
-<h1>Log in</h1>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Honors Program User</title>
+<%=stylesheet_link_tag 'application' %>
+<% provide(:title, 'Index') %>
+</head>
+<body>
+<table class="bigtable" align="center" border="0" cellpadding="0" cellspacing="0" >
+         <tbody><tr>
+            <td valign="top" colspan="3" class="topstripes" align="left"><image_tag("/images/spacer.gif",size:"1")></td>
+         </tr>
+         <tr>
+            <td valign="top" colspan="3">
+               <table border="0" cellpadding="0" cellspacing="0" width="100%" height="100" summary="University of Memphis brand logo" div id="tableContainer-2">
+                  <tbody>
+                     <tr>
+                     <td class="logo">
+                        <a href="http://www.memphis.edu/"><img src="/images/brandnew.jpg" alt="University of Memphis logo" border="0" width="174" height="89"></a>
+                     </td>
+                     <td class="motto">
+                        <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
+                     </td>
+                     </tr>
+                    </tbody>
+               </table>
+            </td>
+         </tr>
+         <tr>
+         <td>
+         
+         <h2>Log in</h2>
+         <%= form_for(:session, url: login_path) do |f| %>
 
-<%= form_for(:session, url: login_path) do |f| %>
+        <table>
+          <tr>
+           <td><%= f.label :email %></td>
+           <td><%= f.email_field :email %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :password %></td>
+            <td><%= f.password_field :password %></td>
+          </tr>
+        </table>
 
-  <table>
-    <tr>
-      <td><%= f.label :email %></td>
-      <td><%= f.email_field :email %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :password %></td>
-      <td><%= f.password_field :password %></td>
-    </tr>
-  </table>
-
-  <p>
-    <%= f.submit "Log in" %>
-  </p>
+        <p>
+         <%= f.submit "Log in" %>
+        </p>
     
-<% end %>
+        <% end %>
+        </td>
+        </tr>
 
-<p>
-  New user? <%= link_to "Sign up now!", signup_path %>
-</p>
+ 
+</table>
+
+<center>
+   <%= link_to "Home", root_path %>
+</center>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
