@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 function showGradList()
 {
 	//val = document.forms[0].honours;
@@ -31,3 +32,4 @@ document.getElementById("d2").hidden=true;
 document.getElementById("d1").hidden=false;
 }
 }
+

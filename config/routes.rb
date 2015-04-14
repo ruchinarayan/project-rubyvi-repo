@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'student/studentList'
   get 'honors/index'
 
   get 'pendings/index'
@@ -32,6 +33,10 @@ Rails.application.routes.draw do
 
   get 'signup' => 'users#new'
 
+  
+  get    '/student/failStu', to: 'student#failStu'
+  get    '/student/studentIfo', to: 'student#studentIfo'
+  get    '/student/IfoRevise', to: 'student#IfoRevise'
   get    'login'  => 'sessions#new'
   post   'login'  => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
@@ -39,8 +44,10 @@ Rails.application.routes.draw do
   resources :users
 
   resources :honors
-  resources :students
+  resources :student
   resources :courses
+
+  get '/student/:id/notes', to: 'student#notes', as: 'notes_student'
 #newHonor create
   #get '/honors/new',  to: 'honors#new', as: 'new_honor'
  # post '/honors', to: 'honors#create'
@@ -49,12 +56,35 @@ Rails.application.routes.draw do
 
 
   #get 'displayStudent' => 'students#index'
-  get '/displayStudent' , to: 'students#index', as: 'index_search_list'
-  post '/displayStudent', to: 'students#index'
+  get  '/student', to: 'student#index',  as: 'student_List'
+  get '/student/:id' , to: 'student#show', as: 'index_search_list'
+  
 
 get '/displayStudent/:id/edit', to: 'honors#edit', as: "course_edit"
 patch '/displayStudent/:id', to: 'honors#update'
 put '/displayStudent/:id', to: 'honors#update'
+
+
+  #resources :contracts
+  #index
+  get '/contracts', to: 'contracts#index', as: 'contracts'
+
+  #form
+  get '/contract/new', to: 'contracts#new', as: 'new_contracts'
+  post '/contracts', to: 'contracts#create'
+
+  #show
+  get '/contracts/:id' , to: 'contracts#show', as: 'contract'
+
+  #update
+  get '/contracts/:id/edit' , to: 'contracts#edit', as: 'edit_contract'
+  patch '/contracts/:id', to: 'contracts#update'
+  put '/contracts/:id', to: 'contracts#update'
+
+
+  get '/pendings/new', to: 'pendings#new', as: 'new_pending'
+  post '/pendings', to: 'pendings#create'
+  #Possibly a post to pending here
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

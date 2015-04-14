@@ -1,4 +1,28 @@
 class StudentController < ApplicationController
+
+  def index
+    @students=Student.all
+    @honors= Honor.all
+    respond_to do |format|
+    format.html
+    format.csv { send_data(@students.to_csv) }
+   # format.xls
+  end
+
+  end
+  def failStu
+  	@failstud = Student.all 
+
+  end
+
+  def studentIfo
+	@students = Student.all
+  end
+
+  def IfoRevise
+  @students = Student.find(params[:id])
+  end
+
 def new
   	@student =Student.new
 
@@ -6,36 +30,34 @@ def new
 def edit
 @student = Student.find(params[:id])
 end
+
+#def show
+# 	@student = Student.find(params[:id])
+#end
+
 def show
-  	@student = Student.find(params[:id])
-  end
+      if params[:search]    
+     @pendings = Honor.where(uid: params[:search])
+     @student = Student.where(UID: params[:search] ).take
+    else
+      @student = Student.find(params[:id])
+      @pendings= Honor.all
+    end
+
+end
+
+def notes
+  @student = Student.find(params[:id])
+  end 
  
 def update
 @student = Student.find(params[:id])
-if @student.update(params.require(:student).permit(:UID, :firstName, :lastName, :email, :phoneNumber, :status))
-  redirect_to student_path(@student.id)
+if @student.update(params.require(:student).permit(:UID, :firstName, :lastName, :email, :phoneNumber, :status, :notes))
+  redirect_to session[:search_results]
     else
       redirect_to message_student_path
   end
 end
 
-def index
-  		if params[:search] #if value exists
-  		#@pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Pending model class
-  		#@pendings = Pending.find_by uid: 'U0005355'
-      #@pendings = Pending.where(uid: (params[:search]) ).find_each
 
-     @pendings = Pending.where(uid: params[:search])
-     @student = Pending.where(uid: params[:search] ).take
-
-     # @pendings = Pending.where("uid = ?",params[:search])
-      #@student = Pending.where("uid = ?",params[:search]).take
-
-     #@pendings = Pending.where(uid: 'U0005355')
-     #@student = Pending.where(uid: 'U0005355').take
-    else
-    	@pendings= Pending.all
-    end
-
-    end
 end

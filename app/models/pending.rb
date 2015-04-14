@@ -23,6 +23,7 @@
 
 class Pending < ActiveRecord::Base
 	 
+	validates :contract_id, presence: true,   length: {maximum: 100 }
 	validates :contract_id, presence: true,   length: {maximum: 100 }#should be unique constrained
 	validates :uid, presence: true,   length: {maximum: 100 }
 	validates :firstName, presence: true,   length: {maximum: 100 }
