@@ -34,12 +34,19 @@ class PendingsController < ApplicationController
     @pending = Pending.find(params[:id])
     if @pending.update(params.require(:pending).permit(:contract_id,:uid,:firstName,:lastName,:email,:phoneNumber,:semester,:profName,
       :profEmail,:course_id,:year,:present_date,:grade,:pdf))
+      @student=Student.new(:UID => @pending.uid,:firstName => @pending.firstName,:lastName => @pending.lastName,:email => @pending.email,:phoneNumber => @pending.phoneNumber, :status => "active")
+      @professor=Professor.new(:profName => @pending.profName,:profEmail => @pending.profEmail)
       @honor=Honor.new(:contract_id => @pending.contract_id,:uid => @pending.uid,:course_id => @pending.course_id,
        :prof_email => @pending.profEmail,:semester => @pending.semester,:year => @pending.year,:grade => @pending.grade,:pdf => '',:dates => @pending.present_date)
-      @professor=Professor.new(:profName => @pending.profName,:profEmail => @pending.profEmail)
-      @student=Student.new(:UID => @pending.uid,:firstName => @pending.firstName,:lastName => @pending.lastName,:email => @pending.email,:phoneNumber => @pending.phoneNumber, :status => "active")
-      if !@honor.save and !@professor.save and !@student.save
+      if !@honor.save  
         redirect_to pendings_list_url
+      elsif !@professor.save
+          @honor.destroy
+          redirect_to pendings_list_url
+      elsif !@student.save
+          @honor.destroy
+          @professor.destroy
+          redirect_to pendings_list_url
       else
         @pending.destroy
         redirect_to pendings_list_url
