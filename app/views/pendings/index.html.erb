@@ -75,7 +75,7 @@
 							<td><%=pending.semester %></td>
 							<td><%=pending.year %></td>
 							<td><%=pending.profName %></td>
-							<td>[<%= link_to "Show details ", pendings_list_path(pending) %>,<%= link_to "Edit ", pendings_list_path(pending) %>,<%= link_to "Delete", pendings_path(pending), method: :delete %>] 
+							<td>[<%= link_to "Show details ", pendings_list_path(pending) %>,<%= link_to "Edit ", pendings_list_path(pending) %>,<%= link_to "Delete", pendings_list_path(pending), method: :delete %>] 
 							</td>
 						</tr>
 					<% end %>
