@@ -47,6 +47,28 @@ Rails.application.routes.draw do
   get '/displayStudent' , to: 'students#index', as: 'index_search_list'
   post '/displayStudent', to: 'students#index'
 
+
+  #resources :contracts
+  #index
+  get '/contracts', to: 'contracts#index', as: 'contracts'
+
+  #form
+  get '/contract/new', to: 'contracts#new', as: 'new_contracts'
+  post '/contracts', to: 'contracts#create'
+
+  #show
+  get '/contracts/:id' , to: 'contracts#show', as: 'contract'
+
+  #update
+  get '/contracts/:id/edit' , to: 'contracts#edit', as: 'edit_contract'
+  patch '/contracts/:id', to: 'contracts#update'
+  put '/contracts/:id', to: 'contracts#update'
+
+
+  get '/pendings/new', to: 'pendings#new', as: 'new_pending'
+  post '/pendings', to: 'pendings#create'
+  #Possibly a post to pending here
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

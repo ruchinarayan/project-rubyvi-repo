@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409043621) do
+ActiveRecord::Schema.define(version: 20150413232703) do
+
+  create_table "contracts", force: :cascade do |t|
+    t.integer  "contract_identity"
+    t.string   "email"
+    t.string   "contractor_name"
+    t.string   "uuid"
+    t.string   "contractor_phone"
+    t.string   "course"
+    t.string   "section"
+    t.integer  "credit_hours"
+    t.string   "semester"
+    t.integer  "year"
+    t.string   "instructor"
+    t.string   "instructor_email"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "course_id"

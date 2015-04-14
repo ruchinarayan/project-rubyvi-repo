@@ -40,4 +40,11 @@ class PendingsController < ApplicationController
     redirect_to(root_url) unless current_user?(@user)
   end
 
+  def new
+    @pending = Pending.new
+  end
+
+  def create
+  end
+
 end

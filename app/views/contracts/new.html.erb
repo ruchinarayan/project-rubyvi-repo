@@ -1,0 +1,68 @@
+<h1>Create New Contract</h1>
+
+<%= form_for(@contract) do |f|%>
+	<p>
+		<%=f.label :contract_identity %><br>
+		<%=f.text_field :contract_identity %>
+	</p>
+
+	<p>
+		<%=f.label :email %><br>
+		<%=f.text_field :email %>
+	</p>
+
+	<p>
+		<%=f.label :contractor_name %><br>
+		<%=f.text_field :contractor_name %>
+	</p>
+
+	<p>
+		<%=f.label :uuid %><br>
+		<%=f.text_field :uuid %>
+	</p>
+
+	<p>
+		<%=f.label :contractor_phone %><br>
+		<%=f.text_field :contractor_phone %>
+	</p>
+
+
+	<p>
+		<%=f.label :course %><br>
+		<%=f.text_field :course %>
+	</p>
+	
+	<p>
+		<%=f.label :section %><br>
+		<%=f.text_field :section %>
+	</p>
+
+	<p>
+		<%=f.label :credit_hours %><br>
+		<%=f.text_field :credit_hours %>
+	</p>
+
+	<p>
+		<%=f.label :semester %><br>
+		<%=f.text_field :semester %>
+	</p>
+
+	<p>
+		<%=f.label :year %><br>
+		<%=f.text_field :year %>
+	</p>
+
+	<p>
+		<%=f.label :instructor %><br>
+		<%=f.text_field :instructor %>
+	</p>
+
+	<p>
+		<%=f.label :instructor_email %><br>
+		<%=f.text_field :instructor_email %>
+	</p>
+
+	<p>
+		<%=f.submit%>
+	</p>
+<%end%>
