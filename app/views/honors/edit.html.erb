@@ -16,9 +16,7 @@
                      <td class="motto">
                         <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
                      </td>
-                     <td class="search">
-                      
-                     </td>
+                     
                   </tr>
                </tbody></table>
             </td>
@@ -34,6 +32,10 @@
 		<td><%= f.text_field :course_id %></td>
 	</tr>
 	<tr>
+		<td><%= f.label :prof_email %></td>
+		<td><%= f.text_field :prof_email %></td>
+	</tr>
+	<tr>
 		<td><%= f.label :semester %></td>
 		<td><%= f.text_field :semester %></td>
 	</tr>
@@ -41,10 +43,7 @@
 		<td><%= f.label :grade %></td>
 		<td><%= f.text_field :grade %></td>
 	</tr>
-	<tr>
-		<td><%= f.label :prof_email %></td>
-		<td><%= f.text_field :prof_email %></td>
-	</tr>
+	
 	<tr>
 	<td colspan=2 align="center"><%= f.submit %></td>
     </tr>

@@ -30,9 +30,20 @@ def new
 def edit
 @student = Student.find(params[:id])
 end
+
+#def show
+# 	@student = Student.find(params[:id])
+#end
+
 def show
-  	@student = Student.find(params[:id])
-  end
+      if params[:search]    
+     @pendings = Honor.where(uid: params[:search])
+     @student = Student.where(UID: params[:search] ).take
+    else
+      @pendings= Honor.all
+    end
+
+end
  
 def update
 @student = Student.find(params[:id])
@@ -43,23 +54,5 @@ if @student.update(params.require(:student).permit(:UID, :firstName, :lastName, 
   end
 end
 
-def show
-  		if params[:id] #if value exists
-  		#@pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Pending model class
-  		#@pendings = Pending.find_by uid: 'U0005355'
-      #@pendings = Pending.where(uid: (params[:search]) ).find_each
 
-     @pendings = Pending.where(uid: params[:id])
-     @student = Pending.where(uid: params[:id] ).take
-
-     # @pendings = Pending.where("uid = ?",params[:search])
-      #@student = Pending.where("uid = ?",params[:search]).take
-
-     #@pendings = Pending.where(uid: 'U0005355')
-     #@student = Pending.where(uid: 'U0005355').take
-    else
-    	@pendings= Pending.all
-    end
-
-    end
 end
