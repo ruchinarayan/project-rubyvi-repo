@@ -144,7 +144,7 @@
 	<td>
 
 	 <% if @student != nil then %>
-	 <%= link_to "Add New Course", new_honor_path(uid: @student.UID) , :class => "button", :method => :get %>
+	 <%= link_to "Add New Course", new_honor_path(:student => @student.id) , :class => "button", :method => :get %>
 	 <% end %>
 	</td>
 </tr>

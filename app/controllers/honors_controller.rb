@@ -7,6 +7,9 @@ class HonorsController < ApplicationController
   
   def new
   	@honor = Honor.new 
+    # @student = Student.find(params[:id])
+     @student =  Student.find(params[:student])
+    @honor.uid = @student.UID
   end
 
   def create
