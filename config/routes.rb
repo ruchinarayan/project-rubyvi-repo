@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   resources :honors
   resources :student
   resources :courses
+
+  get '/student/:id/notes', to: 'student#notes', as: 'notes_student'
 #newHonor create
   #get '/honors/new',  to: 'honors#new', as: 'new_honor'
  # post '/honors', to: 'honors#create'

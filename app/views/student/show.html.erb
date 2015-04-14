@@ -42,6 +42,7 @@
         <%= text_field_tag :search, params[:search] %>
         <%= submit_tag "Search", :name => nil %> 
         <% end %>
+        <% session[:search_results] = request.url %>
     </td>
 	</tr>
 </table>
@@ -72,8 +73,10 @@
 </tr>
 <tr>
 <td align="center">
-<textarea>
-</textarea>
+<% if @student != nil then %>
+ <%= @student.notes %>
+ <br/><%= link_to "Add New Notes", notes_student_path(@student) %>
+ <% end %>
 </td>
 </tr>
 </table>
@@ -88,6 +91,7 @@
 <th bgcolor="gray">UID</th>
 <th bgcolor="gray">Start Date</th>
 <th bgcolor="gray">End Date</th>
+<th bgcolor="gray">Edit</th>
 </tr>
 
 <tr>
@@ -97,6 +101,7 @@
 	<td align="center"><%= @student.UID %></td>
 	<td align="center">NA</td>
     <td align="center">NA</td>
+    <td align="center"><%= link_to "Edit Student Details", edit_student_path(@student) %></td>
     <% end %>
 </tr>
 </table>
@@ -136,10 +141,11 @@
 
 <table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
 <tr>
-	<td><!-- <button type="button">Add New Course</button> -->
+	<td>
 
-<%= button_to "Add New Course", new_honor_path, :class => "button", :method => :get  %>
-
+	 <% if @student != nil then %>
+	 <%= link_to "Add New Course", new_honor_path(uid: @student.UID) , :class => "button", :method => :get %>
+	 <% end %>
 	</td>
 </tr>
 </table>

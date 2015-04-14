@@ -44,11 +44,15 @@ def show
     end
 
 end
+
+def notes
+  @student = Student.find(params[:id])
+  end 
  
 def update
 @student = Student.find(params[:id])
-if @student.update(params.require(:student).permit(:UID, :firstName, :lastName, :email, :phoneNumber, :status))
-  redirect_to student_path(@student.id)
+if @student.update(params.require(:student).permit(:UID, :firstName, :lastName, :email, :phoneNumber, :status, :notes))
+  redirect_to session[:search_results]
     else
       redirect_to message_student_path
   end
