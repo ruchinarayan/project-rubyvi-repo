@@ -22,7 +22,7 @@
                         <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
                      </td>
                      <td class="search">
-                     <p><b>Logged in as: </b><i><%= @user.email %>  </i><b>Role: </b> Give Role here</p>
+                     <p><b>Logged in as: </b><i><%= @user.email %>  </i><b>Role: </b> <i><%= @user.role %>  </i></p>
                      <p><%= link_to "Log out", logout_path, method: "delete" %></p>
                      </td>
 
@@ -52,9 +52,9 @@
                         <th bgcolor="gray"> Deactivated/Deleted Contracts</th>
                      </tr>
                      <tr>
-                        <td align= center>There are  <%= link_to (Pending.all).length, pendings_list_path %> pending Honor's contract requests </td>
-                        <td align= center>There are  <%= link_to (Honor.all).length, root_path %> active Honor's contracts</td>
-                        <td align= center>There are  <%= link_to "X", root_path %> Deactivated/Deleted Honor's contracts.</td>
+                        <td align= center>There are  <%= link_to (Pending.all).length, pendings_list_path(:users => @user.id) %> pending Honor's contract requests </td>
+                        <td align= center>There are  <%= link_to (Honor.all).length, pending_path(:id => @user.id) %> active Honor's contracts</td>
+                        <td align= center>There are  <%= link_to "X", pending_path(:id => @user.id) %> Deactivated/Deleted Honor's contracts.</td>
 
                      </tr>
 

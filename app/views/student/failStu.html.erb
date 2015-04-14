@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+  </head>
+   <body bgcolor="Lavender">
+      <table class="bigtable" align="center" border="1" cellpadding="0" cellspacing="0">
+            <td valign="top" colspan="3">
+               <table border="0" cellpadding="0" cellspacing="0" width="100%" >
+                     <td >
+                      <img src="/images/brandnew.jpg" border="0" width="174" height="94px">
+                     </td>
+                     <td>
+                      <img height="94px" border="0" width="534" src="/images/honors_brand.jpg" align="left">
+                     </td>
+             </td>
+</table>
+  <% @failstud.each do|student| %>
+   <% if student.status=="fail" %>
+  <tr height="30px"><td><%= (student.firstName+" "+student.lastName) %></td</tr>
+  <% end %>
+  <% end %>
+
+</table>
+           

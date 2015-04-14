@@ -1,4 +1,28 @@
 class StudentController < ApplicationController
+
+  def index
+    @students=Student.all
+    @honors= Honor.all
+    respond_to do |format|
+    format.html
+    format.csv { send_data(@students.to_csv) }
+   # format.xls
+  end
+
+  end
+  def failStu
+  	@failstud = Student.all 
+
+  end
+
+  def studentIfo
+	@students = Student.all
+  end
+
+  def IfoRevise
+  @students = Student.find(params[:id])
+  end
+
 def new
   	@student =Student.new
 
@@ -19,14 +43,14 @@ if @student.update(params.require(:student).permit(:UID, :firstName, :lastName, 
   end
 end
 
-def index
-  		if params[:search] #if value exists
+def show
+  		if params[:id] #if value exists
   		#@pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Pending model class
   		#@pendings = Pending.find_by uid: 'U0005355'
       #@pendings = Pending.where(uid: (params[:search]) ).find_each
 
-     @pendings = Pending.where(uid: params[:search])
-     @student = Pending.where(uid: params[:search] ).take
+     @pendings = Pending.where(uid: params[:id])
+     @student = Pending.where(uid: params[:id] ).take
 
      # @pendings = Pending.where("uid = ?",params[:search])
       #@student = Pending.where("uid = ?",params[:search]).take

@@ -118,9 +118,9 @@
 	<td align="center"><%= f.semester %></td>
 	<td align="center"><%= f.grade %></td>
 	<td align="center"><%= f.prof_email %></td>
-	<td>[<%= link_to "Show"%>],
-         [<%= link_to "Edit"%>],
-         [<%= link_to "Delete"%>]</td>
+	 <td>[<%= link_to "Show" %>],
+     [<%= link_to "Edit", course_edit_path(f) %>],
+     </td>
 </tr>
 <% end %>
 
