@@ -13,8 +13,12 @@ Rails.application.routes.draw do
   get '/messagecourse', to: 'courses#message', as: 'message_courses'
   get '/messagestudent', to: 'student#message', as: 'message_student'
 
-  get '/pendings/:id', to: 'pendings#index', as: 'pendings_list'
-  get '/pendings/:id', to: 'pendings#show', as: 'pendings'
+
+  get '/pendings', to: 'pendings#index', as: 'pendings_list'
+  get '/pendings/:id', to: 'pendings#show', as: 'pending'
+  get 'pendings/:id/edit', to: 'pendings#edit', as: 'edit_pending'
+  patch '/pendings/:id', to: 'pendings#update'
+
   delete '/pendings/:id', to: 'pendings#destroy'
 
   get '/pendings/:id' , to: 'pendings#index', as: 'pending_search_list'

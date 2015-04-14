@@ -17,6 +17,8 @@
 #  present_date :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  grade        :string
+#  pdf          :binary
 #
 
 require 'test_helper'
