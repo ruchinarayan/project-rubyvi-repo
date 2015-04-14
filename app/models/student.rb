@@ -16,4 +16,8 @@
 
 
 class Student < ActiveRecord::Base
+
+	has_many :honors, class_name: "Honor"
+	has_many :professors, through: :honors
+	has_many :courses, through: :honors
 end

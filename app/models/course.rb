@@ -11,6 +11,10 @@
 
 
 class Course < ActiveRecord::Base
-	validates :course_id, presence: true,   length: {maximum: 20 }
-	validates :course_name, presence: true,   length: {maximum: 100 }
+	
+	validates :course_id, presence: true
+	validates :course_name, presence: true
+	has_many :honors, class_name: "Honor"
+	has_many :students, through: :honors
+	has_many :professors, through: :honors
 end

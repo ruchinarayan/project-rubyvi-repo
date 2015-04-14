@@ -21,6 +21,7 @@
 #  pdf          :binary
 #
 
+
 require 'test_helper'
 
 class PendingTest < ActiveSupport::TestCase
@@ -30,7 +31,7 @@ class PendingTest < ActiveSupport::TestCase
 
 
 def setup
-    @pending = Pending.new(contract_id: 1245, uid: "U0005355", firstName: "Krishna", lastName: "chikkala", email: "hsirrk341@gmail.com", phoneNumber: "9016049107", semester: "fall2014", profName: "Ravi", profEmail: "asdkf@memphis.edu", course_id: "3827", year:2012, present_date: Date.new(1955,3,19))
+    @pending = Pending.new(contract_id: 1245, uid: "U0005355", firstName: "Krishna", lastName: "chikkala", email: "hsirrk341@gmail.com", phoneNumber: "9016049107", semester: "fall2014", profName: "Ravi", profEmail: "asdkf@memphis.edu", course_id: "3827", year:2012, present_date: Date.new(1955,3,19), grade: " ", pdf: " ")
   end
 
   test "should be valid" do
@@ -91,6 +92,15 @@ def setup
     assert_not @pending.valid?
   end
 
+  test "grade can be blank" do
+   @pending.grade="         "       
+   assert @pending.valid?
+  end
+  
+  test "pdf can be blank" do
+    @pending.pdf="        "       
+    assert @pending.valid?
+  end
   
   test "presentDate should be present" do
     @pending.present_date = "     "

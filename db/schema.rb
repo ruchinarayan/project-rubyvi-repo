@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413235320) do
+ActiveRecord::Schema.define(version: 20150414194315) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "course_id"
@@ -30,9 +30,16 @@ ActiveRecord::Schema.define(version: 20150413235320) do
     t.string   "grade"
     t.binary   "pdf"
     t.date     "dates"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "student_id"
+    t.integer  "professor_id"
+    t.integer  "corse_id"
   end
+
+  add_index "honors", ["corse_id"], name: "index_honors_on_corse_id"
+  add_index "honors", ["professor_id"], name: "index_honors_on_professor_id"
+  add_index "honors", ["student_id"], name: "index_honors_on_student_id"
 
   create_table "pendings", force: :cascade do |t|
     t.integer  "contract_id"
