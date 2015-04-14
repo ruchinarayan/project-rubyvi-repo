@@ -32,12 +32,12 @@
             </td>
          </tr>
          <tr>
-            <td > Search for pending contracts with UID or Contract id:                
-               <%= form_tag :controller => 'pendings', :action => 'search', :method => 'get' do %>
-               <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+            <td > <p>Search for pending contracts with UID or Contract id:                
+               <%= form_tag main_search_list_path, method:  'get' do %>
+               <%= text_field_tag :search, params[:search] %>
                <%= submit_tag "Search", :name => nil %> 
                <!%= link_to_function "Clear", "$('search_field').clear()" %>
-               <% end %> 
+               <% end %> </p>
             </td>
 
          </tr>
@@ -47,16 +47,14 @@
                <table border="2" cellpadding="1" cellspacing="1" width="100%" summary="Honors Contract Dashboard"align="center" >
                   <tbody>
                      <tr>
-                        <th bgcolor="cyan"> Pending Requests</th>
+                        <th bgcolor="lightgreen"> Pending Requests</th>
                         <th bgcolor="lightblue"> Active Contracts</th>
                         <th bgcolor="gray"> Deactivated/Deleted Contracts</th>
                      </tr>
                      <tr>
-                        <%=@pendings= Pending.all%>
-                        <%=@honors= Honor.all%>
-                        <td align= center><br><br><br><br><br>There are  <%= link_to @pendings.length, pendings_list_path %> pending Honor's contract requests <br><br><br><br><br><br><br><br><br><br><br><br><br></td>
-                        <td align= center><br><br><br><br><br>There are  <%= link_to @honors.length, root_path %> active Honor's contracts<br><br><br><br><br><br><br><br><br><br><br><br><br></td>                          
-                        <td align= center><br><br><br><br><br>There are  <%= link_to "X", root_path %> Deactivated/Deleted Contract Honor's contracts.<br><br><br><br><br><br><br><br><br><br><br><br><br></td>
+                        <td align= center>There are  <%= link_to (Pending.all).length, pendings_list_path %> pending Honor's contract requests </td>
+                        <td align= center>There are  <%= link_to (Honor.all).length, root_path %> active Honor's contracts</td>
+                        <td align= center>There are  <%= link_to "X", root_path %> Deactivated/Deleted Honor's contracts.</td>
 
                      </tr>
 
