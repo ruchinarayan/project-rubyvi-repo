@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <head>
 <%= stylesheet_link_tag "student.scss" %>
+</head>
+<body>
+
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </head>
 <body>
@@ -13,6 +16,7 @@
         <% end %>
 	</tr>
 </table>
+
 <div class="graduation">
 <table align="center">
 <tr>
@@ -20,6 +24,7 @@
 </tr>
 <tr>
 <td>
+<select>
 <select id="honours" onchange="showGradList();">
 <option value="1">1. University Honors with Thesis</option>
 <option value="2">2. University Honors</option>
@@ -78,6 +83,7 @@
 	<td width="10%"></td>
 	<td><input type="text" disabled="true" name="endDate"></td>
 </tr>
+
 <tr>
 	<% @pendings.each do |f|%>
 	<td><%= f.firstName %></td>

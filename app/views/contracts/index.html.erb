@@ -1,0 +1,35 @@
+<h1>Contracts</h1>
+
+<table border="1" style="width:100%">
+	
+	
+	<tr>
+	  <td><b>Contract ID</b></td>
+	  <td><b>Course</b></td>
+	  <td><b>Semester</b></td>
+	  <td><b>Year</b></td>
+	  <td><b>Links</b></td>
+	  <th rowspan="20"><b> All Contracts </b></td>
+
+	<tr>
+
+  <% @contracts.each do |c|%>
+  c.contractor_name
+        <tr>
+	 		<td><%= c.contract_identity%></td>
+	  		<td><%= c.course%></td>
+	  		<td><%= c.semester%></td>
+	  		<td><%= c.year%></td>
+
+
+	  		<td> [<%= link_to "Show", contract_path(c) %>,
+	  			<%= link_to "Edit", edit_contract_path(c) %>]</td>
+		</tr>
+
+  <% end %>
+
+  </table>
+
+  <p>
+	<%= link_to "Create new Contract", new_contracts_path %>
+  </p>

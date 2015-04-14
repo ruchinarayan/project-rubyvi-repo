@@ -1,0 +1,67 @@
+<h1>Create New Contract form for pending</h1>
+
+<%= form_for(@pending) do |f|%>
+	<p>
+		<%=f.label :contract_id %><br>
+		<%=f.text_field :contract_id %>
+	</p>
+
+	<p>
+		<%=f.label :uid %><br>
+		<%=f.text_field :uid %>
+	</p>
+
+	<p>
+		<%=f.label :firstName %><br>
+		<%=f.text_field :firstName %>
+	</p>
+
+	<p>
+		<%=f.label :lastName %><br>
+		<%=f.text_field :lastName %>
+	</p>
+
+	<p>
+		<%=f.label :email %><br>
+		<%=f.text_field :email %>
+	</p>
+
+	<p>
+		<%=f.label :phoneNumber %><br>
+		<%=f.text_field :phoneNumber %>
+	</p>
+
+	<p>
+		<%=f.label :semester %><br>
+		<%=f.text_field :semester %>
+	</p>
+
+	<p>
+		<%=f.label :profName %><br>
+		<%=f.text_field :profName %>
+	</p>
+
+	<p>
+		<%=f.label :profEmail %><br>
+		<%=f.text_field :profEmail %>
+	</p>
+
+	<p>
+		<%=f.label :course_id %><br>
+		<%=f.text_field :course_id %>
+	</p>
+
+	<p>
+		<%=f.label :year %><br>
+		<%=f.text_field :year %>
+	</p>
+
+	<p>
+		<%=f.label :present_date %><br>
+		<%=f.text_field :present_date %>
+	</p>
+
+	<p>
+		<%=f.submit%>
+	</p>
+<%end%>

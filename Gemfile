@@ -23,6 +23,7 @@ gem 'turbolinks',              '2.5.3'
 gem 'jbuilder',                '2.2.6'
 gem 'rails-html-sanitizer',    '1.0.1'
 gem 'sdoc',                    '0.4.1', group: :doc
+gem 'to_csv-rails'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.10'

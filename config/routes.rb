@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'student/studentList'
   get 'honors/index'
 
   get 'pendings/index'
@@ -13,8 +14,12 @@ Rails.application.routes.draw do
   get '/messagecourse', to: 'courses#message', as: 'message_courses'
   get '/messagestudent', to: 'student#message', as: 'message_student'
 
-  get '/pendings/:id', to: 'pendings#index', as: 'pendings_list'
-  get '/pendings/:id', to: 'pendings#show', as: 'pendings'
+
+  get '/pendings', to: 'pendings#index', as: 'pendings_list'
+  get '/pendings/:id', to: 'pendings#show', as: 'pending'
+  get 'pendings/:id/edit', to: 'pendings#edit', as: 'edit_pending'
+  patch '/pendings/:id', to: 'pendings#update'
+
   delete '/pendings/:id', to: 'pendings#destroy'
 
   get '/pendings/:id' , to: 'pendings#index', as: 'pending_search_list'
@@ -28,6 +33,10 @@ Rails.application.routes.draw do
 
   get 'signup' => 'users#new'
 
+  
+  get    '/student/failStu', to: 'student#failStu'
+  get    '/student/studentIfo', to: 'student#studentIfo'
+  get    '/student/IfoRevise', to: 'student#IfoRevise'
   get    'login'  => 'sessions#new'
   post   'login'  => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
@@ -35,7 +44,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :honors
-  resources :students
+  resources :student
   resources :courses
 #newHonor create
   #get '/honors/new',  to: 'honors#new', as: 'new_honor'
@@ -45,12 +54,35 @@ Rails.application.routes.draw do
 
 
   #get 'displayStudent' => 'students#index'
-  get '/displayStudent' , to: 'students#index', as: 'index_search_list'
-  post '/displayStudent', to: 'students#index'
+  get  '/student', to: 'student#index',  as: 'student_List'
+  get '/student/:id' , to: 'student#show', as: 'index_search_list'
+  
 
 get '/displayStudent/:id/edit', to: 'honors#edit', as: "course_edit"
 patch '/displayStudent/:id', to: 'honors#update'
 put '/displayStudent/:id', to: 'honors#update'
+
+
+  #resources :contracts
+  #index
+  get '/contracts', to: 'contracts#index', as: 'contracts'
+
+  #form
+  get '/contract/new', to: 'contracts#new', as: 'new_contracts'
+  post '/contracts', to: 'contracts#create'
+
+  #show
+  get '/contracts/:id' , to: 'contracts#show', as: 'contract'
+
+  #update
+  get '/contracts/:id/edit' , to: 'contracts#edit', as: 'edit_contract'
+  patch '/contracts/:id', to: 'contracts#update'
+  put '/contracts/:id', to: 'contracts#update'
+
+
+  get '/pendings/new', to: 'pendings#new', as: 'new_pending'
+  post '/pendings', to: 'pendings#create'
+  #Possibly a post to pending here
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
