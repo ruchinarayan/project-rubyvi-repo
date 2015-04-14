@@ -14,8 +14,12 @@ Rails.application.routes.draw do
   get '/messagecourse', to: 'courses#message', as: 'message_courses'
   get '/messagestudent', to: 'student#message', as: 'message_student'
 
-  get '/pendings/:id', to: 'pendings#index', as: 'pendings_list'
-  get '/pendings/:id', to: 'pendings#show', as: 'pendings'
+
+  get '/pendings', to: 'pendings#index', as: 'pendings_list'
+  get '/pendings/:id', to: 'pendings#show', as: 'pending'
+  get 'pendings/:id/edit', to: 'pendings#edit', as: 'edit_pending'
+  patch '/pendings/:id', to: 'pendings#update'
+
   delete '/pendings/:id', to: 'pendings#destroy'
 
   get '/pendings/:id' , to: 'pendings#index', as: 'pending_search_list'
@@ -24,7 +28,8 @@ Rails.application.routes.draw do
   get '/search/:id' , to: 'users#showSearch', as: 'main_search_list'
   post '/search/:id', to: 'users#showSearch'
 
-  root 'users#new'
+  #root 'users#new'
+  root 'sessions#new'
 
   get 'signup' => 'users#new'
 
@@ -52,6 +57,10 @@ Rails.application.routes.draw do
   get  '/student', to: 'student#index',  as: 'student_List'
   get '/student/:id' , to: 'student#show', as: 'index_search_list'
   
+
+get '/displayStudent/:id/edit', to: 'honors#edit', as: "course_edit"
+patch '/displayStudent/:id', to: 'honors#update'
+put '/displayStudent/:id', to: 'honors#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

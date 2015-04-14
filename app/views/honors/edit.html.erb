@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+<table class="bigtable" align="center" border="0" cellpadding="0" cellspacing="0" summary="www -  - ">
+         <tbody><tr>
+            <td valign="top" colspan="3" class="topstripes" align="left"><image_tag("/images/spacer.gif",size:"1")></td>
+         </tr>
+         <tr>
+            <td valign="top" colspan="3">
+               <table border="0" cellpadding="0" cellspacing="0" width="100%" summary="University of Memphis brand logo">
+                  <tbody><tr>
+                     <td class="logo">
+                        <a href="http://www.memphis.edu/"><img src="/images/brandnew.jpg" alt="University of Memphis logo" border="0" width="174" height="89"></a>
+                     </td>
+                     <td class="motto">
+                        <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
+                     </td>
+                     <td class="search">
+                      
+                     </td>
+                  </tr>
+               </tbody></table>
+            </td>
+         </tr>
+</table>
+<table border="2" cellpadding="1" cellspacing="1" width="15%" align="center" >
+	<%= form_for(@honor) do |f| %>
+	<tr>
+		<th colspan=2 bgcolor="gray">Edit Honor Details</th>
+	</tr>
+	<tr>
+		<td><%= f.label :course_id %></td>
+		<td><%= f.text_field :course_id %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :semester %></td>
+		<td><%= f.text_field :semester %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :grade %></td>
+		<td><%= f.text_field :grade %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :prof_email %></td>
+		<td><%= f.text_field :prof_email %></td>
+	</tr>
+	<tr>
+	<td colspan=2 align="center"><%= f.submit %></td>
+    </tr>
+	<% end %>
+</table>
+
+
+</body>
+</html>

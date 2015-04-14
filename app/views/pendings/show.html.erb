@@ -1,0 +1,163 @@
+ <% provide(:title, 'Display Pending Request') %>
+ 
+<link href="1.css" rel="stylesheet" type="text/css" /> 
+<link type="text/css" rel="stylesheet" href="2.css" /> 
+<style type="text/css">
+    .form-label-left{
+        width:150px !important;
+    }
+    .form-line{
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+    .form-label-right{
+        width:150px !important;
+    }
+    .form-all{
+        width:650px;
+        color:#555 !important;
+        font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+        font-size:14px;
+    }
+</style>
+
+<body>
+<table class="bigtable" align="center" border="0" cellpadding="0" cellspacing="0" summary="www -  - ">
+         <tbody><tr>
+            <td valign="top" colspan="3" class="topstripes" align="left"><image_tag("/images/spacer.gif",size:"1")></td>
+         </tr>
+         <tr>
+            <td valign="top" colspan="3">
+               <table border="0" cellpadding="0" cellspacing="0" width="100%" summary="University of Memphis brand logo">
+                  <tbody><tr>
+                     <td class="logo">
+                        <a href="http://www.memphis.edu/"><img src="/images/brandnew.jpg" alt="University of Memphis logo" border="0" width="174" height="89"></a>
+                     </td>
+                     <td class="motto">
+                        <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
+                     </td>
+                     <td class="search">
+                      
+                     </td>
+                  </tr>
+               </tbody></table>
+            </td>
+         </tr>
+
+</table>
+<%= link_to "Home", root_path %>
+</body>
+
+  <div class="form-all">
+    <ul class="form-section page-section">
+      <li id="cid_1" class="form-input-wide" data-type="control_head">
+        <div class="form-header-group">
+          <div class="header-text httal htvam">
+            <h2 id="header_1" class="form-header">
+              User Details
+            </h2>
+          </div>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Contract Id </label>
+        <div id="cid_4" class="form-input jf-required">
+          <%= @pending.contract_id  %>  
+           
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_3">
+        <label class="form-label form-label-left form-label-auto" id="label_3" for="input_3"> UID</label>
+        <div id="cid_3" class="form-input jf-required">
+         <%= @pending.uid  %>
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> First Name </label>
+        <div id="cid_4" class="form-input jf-required">
+          <%= @pending.firstName  %>  
+           
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Last Name </label>
+        <div id="cid_4" class="form-input jf-required">
+          <%= @pending.lastName  %>  
+           
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Email </label>
+        <div id="cid_4" class="form-input jf-required">
+          <%= @pending.email  %>  
+           
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Phone Number </label>
+        <div id="cid_4" class="form-input jf-required">
+          <%= @pending.phoneNumber  %>  
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Professor Name </label>
+        <div id="cid_4" class="form-input jf-required">
+          <%= @pending.profName  %>   
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Professor Email </label>
+        <div id="cid_4" class="form-input jf-required">
+          <%= @pending.profEmail  %>   
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Course Id </label>
+        <div id="cid_4" class="form-input jf-required">
+          <%= @pending.course_id  %>   
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Semester </label>
+        <div id="cid_4" class="form-input jf-required">
+          <%= @pending.semester  %>  
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Year </label>
+        <div id="cid_4" class="form-input jf-required">
+          <%= @pending.year  %>  
+           
+        </div>
+      </li>
+      <li class="form-line" data-type="control_textbox" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Date </label>
+        <div id="cid_4" class="form-input jf-required">
+          <%= @pending.present_date  %>  
+           
+        </div>
+      </li>
+<!--      <li class="form-line" data-type="control_textbox" id="id_4">
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Grade </label>
+        <div id="cid_4" class="form-input jf-required">
+          <%= @pending.grade  %>  
+           
+        </div>
+      </li>
+      <li class="form-line form-line-column form-col-1" data-type="control_fileupload" id="id_10">
+        <label class="form-label form-label-top" id="label_10" for="input_10"> Upload the document : </label>
+        <div id="cid_10" class="form-input-wide jf-required">
+         <label for="upload_file">Select File</label> : 
+         <%= @pending.pdf %></p>
+         
+        </div>
+      </li> -->
+      
+      <li style="display:none">
+        Should be Empty:
+        
+      </li>
+    </ul>
+  </div>
+<p>  <%= link_to "Back to Requests", pendings_list_path %> </p>
+   

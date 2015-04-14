@@ -7,6 +7,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string
+#  role            :string
 #
 
 
@@ -20,8 +21,7 @@ class User < ActiveRecord::Base
             format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, length: { minimum: 6 }
-
+  
   # Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ?
@@ -29,5 +29,9 @@ class User < ActiveRecord::Base
            BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
-
+  
+  validates :email, presence: true,   length: {maximum: 100 }
+  validates :password, presence: true,   length: {minimum: 6 }
+  validates :role, presence: true,   length: {maximum: 10 }
+  
 end
