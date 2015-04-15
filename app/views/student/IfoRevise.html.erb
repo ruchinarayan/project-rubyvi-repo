@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+</body>
+</html>      
+  </head>
+   <body bgcolor="Lavender">
+      <table class="bigtable" align="center" border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <td valign="top" colspan="3">
+               <table border="0" cellpadding="0" cellspacing="0" width="100%" >
+                     <td >
+                      <img src="/images/brandnew.jpg" border="0" width="174" height="94">
+                     </td>
+                     <td>
+                      <img height="94" border="0" width="534" src="/images/honors_brand.jpg" align="left">
+                     </td>
+               </table>
+</tr>
+
+  <!--<tr>
+    <td><strong>Student ID</strong></td>
+    <td><strong>Student Name</strong></td>
+    <td><strong>Student phoneNumber</strong></td>
+    <td><strong>Student email</strong></td>
+  </tr>-->
+ <%= form_for(@students) do |f| %>
+
+<p>
+    <%= f.label :UID %><br>
+    <%= f.text_field :UID %>
+</p>
+<p>
+    <%= f.label :firstName %><br>
+    <%= f.text_field :firstName %>
+</p>
+<p>
+    <%= f.label :lastName %><br>
+    <%= f.text_field :lastName %>
+</p>
+<p>
+    <%= f.label :phoneNumer %><br>
+    <%= f.text_field :phoneNumer %>
+</p>
+<p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+</p></a>
+
+<%end%>
+
+</table>
+           

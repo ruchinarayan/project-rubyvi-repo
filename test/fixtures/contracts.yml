@@ -1,0 +1,50 @@
+# == Schema Information
+#
+# Table name: contracts
+#
+#  id                :integer          not null, primary key
+#  contract_identity :integer
+#  email             :string
+#  contractor_name   :string
+#  uuid              :string
+#  contractor_phone  :string
+#  course            :string
+#  section           :string
+#  credit_hours      :integer
+#  semester          :string
+#  year              :integer
+#  instructor        :string
+#  instructor_email  :string
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contract_identity: 1
+  email: MyString
+  contractor_name: MyString
+  uuid: MyString
+  contractor_phone: MyString
+  course: MyString
+  section: MyString
+  credit_hours: 1
+  semester: MyString
+  year: 1
+  instructor: MyString
+  instructor_email: MyString
+
+two:
+  contract_identity: 1
+  email: MyString
+  contractor_name: MyString
+  uuid: MyString
+  contractor_phone: MyString
+  course: MyString
+  section: MyString
+  credit_hours: 1
+  semester: MyString
+  year: 1
+  instructor: MyString
+  instructor_email: MyString

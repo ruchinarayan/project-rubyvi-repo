@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Honors Program User</title>
-<%=stylesheet_link_tag 'application' %>
+<%=stylesheet_link_tag 'application' %> 
 <% provide(:title, 'Index') %>
 </head>
 <body>
@@ -53,8 +53,11 @@
                      </tr>
                      <tr>
                         <td align= center>There are  <%= link_to (Pending.all).length, pendings_list_path %> pending Honor's contract requests </td>
-                        <td align= center>There are  <%= link_to (Honor.all).length, root_path %> active Honor's contracts</td>
+                        <td align= center>There are  <%= link_to (Student.all).length, student_List_path %> active Honor's contracts</td>
                         <td align= center>There are  <%= link_to "X", root_path %> Deactivated/Deleted Honor's contracts.</td>
+                        <td align= center>There are  <%= link_to (Pending.all).length, pendings_list_path(:users => @user.id) %> pending Honor's contract requests </td>
+                        <td align= center>There are  <%= link_to (Honor.all).length, pending_path(:id => @user.id) %> active Honor's contracts</td>
+                        <td align= center>There are  <%= link_to "X", pending_path(:id => @user.id) %> Deactivated/Deleted Honor's contracts.</td>
 
                      </tr>
 
@@ -73,9 +76,7 @@
 
 <center>
    <%= link_to "Home", root_path %>
+   <%= link_to "Student", root_path %>
 </center>
 </body>
 </html>
-
-
-

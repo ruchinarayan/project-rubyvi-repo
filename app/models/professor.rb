@@ -13,3 +13,4 @@ class Professor < ActiveRecord::Base
 	validates :profName, presence: true,   length: {maximum: 100 }
 	validates :profEmail, presence: true,   length: {maximum: 100 }
 end
+

@@ -7,6 +7,9 @@ class HonorsController < ApplicationController
   
   def new
   	@honor = Honor.new 
+    # @student = Student.find(params[:id])
+     @student =  Student.find(params[:student])
+    @honor.uid = @student.UID
   end
 
   def create
@@ -29,7 +32,7 @@ class HonorsController < ApplicationController
 
   def update
      @honor = Honor.find(params[:id])
-     if @honor.update(params.require(:honor).permit(:course_id, :semester, :grade, :prof_email))
+     if @honor.update(params.require(:honor).permit(:course_id,:prof_email ,:semester, :grade))
           redirect_to index_search_list_url(@honor)
     else
          redirect_to index_search_list_url
