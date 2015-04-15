@@ -6,7 +6,9 @@ class PendingsController < ApplicationController
 
   	#@pendings= Pending.all
   	def index
+  		if params[:users] != nil
   		@user = User.find(params[:users])
+  	end
   		if params[:search] #if value exists
   			@pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Penging model class
     	else
@@ -55,16 +57,17 @@ class PendingsController < ApplicationController
       redirect_to pendings_list_url
     end
   end
-  def destroy    
+  def destroy   
     @pending = Pending.find(params[:id])
     @pending.destroy
+  	#redirect_to pendings_list_url(:users => @user.id)
   	redirect_to pendings_list_url
   end
 
   def logged_in_user
     unless logged_in?
       flash[:danger] = "Please log in."
-      redirect_to login_url
+      redirect_to login_url(@user)
     end
   end
 
