@@ -1,0 +1,23 @@
+Video Notes
+
+Hi Franz,
+
+Hi Franz,
+
+Please add below details with ur document.
+
+Time frame in video belongs to:
+0:01:30 to 02:40 --> Franz
+02 :45 to 3 : 40 ->Iqbal 
+3: 42 to 4:51 ->swaroop (View, accept and reject pending contracts)
+4:52 to 5:39 -> yuhi 
+5:40 to 8:52 -> Edit Student Details, Add New Course, Add course(in new honor page), Add new Notes, - >Venkata Krishna
+Edit, display the student details, search, Graduation Checklist  -> Ruchi 
+
+Normalization and Migrations done by Swaroop.
+
+I have made all necessary changes to code. Now application running fine without any issues.
+Rake test successful. 
+
+Thanks,
+Swaroop

@@ -1,0 +1,70 @@
+
+10
+Title:  View Contract Information
+Description: As a student I want to view the submitted contract information to verify that it is correct. 
+
+Title: Edit Contract Information
+Description: As a student I want to edit the contract information in order to correct it.
+
+Title: Submit Contract Information
+Description: As a student, I want to submit the information required for my Honor's Contract to complete the submission process.
+
+Title : View students list
+Description : As a secretary, I want to list all the students details along with registered courses so that I will be able to view a record, and where I can edit or modify any particular information.
+
+Title : Update Student's Information
+Description : As a secretary, I want to modify student's information because if the entered details are wrong or changed, it can be modified.
+
+Title: Save Honor’s Contract
+Description: As an admin, I want to save the scanned pdf copy of student Honor’s Contract into the database for future retrieval.
+
+Title: View Honor’s Contract pdf
+Description: As an admin, I want to view the saved pdf copy of Honor’s Contracts for reference.
+
+Title: Store Application
+Description: As an admin, I want to store the application details of specific student into the database so that data can be retrieved for viewing/ editing purpose.
+
+20
+Title: Search certain student
+Description: Admins will be able to search for certain student in the exported data using the name for reference. 
+
+Title: Search student details
+Description: As a user, I want to search the students based on specific semester, name or classification etc.
+
+Title: Modify information of students
+Description: Admins can able to modify students information when he or she finds some errors in their information.
+
+Title: Approve of contract
+Description: As an admin, I want to approve/ reject the contract before storing into database to avoid any discrepancies or duplicates.
+
+Title: Choose Honor Type
+Description: As an admin, I want to choose the appropriate Honor type (University Honors/ University Honors with thesis) for categorizing the honor type.
+
+Title: Select checklist of Graduation Track
+Description: As an admin, I want to check the checklist of graduation track consisting of UNHP, Honors experience-junior year, Honors experience/ thesis -senior year, GPA for storing the user graduation track.
+
+Title : Add a new course
+Description: As an Admin, I want to add a new course to the current list whenever student enrolled for new course.
+
+Title : Add extra Notes
+Description: As an Admin, I want to add notes/comments on student for future references.
+
+30
+Title: Export all students’ information 
+Description: Admins will be able to export all students’ information in one time.
+
+Title: Export certain student’s information
+Description: Admins can export certain student information that he or she looks for. 
+
+40
+n/a
+50
+Title: Store the old data to a new System
+Description: As an Admin, I want to back up the data to a new system in the form of excel files so that data can be protected from vulnerabilities.
+
+Title: Accept/Decline applications
+Description: As an admin, I want to accept or decline any applications submitted to join the honors program
+
+
+
+
