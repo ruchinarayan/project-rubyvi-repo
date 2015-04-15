@@ -52,10 +52,9 @@
                         <th bgcolor="gray"> Deactivated/Deleted Contracts</th>
                      </tr>
                      <tr>
-                        <td align= center>There are  <%= link_to (Pending.all).length, pendings_list_path %> pending Honor's contract requests </td>
-                        <td align= center>There are  <%= link_to (Honor.all).length, pending_path(:id => @user.id) %> active Honor's contracts</td>
-                        <td align= center>There are  <%= link_to "X", pending_path(:id => @user.id) %> Deactivated/Deleted Honor's contracts.</td>
-
+                        <td align= center>There are  <%= link_to (Pending.all).length, pendings_list_path(:users => @user.id) %> pending Honor's contract requests </td>
+                        <td align= center>There are  <%= link_to (Honor.all).length, student_List_path %> active Honor's contracts</td>
+                        <td align= center>There are  <%= link_to "X", home_path %> Deactivated/Deleted Honor's contracts.</td>
                      </tr>
 
                     </tbody>
@@ -72,8 +71,7 @@
 </table>
 
 <center>
-   <%= link_to "Home", root_path %>
-   <%= link_to "Student", root_path %>
+   <%= link_to "Home", root_path %>||<%= link_to "Student", root_path %>
 </center>
 </body>
 </html>

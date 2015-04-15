@@ -22,10 +22,7 @@
                         <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
                      </td>
 
-                     <td class="search">
-                     <p><b>Logged in as: </b><i><%= @user.email %>  </i><b>Role: </b> <i><%= @user.role %>  </i></p>
-                     <p><%= link_to "Log out", logout_path, method: "delete" %></p>
-                     </td>
+                     
                      </tr>
                     </tbody>
                </table>
@@ -68,7 +65,7 @@
 							<td><%=pending.year %></td>
 							<td><%=pending.profName %></td>
 
-							<td><%= link_to "View", pending_path(pending) %>,<%= link_to "Accept", edit_pending_path(pending) %>,<%= link_to "Reject", pendings_path(pending), method: :delete, data: {confirm: "Are you sure?"} %> 
+							<td><%= link_to "View", pending_path(pending) %>,<%= link_to "Accept", edit_pending_path(pending) %>,<%= link_to "Reject", pend_delete_path(pending), method: :delete, data: {confirm: "Are you sure?"} %> 
 							</td>
 						</tr>
                   
@@ -84,7 +81,7 @@
 </table>
 
 <center>
-   <%= link_to "Home", root_path %>
+   <%= link_to "Home", home_path %>
 </center>
 </body>
 </html>
