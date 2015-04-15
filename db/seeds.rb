@@ -89,6 +89,7 @@ User.create! :email => 'director@memphis.edu', :password => 'letmein', :password
 
 
 
+
 #=======================================================================================================================
 
 Student.create( UID: "U0005355", firstName: "krishna", lastName: "chikkala", email: "vkchkkla@memphis.edu", phoneNumber: "9016049107",status: "passed" )
@@ -120,4 +121,22 @@ Course.create(course_id: 'comp7012', course_name: 'Software Engineering', honors
 
 Professor.create(profName: 'Scott Fleming', profEmail: 'sflem@memphis.edu', honors: Honor.where(prof_email: "sflem@memphis.edu") )
 Professor.create(profName: 'Max Garzon', profEmail: 'mgarzn@memphis.edu', honors: Honor.where(prof_email: "sflem@memphis.edu") )
+
+
+Contract.create(contract_identity: 1245, uuid: "U00053557", contractor_name: "Jesus", email: "JCHRISTY@gmail.com", contractor_phone: "9018675309", semester: "fall2015", instructor: "Happel", instructor_email: "aahappel@memphis.edu", course: "Reading", year:2014, section: "01b", credit_hours:3 )
+Contract.create(contract_identity: 1246, uuid: "U00053557", contractor_name: "Jesus", email: "JCHRISTY@gmail.com", contractor_phone: "9018675309", semester: "fall2015", instructor: "Happel", instructor_email: "aahappel@memphis.edu", course: "Righting", year:2014, section: "01b", credit_hours:3 )
+Contract.create(contract_identity: 1247, uuid: "U00053557", contractor_name: "Jesus", email: "JCHRISTY@gmail.com", contractor_phone: "9018675309", semester: "fall2015", instructor: "Happel", instructor_email: "aahappel@memphis.edu", course: "Rithmatic", year:2014, section: "01b", credit_hours:3 )
+
+#contract_identity :integer
+#  email             :string
+#  contractor_name   :string
+#  uuid              :string
+#  contractor_phone  :string
+#  course            :string
+#  section           :string
+#  credit_hours      :integer
+#  semester          :string
+#  year              :integer
+#  instructor        :string
+#  instructor_email  :string
 
