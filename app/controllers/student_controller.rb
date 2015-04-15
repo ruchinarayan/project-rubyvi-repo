@@ -40,7 +40,9 @@ def show
      @pendings = Honor.where(uid: params[:search])
      @student = Student.where(UID: params[:search] ).take
     else
+      if params[:id] != nil
       @student = Student.find(params[:id])
+    end
       @pendings= Honor.all
     end
 

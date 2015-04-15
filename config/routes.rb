@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/messagestudent', to: 'student#message', as: 'message_student'
 
 
-  get '/pendings', to: 'pendings#index', as: 'pendings_list'
+  get '/pendings/u/:id', to: 'pendings#index', as: 'pendings_list'
   get '/pendings/:id', to: 'pendings#show', as: 'pending'
   get 'pendings/:id/edit', to: 'pendings#edit', as: 'edit_pending'
   patch '/pendings/:id', to: 'pendings#update'
@@ -76,7 +76,7 @@ put '/displayStudent/:id', to: 'honors#update'
   #show
   get '/contracts/:id' , to: 'contracts#show', as: 'contract'
 
-  #update
+  #edit/update
   get '/contracts/:id/edit' , to: 'contracts#edit', as: 'edit_contract'
   patch '/contracts/:id', to: 'contracts#update'
   put '/contracts/:id', to: 'contracts#update'

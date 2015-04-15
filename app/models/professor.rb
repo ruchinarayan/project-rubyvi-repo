@@ -10,7 +10,12 @@
 #
 
 class Professor < ActiveRecord::Base
-	validates :profName, presence: true,   length: {maximum: 100 }
-	validates :profEmail, presence: true,   length: {maximum: 100 }
+
+	validates :profName, presence: true
+	validates :profEmail, presence: true
+
+	has_many :honors, class_name: "Honor"
+	has_many :students, through: :honors
+	has_many :courses, through: :honors
 end
 

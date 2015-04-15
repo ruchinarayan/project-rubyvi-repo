@@ -12,14 +12,13 @@
 
 
 
+
 class User < ActiveRecord::Base
-  before_save { self.email = email.downcase }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email,
-            presence: true,
-            length: { maximum: 255 },
-            format: { with: VALID_EMAIL_REGEX },
-            uniqueness: { case_sensitive: false }
+#  before_save { self.email = email.downcase }
+#  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+#  validates :email, presence: true,length: { maximum: 255 },
+           # =>  format: { with: VALID_EMAIL_REGEX },
+#            uniqueness: { case_sensitive: false }
   has_secure_password
   
   # Returns the hash digest of the given string.
@@ -31,7 +30,7 @@ class User < ActiveRecord::Base
   end
   
   validates :email, presence: true,   length: {maximum: 100 }
-  validates :password, presence: true,   length: {minimum: 6 }
+  validates :password_digest, presence: true,   length: {minimum: 6 }
   validates :role, presence: true,   length: {maximum: 10 }
   
 end
