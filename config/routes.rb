@@ -76,7 +76,7 @@ put '/displayStudent/:id', to: 'honors#update'
   #show
   get '/contracts/:id' , to: 'contracts#show', as: 'contract'
 
-  #update
+  #edit/update
   get '/contracts/:id/edit' , to: 'contracts#edit', as: 'edit_contract'
   patch '/contracts/:id', to: 'contracts#update'
   put '/contracts/:id', to: 'contracts#update'
