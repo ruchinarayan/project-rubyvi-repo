@@ -89,3 +89,19 @@ User.create! :email => 'admin@memphis.edu', :password => 'letmein', :password_co
 User.create! :email => 'secretary@memphis.edu', :password => 'letmein', :password_confirmation => 'letmein',:role => 'Secretary'
 User.create! :email => 'director@memphis.edu', :password => 'letmein', :password_confirmation => 'letmein',:role => 'Director'
 
+Contract.create(contract_identity: 1245, uuid: "U00053557", contractor_name: "Jesus", email: "JCHRISTY@gmail.com", contractor_phone: "9018675309", semester: "fall2015", instructor: "Happel", instructor_email: "aahappel@memphis.edu", course: "Reading", year:2014, section: "01b", credit_hours:3 )
+Contract.create(contract_identity: 1246, uuid: "U00053557", contractor_name: "Jesus", email: "JCHRISTY@gmail.com", contractor_phone: "9018675309", semester: "fall2015", instructor: "Happel", instructor_email: "aahappel@memphis.edu", course: "Righting", year:2014, section: "01b", credit_hours:3 )
+Contract.create(contract_identity: 1247, uuid: "U00053557", contractor_name: "Jesus", email: "JCHRISTY@gmail.com", contractor_phone: "9018675309", semester: "fall2015", instructor: "Happel", instructor_email: "aahappel@memphis.edu", course: "Rithmatic", year:2014, section: "01b", credit_hours:3 )
+
+#contract_identity :integer
+#  email             :string
+#  contractor_name   :string
+#  uuid              :string
+#  contractor_phone  :string
+#  course            :string
+#  section           :string
+#  credit_hours      :integer
+#  semester          :string
+#  year              :integer
+#  instructor        :string
+#  instructor_email  :string
