@@ -8,8 +8,10 @@ class HonorsController < ApplicationController
   def new
   	@honor = Honor.new 
     # @student = Student.find(params[:id])
+    if params[:student] != nil
      @student =  Student.find(params[:student])
     @honor.uid = @student.UID
+  end
   end
 
   def create
