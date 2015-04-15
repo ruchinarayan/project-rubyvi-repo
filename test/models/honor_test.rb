@@ -2,18 +2,21 @@
 #
 # Table name: honors
 #
-#  id          :integer          not null, primary key
-#  contract_id :integer
-#  uid         :string
-#  course_id   :string
-#  prof_email  :string
-#  semester    :string
-#  year        :integer
-#  grade       :string
-#  pdf         :binary
-#  dates       :date
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id           :integer          not null, primary key
+#  contract_id  :integer
+#  uid          :string
+#  course_id    :string
+#  prof_email   :string
+#  semester     :string
+#  year         :integer
+#  grade        :string
+#  pdf          :binary
+#  dates        :date
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  student_id   :integer
+#  professor_id :integer
+#  corse_id     :integer
 #
 
 require 'test_helper'
@@ -24,7 +27,7 @@ class HonorTest < ActiveSupport::TestCase
   # end
 def setup
     @honor = Honor.new(contract_id: 12, uid: "U00564017", course_id: "comp7012", prof_email: "user@example.com",
-                     semester: "spring", year: 2015, grade: "A", pdf: "", dates: "10/12/2014")
+                     semester: "spring", year: 2015, grade: "", pdf: "", dates: "10/12/2014")
   end
 
   test "should be valid" do
@@ -61,9 +64,14 @@ def setup
     assert_not @honor.valid?
   end
 
-  test "grade should be present" do
-    @honor.grade = "     "
-    assert_not @honor.valid?
+  test "grade can be blank" do
+          @honor.grade=" "       
+             assert @honor.valid?
+  end
+
+  test "pdf can be blank" do
+          @honor.pdf=" "       
+             assert @honor.valid?
   end
 
   test "dates should be present" do

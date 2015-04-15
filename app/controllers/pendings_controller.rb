@@ -6,7 +6,7 @@ class PendingsController < ApplicationController
 
   	#@pendings= Pending.all
   	def index
-  		@user = User.find(params[:users])
+  		@user = User.find(params[:id])
   		if params[:search] #if value exists
   			@pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Penging model class
     	else
@@ -23,7 +23,6 @@ class PendingsController < ApplicationController
   	@pendingConts = Pending.search params[:search]
   end
   def show
-    @user = User.find(params[:id])
     @pending = Pending.find(params[:id])
   end
   
