@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/courses' , to: 'courses#index', as: 'courses'
   get '/users' , to: 'users#show', as: 'home'
+  get '/users/:id' , to: 'users#show', as: 'homePage'
   
   get '/messagehonor', to: 'honors#message', as: 'message_honors'
   get '/messagecourse', to: 'courses#message', as: 'message_courses'
