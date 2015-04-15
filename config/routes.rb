@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get 'honors/new'
 
   get '/courses' , to: 'courses#index', as: 'courses'
-  get '/adminHome' , to: 'users#adminHome', as: 'adminHome'
+  get '/users' , to: 'users#show', as: 'home'
+  get '/users/:id' , to: 'users#show', as: 'homePage'
   
   get '/messagehonor', to: 'honors#message', as: 'message_honors'
   get '/messagecourse', to: 'courses#message', as: 'message_courses'
@@ -17,10 +18,12 @@ Rails.application.routes.draw do
 
   get '/pendings', to: 'pendings#index', as: 'pendings_list'
   get '/pendings/:id', to: 'pendings#show', as: 'pending'
+  
+
   get 'pendings/:id/edit', to: 'pendings#edit', as: 'edit_pending'
   patch '/pendings/:id', to: 'pendings#update'
 
-  delete '/pendings/:id', to: 'pendings#destroy'
+  delete '/pendings/:id', to: 'pendings#destroy', as: 'pend_delete'
 
   get '/pendings/:id' , to: 'pendings#index', as: 'pending_search_list'
   post '/pendings', to: 'pendings#index'
@@ -28,8 +31,8 @@ Rails.application.routes.draw do
   get '/search/:id' , to: 'users#showSearch', as: 'main_search_list'
   post '/search/:id', to: 'users#showSearch'
 
-  #root 'users#new'
-  root 'sessions#new'
+  root 'users#new'
+  #root 'sessions#new'
 
   get 'signup' => 'users#new'
 
