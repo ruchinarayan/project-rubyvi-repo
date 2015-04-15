@@ -1,0 +1,77 @@
+User Stories at the end of Iteration 1
+
+Priority: 10
+Title:  View Contract Information  (fparkins)
+Description: As a student I want to view the submitted contract information to verify that it is correct. 
+
+Title: Edit Contract Information  (fparkins)
+Description: As a student I want to edit the contract information in order to correct it.
+
+Title: Submit Contract Information  (fparkins)
+Description: As a student, I want to submit the information required for my Honor's Contract to complete the submission process.
+
+Title : View student's course list   (Ruchi)
+Description : As a secretary, I want to list all the students details along with registered courses so that I will be able to view a record, and where I can edit or modify any particular information.
+
+Title : Update Student's course Information   (Ruchi)
+Description : As a secretary, I want to modify student's course information because if the entered details are wrong or changed, it can be modified.
+
+Title: View Pending Contract (Swaroop)
+Description: As an admin, I want to view the pending Honor’s Contracts for reference.
+
+Title: Reject application (swaroop)
+Description: As an admin, I want to reject pending Honor’s Contract of specific student if student doesn't meet requirements.
+Priority: 20
+
+Title: Search certain student (Yehui)
+Description: Admins will be able to search for certain student in the exported data using the name for reference. 
+
+Title: Search Pending details (Iqbal)
+Description: As a user, I want to search the pending contract based on specific semester, name or classification etc.
+
+Title: Modify information of students  (Venkata(vkchkkla))
+Description: Admins can able to modify students information when he or she finds some errors in their information.
+
+Title: Approve contract   (Swaroop)
+Description: As an admin, I want to approve the contract after submitted by student for keeping track.
+
+Title: Choose Honor Type (Ruchi)
+Description: As an admin, I want to categorize by  type (University Honors/ University Honors with thesis) for each Honors' graduate.
+
+Title: Select  Graduation Track (swaroop)
+Description: As an admin, I want to select the user graduation track details for future reference.
+
+Title : Add a new course (Venkata(vkchkkla))
+Description: As an Admin, I want to add a new course to the current list whenever student enrolled for new course.
+
+Title : Add extra Notes (Venkata(vkchkkla))
+Description: As an Admin, I want to add notes/comments on student for future references.
+
+Priority: 30
+Title: Export all students’ information (Yehui)
+Description: Admins will be able to export all students’ information in one time.
+
+Title: Export certain student’s information (Yehui)
+Description: Admins can export certain student information that he or she looks for. 
+
+Priority: 40
+n/a
+
+Priority: 50
+
+Title: Add New Course manually (Venkata(vkchkkla))
+
+Description: As an admin, I want to  add a new course details while manually entering honor details.
+
+Title: List all Honor's contract Pending for approval (Iqbal)
+Description: As an admin, I want to see all the pending contract request application submitted by student for approval and I should have the link to view, approve or reject the contract.
+ 
+
+Title: Summary all Honor's contract exists in Pending and active status (Iqbal)
+Description: As an admin, I want to see all the pending and active contract request in a dashboard immediately after login.
+
+Title: User access control to the Honor's contract system(Iqbal)
+Description: As an admin, I want have a user access system so that I can login to the system with user name and password but other unauthorized user should not be able to login.
+
+Title: List all activity honor contracts(Yehui)
+Description: As an admin, I want to see all  honor contracts from students which admin proved .

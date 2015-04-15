@@ -33,10 +33,10 @@
   <td><strong>Year</strong></td>
   <td><strong>Grade</strong></td>
 </tr>
-  
+
+  <% @honors.each do |honor| %>
   <% @students.each do|student| %>
   <% if student.status!="fail" %>
-   <% @honors.each do |honor| %>
     <% if honor.uid==student.UID %>
   <tr height="20px">
   <td><%= link_to student.UID, student_path(student) %></td>
