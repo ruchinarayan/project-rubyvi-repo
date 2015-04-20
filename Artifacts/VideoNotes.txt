@@ -2,7 +2,7 @@ Time frame in video developed by:
 1:30 to 2:40 --> Franz
 2:45 to 3:40 ->Iqbal 
 3:42 to 4:51 ->swaroop (View, accept and reject pending contracts)
-4:52 to 5:39 -> yuhi (student listing and export excel)
+4:52 to 5:39 -> yehui (student listing and export excel)
 5:40 to 8:52 -> Edit Student Details, Add New Course, Add course(in new honor page), Add new Notes, - >Venkata Krishna
 Edit, display the student details, search, Graduation Checklist  -> Ruchi 
 
