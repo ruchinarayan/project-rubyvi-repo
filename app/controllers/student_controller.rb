@@ -2,6 +2,7 @@ class StudentController < ApplicationController
 
   def index
     @students=Student.all
+    @user = User.find(params[:id])
     @honors= Honor.all
     respond_to do |format|
     format.html
