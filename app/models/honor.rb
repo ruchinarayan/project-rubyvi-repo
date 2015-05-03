@@ -46,6 +46,14 @@ class Honor < ActiveRecord::Base
     keyword = "%"+keyword+"%"
        # @honors= Honor.where('contract_id LIKE ? or uid LIKE ? or firstName LIKE ? or lastName LIKE ? or email LIKE ? or phoneNumber LIKE ? or semester LIKE ? or profName LIKE ? or profEmail LIKE ? or course_id LIKE ? or year LIKE ? or present_date LIKE ?',keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword)
     @honors= Honor.where('course_id LIKE ?' ,keyword)
-
     end
+
+  def self.to_csv(options = {})
+   CSV.generate(options) do |csv|
+    csv << column_names
+    all.each do |honors|
+      csv << honors.attributes.values_at(*column_names)
+    end
+  end
+end
 end

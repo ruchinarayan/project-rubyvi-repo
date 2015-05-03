@@ -24,7 +24,7 @@
            </td>
           </tr> 
          <tr>
-            <td >             
+            <td height="40px" >             
                <%= form_tag search_student_path, method:  'get' do %>
                <%= text_field_tag :search, params[:search] %>
                <%= submit_tag "Search", :name => nil %> 
@@ -72,5 +72,8 @@
 </tr>
   <tr height="80px"><td><%= link_to "Export to Excel", student_List_path(format: "csv")%> </td></tr>
 
+<tr align="center"><td>
+<%= link_to "Home", homePage_path %>
+</td></tr>
 </table>
              

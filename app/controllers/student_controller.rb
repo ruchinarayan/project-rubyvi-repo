@@ -9,15 +9,25 @@ class StudentController < ApplicationController
     format.csv { send_data(@students.to_csv) }
    # format.xls
   end
+end
+
+ def export
+   # @Honors = Honor.find(params[:id])
+    @Honors = Honor.all
+    respond_to do |format|
+    format.html
+    format.csv { send_data(@Honors.to_csv) }
+ end
+end
+
 
  def search
     @student = Student.where(UID: params[:search] )
     @pendings= Honor.where(uid: params[:search])
-    #@student = Student.Keyword_search (params[:search])
-    
+    #@student = Student.Keyword_search (params[:search])  
   end
+ 
 
-  end
   def failStu
   	@failstud = Student.all 
 
