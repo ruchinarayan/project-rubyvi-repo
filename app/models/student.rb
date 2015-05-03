@@ -16,6 +16,13 @@
 
 
 class Student < ActiveRecord::Base
+	validates :UID, presence: true,   length: {maximum: 12 }
+	validates :firstName, presence: true,   length: {maximum: 10 }
+	validates :lastName, presence: true,   length: {maximum: 10 }
+	validates :email, presence: true,   length: {maximum: 20 }
+	validates :phoneNumber, presence: true,   length: {maximum: 10 }
+	validates :status, presence: true,   length: {maximum: 12 }
+
 	def self.to_csv(options = {})
 	 CSV.generate(options) do |csv|
     csv << column_names
