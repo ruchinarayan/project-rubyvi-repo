@@ -10,6 +10,13 @@ class StudentController < ApplicationController
    # format.xls
   end
 
+ def search
+    @student = Student.where(UID: params[:search] )
+    @pendings= Honor.where(uid: params[:search])
+    #@student = Student.Keyword_search (params[:search])
+    
+  end
+
   end
   def failStu
   	@failstud = Student.all 

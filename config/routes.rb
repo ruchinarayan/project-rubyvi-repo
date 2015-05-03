@@ -63,7 +63,8 @@ Rails.application.routes.draw do
  # get  '/student/:id', to: 'users#show'
 
   get '/student/:id' , to: 'student#show', as: 'index_search_list'
-  
+  get '/student/:id' , to: 'student#search', as: 'search_student'
+  post '/student' , to: 'student#search'
 
 get '/displayStudent/:id/edit', to: 'honors#edit', as: "course_edit"
 patch '/displayStudent/:id', to: 'honors#update'

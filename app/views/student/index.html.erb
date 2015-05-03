@@ -23,27 +23,29 @@
               </table>
            </td>
           </tr> 
-           <tr>
-            <td>
-              <table border="0"  width="267" cellpadding="0" cellspacing="3" align="right">
-              <tr>
-              <td valign="middle" width="53%" align="left"><input name="searchterms" size="22" type="text" value="" alt="search terms" id   ="searchterms"></td>
-            <td valign="middle" width="10%" align="left"><input name="image" type="image" value="search" align="middle"></td>
-            </tr>
-           </table>
-         </td>
-        </tr>
+         <tr>
+            <td >             
+               <%= form_tag search_student_path, method:  'get' do %>
+               <%= text_field_tag :search, params[:search] %>
+               <%= submit_tag "Search", :name => nil %> 
+               <!%= link_to_function "Clear", "$('search_field').clear()" %>
+               <% end %>
+            </td>
+
+         </tr>
 <tr>
   <td >
 <table width="100%" border="1" cellpadding="1" cellspacing="1">
 <tr height="20px">
-  <td><strong>UID</strong></td>
-  <td><strong>Student Name</strong></td>
-  <td><strong>Contract Id</strong></td>
-  <td><strong>Honor Course</strong></td>
-  <td><strong>Professor Email</strong></td>
+  <td><strong>UUID</strong></td>
+  <td><strong>Contract id</strong></td>
+  <td><strong>Name</strong></td>
+  <td><strong>Email</strong></td>
+  <td><strong>Phone Number</strong></td>
+  <td><strong>Course Id</strong></td>
+  <td><strong>Semester</strong></td>
   <td><strong>Year</strong></td>
-  <td><strong>Grade</strong></td>
+  <td><strong>Professor Email</strong></td>
 </tr>
   
   <% @students.each do|student| %>
@@ -52,12 +54,14 @@
     <% if honor.uid==student.UID %>
   <tr height="20px">
   <td><%= link_to student.UID, student_path(student) %></td>
+   <td><%= honor.contract_id%></td>
   <td><%=(student.firstName+" "+student.lastName)%></td>
-  <td><%= honor.contract_id%></td>
+  <td><%= student.email %> </td>
+  <td><%= student.phoneNumber%></td>
   <td><%= honor.course_id%></td>
-  <td><%= honor.prof_email%></td>
+  <td><%= honor.semester%></td>
   <td><%= honor.year%></td>
-  <td><%= honor.grade%></td>
+  <td><%= honor.prof_email%></td>
  </tr>
   <%end%>
   <%end%>
