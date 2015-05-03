@@ -23,7 +23,11 @@
     </table>
   </td>
 </table>
+  </td>
 </tr>
+<tr>
+  <td >
+<table width="100%" border="1" cellpadding="1" cellspacing="1">
 <tr height="20px">
   <td><strong>UID</strong></td>
   <td><strong>Student Name</strong></td>
@@ -33,10 +37,10 @@
   <td><strong>Year</strong></td>
   <td><strong>Grade</strong></td>
 </tr>
-
-  <% @honors.each do |honor| %>
+  
   <% @students.each do|student| %>
   <% if student.status!="fail" %>
+   <% @honors.each do |honor| %>
     <% if honor.uid==student.UID %>
   <tr height="20px">
   <td><%= link_to student.UID, student_path(student) %></td>
@@ -51,7 +55,9 @@
   <%end%>
   <%end%>
   <%end%>
-
+  </table>
+</td>
+</tr>
   <tr height="80px"><td><%= link_to "Export to Excel", student_List_path(format: "csv")%> </td></tr>
 
 </table>
