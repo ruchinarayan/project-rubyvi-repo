@@ -66,6 +66,11 @@
 		<div id="d1" hidden="true"><input type="checkbox" id="s1c3">Honors Experience-Senior Year</div>
 		<div id="d2"><input type="checkbox" id="s2c3">Honors Thesis-Senior Year</div>
 		<div><input type="checkbox" id="c4">GPA: 3.25</div>
+		<div align="center">
+           <button type="submit" class="form-submit-button">
+              Save
+            </button>
+		</div>
 	</td>
 </tr>
 <tr>
@@ -132,6 +137,7 @@
 	<td align="center"><%= f.prof_email %></td>
 	<td>
      [<%= link_to "Edit", course_edit_path(f), :method => :get %>]
+     [<%= link_to "Show" %>]
      </td>
 </tr>
 <% end %>
