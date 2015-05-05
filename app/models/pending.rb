@@ -19,23 +19,24 @@
 #  updated_at   :datetime         not null
 #  grade        :string
 #  pdf          :binary
+#  creditHours  :integer
 #
 
 class Pending < ActiveRecord::Base
 	 
-	validates :contract_id, presence: true,   length: {maximum: 100 }
-	validates :contract_id, presence: true,   length: {maximum: 100 }#should be unique constrained
-	validates :uid, presence: true,   length: {maximum: 100 }
-	validates :firstName, presence: true,   length: {maximum: 100 }
-	validates :lastName, presence: true,   length: {maximum: 100 }
-	validates :email, presence: true,   length: {maximum: 100 }
-	validates :phoneNumber, presence: true,   length: {maximum: 100 }
-	validates :semester, presence: true,   length: {maximum: 100 }
-	validates :profName, presence: true,   length: {maximum: 100 }
-	validates :profEmail, presence: true, length: {maximum: 100 } 
-	validates :course_id, presence: true,   length: {maximum: 100 }
-	validates :year, presence: true, length: {maximum: 100 }
-	validates :present_date, presence: true,   length: {maximum: 100 }
+	# validates :contract_id, presence: true,   length: {maximum: 100 }
+	# validates :contract_id, presence: true,   length: {maximum: 100 }#should be unique constrained
+	 validates :uid, presence: true,   length: {maximum: 100 }
+	 validates :firstName, presence: true,   length: {maximum: 100 }
+	 validates :lastName, presence: true,   length: {maximum: 100 }
+	 validates :email, presence: true,   length: {maximum: 100 }
+	 validates :phoneNumber, presence: true,   length: {maximum: 100 }
+	 validates :semester, presence: true,   length: {maximum: 100 }
+	 validates :profName, presence: true,   length: {maximum: 100 }
+	 validates :profEmail, presence: true, length: {maximum: 100 } 
+	# validates :course_id, presence: true,   length: {maximum: 100 }
+	 validates :year, presence: true, length: {maximum: 100 }
+	# validates :present_date, presence: true,   length: {maximum: 100 }
 	 
 	
 	def self.Keyword_search(keyword)

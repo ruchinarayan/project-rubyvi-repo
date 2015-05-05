@@ -70,11 +70,29 @@ class PendingsController < ApplicationController
     #redirect_to(root_url) unless current_user?(@user)
   end
 
+  #contract form to populate pending
   def new
     @pending = Pending.new
   end
 
+  # def create
+  #   @pending = Pending.new
+  # end
+
+  #used to post to the pending table
   def create
-  end
+
+      @pending = Pending.new(params.require(:pending).permit(:uid, :firstName, :lastName, :email, :phoneNumber, :semester, :profName, :profEmail, :course_id, :year, :present_date, :contract_id, :creditHours))
+      @pending.present_date = Date.current
+      #@pending.contract_id = 
+      if  @pending.save
+        redirect_to root_url
+        flash[:danger] = "Thank you.  Your Contract is being Processed."
+      else
+        redirect_to new_pending_url   #reverse these once index is up
+        flash[:danger] = "We are experiencing technical dificulties. Please try again"
+      end 
+  end 
+
 
 end

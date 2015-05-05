@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  #For the Contract form that populates pending table
+  get '/pendings/new', to: 'pendings#new', as: 'new_pending'
+  post '/pendings', to: 'pendings#create'
+  #For the Contract form that populates pending table
+
   get 'student/studentList'
   get 'honors/index'
 
@@ -85,8 +90,6 @@ put '/displayStudent/:id', to: 'honors#update'
   put '/contracts/:id', to: 'contracts#update'
 
 
-  get '/pendings/new', to: 'pendings#new', as: 'new_pending'
-  post '/pendings', to: 'pendings#create'
   #Possibly a post to pending here
 
   # The priority is based upon order of creation: first created -> highest priority.

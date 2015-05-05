@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414194315) do
+ActiveRecord::Schema.define(version: 20150502013322) do
 
   create_table "contracts", force: :cascade do |t|
     t.integer  "contract_identity"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20150414194315) do
     t.datetime "updated_at",   null: false
     t.string   "grade"
     t.binary   "pdf"
+    t.integer  "creditHours"
   end
 
   create_table "professors", force: :cascade do |t|
