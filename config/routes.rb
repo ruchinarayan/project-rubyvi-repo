@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users
-
+  resources :professors
   resources :honors
   resources :student
   resources :courses
@@ -152,4 +152,4 @@ put '/displayStudent/:id', to: 'honors#update'
   #     resources :products
   #   end
 end
-
+ 

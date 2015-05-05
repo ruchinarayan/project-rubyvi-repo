@@ -15,6 +15,7 @@
 #
 
 
+
 class Student < ActiveRecord::Base
 	validates :UID, presence: true,   length: {maximum: 12 }
 	validates :firstName, presence: true,   length: {maximum: 10 }
@@ -45,5 +46,4 @@ end
 
     end
 end
-
-
+ 
