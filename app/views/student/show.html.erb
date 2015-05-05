@@ -1,4 +1,5 @@
-<% provide(:title, "Display-Student") %>
+<% provide(:title, "view student")%>
+
 <!DOCTYPE html>
 <head>
 <%= stylesheet_link_tag "students.scss" %>
@@ -22,8 +23,8 @@
                         <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
                      </td>
                      <td class="search">
-                     <p><b>Logged in as: Role: </p>
-                     <p><%= link_to "Log out", logout_path, method: "delete" %></p>
+                     <p><b>Logged in as: </b><i><%= @user.email %>  </i><b>Role: </b> <i><%= @user.role %>  </i></p>
+                     <p><%= link_to "Home", homePage_url(1) %>  &nbsp;<%= link_to "Log out", logout_path, method: "delete" %></p>
                      </td>
                   </tr>
                </tbody></table>
@@ -33,7 +34,7 @@
 
 <table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
 	<tr>
-      <td>Enter UID of Student to search student details with registered courses: </td>
+      <td><b>Enter UID of Student to search student details with registered courses: </b></td>
 	</tr>
 </table>
 <table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
@@ -46,10 +47,13 @@
     </td>
 	</tr>
 </table>
+<br/>
 <div>
 <table border="2" cellpadding="1" cellspacing="1" width="15%" align="right" >
 <tr>
+
 <th bgcolor="lightblue">Graduation Checklist</th>
+ 
 </tr>
 <tr>
 <td align="center">
@@ -74,7 +78,9 @@
 	</td>
 </tr>
 <tr>
+
 <th align="center" bgcolor="lightblue">Notes</th>
+
 </tr>
 <tr>
 <td align="center">
@@ -91,12 +97,14 @@
 <table border="2" cellpadding="1" cellspacing="1" width="50%" align="center" >
 
 <tr>
+
 <th bgcolor="lightblue">First Name</th>
 <th bgcolor="lightblue">Last Name</th>
 <th bgcolor="lightblue">UID</th>
 <th bgcolor="lightblue">Start Date</th>
 <th bgcolor="lightblue">End Date</th>
 <th bgcolor="lightblue">Edit</th>
+
 </tr>
 
 <tr>
@@ -157,7 +165,8 @@
 </table>
 <table align="center">
 <tr><td>
-<%= link_to "Home", pendings_list_path %>
+
+
 </td></tr>
 
 </table>

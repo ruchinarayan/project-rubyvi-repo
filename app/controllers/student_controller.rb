@@ -1,5 +1,11 @@
 class StudentController < ApplicationController
 
+
+
+@user
+before_action :logged_in_user, only: [:show, :edit, :update, :index,:new ]
+before_action :correct_user,   only: [:show, :edit, :update,:index, :new]
+
   def index
     @students=Student.all
     @user = User.find(params[:id])
@@ -46,6 +52,7 @@ def new
 
   end
 def edit
+  @user = User.find(params[:id])
 @student = Student.find(params[:id])
 end
 
@@ -54,6 +61,7 @@ end
 #end
 
 def show
+  @user = User.find(params[:id])
       if params[:search]    
      @pendings = Honor.where(uid: params[:search])
      @student = Student.where(UID: params[:search] ).take
@@ -67,6 +75,7 @@ def show
 end
 
 def notes
+  @user = User.find(params[:id])
   @student = Student.find(params[:id])
   end 
  
@@ -79,5 +88,19 @@ if @student.update(params.require(:student).permit(:UID, :firstName, :lastName, 
   end
 end
 
+# Confirms a logged-in user.
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url(@user)
+    end
+  end
+
+
+  # Confirms the correct user.
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
 
 end
