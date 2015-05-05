@@ -83,9 +83,12 @@ def notes
 def update
 @student = Student.find(params[:id])
 if @student.update(params.require(:student).permit(:UID, :firstName, :lastName, :email, :phoneNumber, :status, :notes))
+  flash[:danger] = "successfully stored"
   redirect_to session[:search_results]
+
     else
-      redirect_to message_student_path
+      flash[:danger] = "Some error with input data. Try again!!"
+      redirect_to session[:search_results]
   end
 end
 
