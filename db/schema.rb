@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20150504211113) do
 
   create_table "checklists", force: :cascade do |t|
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 20150504211113) do
     t.datetime "updated_at",   null: false
     t.string   "grade"
     t.binary   "pdf"
+    t.integer  "creditHours"
   end
 
   create_table "professors", force: :cascade do |t|

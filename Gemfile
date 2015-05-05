@@ -46,3 +46,4 @@ end
 
 # SDF: For the annotate command that adds comments to the model classes.
 gem 'annotate', '2.6.5'
+gem 'wicked_pdf'
