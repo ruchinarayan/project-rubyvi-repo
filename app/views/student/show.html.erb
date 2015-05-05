@@ -116,8 +116,6 @@
 <th bgcolor="lightblue">First Name</th>
 <th bgcolor="lightblue">Last Name</th>
 <th bgcolor="lightblue">UID</th>
-<th bgcolor="lightblue">Start Date</th>
-<th bgcolor="lightblue">End Date</th>
 <th bgcolor="lightblue">Edit</th>
 
 </tr>
@@ -126,9 +124,7 @@
 	<% if @student != nil then %>
 	<td align="center"><%= @student.firstName %></td>
 	<td align="center"><%= @student.lastName %></td>
-	<td align="center"><%= @student.UID %></td>
-	<td align="center">NA</td>
-    <td align="center">NA</td>
+	<td align="center"><%= @student.UID %></td> 
     <td align="center"><%= link_to "Edit Student Details", edit_student_path(@student) %></td>
     <% end %>
 </tr>
