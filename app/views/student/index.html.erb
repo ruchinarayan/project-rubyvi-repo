@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-  </head>
+<% provide(:title, 'Acitve Contracts') %>
+</head>
    <body>
       <table class="bigtable" align="center" border="0" cellpadding="0" cellspacing="0" >
         <tr>
@@ -17,12 +18,14 @@
                      </td>
                       <td class="name">
                      <p><b>Logged in as: </b><i><%= @user.email %>  </i><b>Role: </b> <i><%= @user.role %>  </i></p>
-                     <p><%= link_to "Log out", logout_path, method: "delete" %></p>
+                     <p><%= link_to "Home", homePage_path %>&nbsp;&nbsp;&nbsp;<%= link_to "Log out", logout_path, method: "delete" %></p>
+
                      </td>
                 </tr>
               </table>
            </td>
           </tr> 
+          <tr><td>Enter UID of Student to search specific student</td></tr>
          <tr>
             <td height="40px" >             
                <%= form_tag search_student_path, method:  'get' do %>
@@ -37,15 +40,15 @@
   <td >
 <table width="100%" border="1" cellpadding="1" cellspacing="1">
 <tr height="20px">
-  <td><strong>UUID</strong></td>
-  <td><strong>Contract id</strong></td>
-  <td><strong>Name</strong></td>
-  <td><strong>Email</strong></td>
-  <td><strong>Phone Number</strong></td>
-  <td><strong>Course Id</strong></td>
-  <td><strong>Semester</strong></td>
-  <td><strong>Year</strong></td>
-  <td><strong>Professor Email</strong></td>
+  <td bgcolor=""><strong>UUID</strong></td>
+  <td bgcolor=""><strong>Contract id</strong></td>
+  <td bgcolor=""><strong>Name</strong></td>
+  <td bgcolor=""><strong>Email</strong></td>
+  <td bgcolor=""><strong>Phone Number</strong></td>
+  <td bgcolor=""><strong>Course Id</strong></td>
+  <td bgcolor=""><strong>Semester</strong></td>
+  <td bgcolor=""><strong>Year</strong></td>
+  <td bgcolor=""><strong>Professor Email</strong></td>
 </tr>
   
   <% @students.each do|student| %>
@@ -72,8 +75,7 @@
 </tr>
   <tr height="80px"><td><%= link_to "Export to Excel", student_List_path(format: "csv")%> </td></tr>
 
-<tr align="center"><td>
-<%= link_to "Home", homePage_path %>
-</td></tr>
+<!--<tr align="center"><td>
+</td></tr>-->
 </table>
              
