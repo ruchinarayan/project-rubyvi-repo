@@ -108,11 +108,12 @@ end
 #    def submitChecklist
 #            @saveGradChk = Checklist.new(params.require(:saveGradChk).permit(:uid, :unhp, :honexpju, :honexpse, :honthese, :gpa))
 #           if @saveGradChk.save
-#              redirect_to index_search_list_path
+#              requiredirect_to index_search_list_path
 #           else
 #              redirect_to index_search_list_path
 #          end
 #  end
+
 
 
 end
