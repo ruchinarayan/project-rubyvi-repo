@@ -37,7 +37,8 @@
                         <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
                      </td>
                      <td class="search">
-                        <p><b>Logged in as: </b><i><%= admin@memphis.edu %>  </i><b>Role: </b> <i><%= Admin %>  </i></p>
+                        <p><b>Logged in as: </b><i><%= @current_user.email %>  </i><b>Role: </b> 
+    <i><%= @current_user.role %></i></p>
                         <p><%= link_to "Home", homePage_url(1) %>  &nbsp;<%= link_to "Log out", logout_path, method: "delete" %></p>
                      </td>
                   </tr>

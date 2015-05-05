@@ -8,6 +8,7 @@ before_action :correct_user,   only: [:show, :index]
   	@professors=Professor.all
   end
   def new
+    @current_user ||= User.find_by(id: session[:user_id])
   	@professor = Professor.new 
   end
 def create
@@ -30,9 +31,10 @@ def create
   end
 
   # Confirms the correct user.
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
+ 
+ def correct_user
+    #@user = User.find(params[:id])
+    @current_user ||= User.find_by(id: session[:user_id])
+    redirect_to(root_url) unless current_user?(@current_user)
   end
-
 end

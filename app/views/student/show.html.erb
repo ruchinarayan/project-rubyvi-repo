@@ -24,7 +24,8 @@
                      </td>
                      <td class="search">
  
-                     <p><b>Logged in as: </b><i><%= @user.email %>  </i><b>Role: </b> <i><%= @user.role %>  </i></p>
+                     <p><b>Logged in as: </b><i><%= @current_user.email %>  </i><b>Role: </b> 
+    <i><%= @current_user.role %></i></p>
                      <p><%= link_to "Home", homePage_url(1) %>  &nbsp;<%= link_to "Log out", logout_path, method: "delete" %></p>
  
                      </td>
@@ -168,11 +169,12 @@
 <tr>
 	<td>
 	 <% if @student != nil then %>
-	 <%= link_to "Add New Course", new_honor_path(:student => @student.id) , :class => "button", :method => :get %>
+	 <%= link_to "Add New Course", new_honor_path(:student => @student.id) , :class => "button", :method => :get %> &nbsp;&nbsp;&nbsp;<%= link_to "Export to Excel", honor_export_path(format: "csv")%> 
 	 <% end %>
 	</td>
+
 </tr>
-<tr height="20px" align="right"><td><%= link_to "Export to Excel", honor_export_path(format: "csv")%> </td></tr>
+<tr height="20px" align="right"><td> </td></tr>
 </table>
 <table align="center">
 <tr><td>

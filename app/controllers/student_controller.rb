@@ -4,6 +4,8 @@ before_action :logged_in_user, only: [:show, :edit, :update, :index,:new ]
 before_action :correct_user,   only: [:show, :edit, :update,:index, :new]
 
   def index
+
+    @current_user ||= User.find_by(id: session[:user_id])
     @students=Student.all
     @user = User.find(params[:id])
     @honors= Honor.all
@@ -49,7 +51,7 @@ def new
 
   end
 def edit
-   @user = User.find(params[:id])
+  @current_user ||= User.find_by(id: session[:user_id])
 @student = Student.find(params[:id])
 end
 
@@ -58,7 +60,7 @@ end
 #end
 
 def show
-    @user = User.find(params[:id])
+   @current_user ||= User.find_by(id: session[:user_id])
       if params[:search]    
      @pendings = Honor.where(uid: params[:search])
      @student = Student.where(UID: params[:search] ).take
@@ -74,7 +76,7 @@ def show
 end
 
 def notes
-  @user = User.find(params[:id])
+  @current_user ||= User.find_by(id: session[:user_id])
   @student = Student.find(params[:id])
   end 
  
@@ -129,11 +131,12 @@ end
 
 
   # Confirms the correct user.
+  # Confirms the correct user.
   def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
+    #@user = User.find(params[:id])
+    @current_user ||= User.find_by(id: session[:user_id])
+    redirect_to(root_url) unless current_user?(@current_user)
   end
-
 
 end
  
