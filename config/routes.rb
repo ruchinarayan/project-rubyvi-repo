@@ -91,6 +91,10 @@ put '/displayStudent/:id', to: 'honors#update'
 
   get '/pendings/new', to: 'pendings#new', as: 'new_pending'
   post '/pendings', to: 'pendings#create'
+
+
+  get '/student/:id', to: 'student#saveChecklist', as: 'checklist'
+  post '/student/:id', to: 'student#submitChecklist', as: 'edit_checklist'
   #Possibly a post to pending here
 
   # The priority is based upon order of creation: first created -> highest priority.
