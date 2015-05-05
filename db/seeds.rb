@@ -127,6 +127,9 @@ Contract.create(contract_identity: 1245, uuid: "U00053557", contractor_name: "Je
 Contract.create(contract_identity: 1246, uuid: "U00053557", contractor_name: "Jesus", email: "JCHRISTY@gmail.com", contractor_phone: "9018675309", semester: "fall2015", instructor: "Happel", instructor_email: "aahappel@memphis.edu", course: "Righting", year:2014, section: "01b", credit_hours:3 )
 Contract.create(contract_identity: 1247, uuid: "U00053557", contractor_name: "Jesus", email: "JCHRISTY@gmail.com", contractor_phone: "9018675309", semester: "fall2015", instructor: "Happel", instructor_email: "aahappel@memphis.edu", course: "Rithmatic", year:2014, section: "01b", credit_hours:3 )
 
+
+Checklist.create(uid: 'U00053557', unhp:'t' , honexpju: 'f', honexpse: 'f', honthese: 'f', gpa:'f')
+Checklist.create(uid: 'U00564017', unhp: 't' , honexpju: 't', honexpse: 't', honthese:'f', gpa: 'f')
 #contract_identity :integer
 #  email             :string
 #  contractor_name   :string

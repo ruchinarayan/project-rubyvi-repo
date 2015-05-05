@@ -4,6 +4,8 @@ before_action :logged_in_user, only: [:show, :edit, :update, :index,:new ]
 before_action :correct_user,   only: [:show, :edit, :update,:index, :new]
 
   def index
+
+    @current_user ||= User.find_by(id: session[:user_id])
     @students=Student.all
     @user = User.find(params[:id])
     @honors= Honor.all
@@ -49,7 +51,7 @@ def new
 
   end
 def edit
-   @user = User.find(params[:id])
+  @current_user ||= User.find_by(id: session[:user_id])
 @student = Student.find(params[:id])
 end
 
@@ -58,7 +60,7 @@ end
 #end
 
 def show
-    @user = User.find(params[:id])
+   @current_user ||= User.find_by(id: session[:user_id])
       if params[:search]    
      @pendings = Honor.where(uid: params[:search])
      @student = Student.where(UID: params[:search] ).take
@@ -74,16 +76,19 @@ def show
 end
 
 def notes
-  @user = User.find(params[:id])
+  @current_user ||= User.find_by(id: session[:user_id])
   @student = Student.find(params[:id])
   end 
  
 def update
 @student = Student.find(params[:id])
 if @student.update(params.require(:student).permit(:UID, :firstName, :lastName, :email, :phoneNumber, :status, :notes))
+  flash[:danger] = "successfully stored"
   redirect_to session[:search_results]
+
     else
-      redirect_to message_student_path
+      flash[:danger] = "Some error with input data. Try again!!"
+      redirect_to session[:search_results]
   end
 end
 
@@ -114,7 +119,7 @@ end
 #    def submitChecklist
 #            @saveGradChk = Checklist.new(params.require(:saveGradChk).permit(:uid, :unhp, :honexpju, :honexpse, :honthese, :gpa))
 #           if @saveGradChk.save
-#              redirect_to index_search_list_path
+#              requiredirect_to index_search_list_path
 #           else
 #              redirect_to index_search_list_path
 #          end
@@ -128,6 +133,7 @@ end
   end
 
 
+  # Confirms the correct user.
   # Confirms the correct user.
   def correct_user
     @user = User.find(params[:id])

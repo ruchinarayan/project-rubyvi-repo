@@ -12,6 +12,7 @@ before_action :correct_user,   only: [ :edit, :update,:index_search_list_url]
   
   def new
      #@user = User.find(params[:id])
+     @current_user ||= User.find_by(id: session[:user_id])
   	@honor = Honor.new  
     if params[:student] != nil
      @student =  Student.find(params[:student])
@@ -36,6 +37,7 @@ before_action :correct_user,   only: [ :edit, :update,:index_search_list_url]
   end
 
    def edit
+    @current_user ||= User.find_by(id: session[:user_id])
      @honor = Honor.find(params[:id])
   end
 
@@ -58,13 +60,12 @@ before_action :correct_user,   only: [ :edit, :update,:index_search_list_url]
   end
 
 
+ 
   # Confirms the correct user.
   def correct_user
-     if params[:id] != nil
-    @user = User.find(params[:id])
-   end
-    redirect_to(root_url) unless current_user?(@user)
+    #@user = User.find(params[:id])
+    @current_user ||= User.find_by(id: session[:user_id])
+    redirect_to(root_url) unless current_user?(@current_user)
   end
-
   
 end
