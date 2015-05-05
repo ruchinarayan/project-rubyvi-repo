@@ -1,15 +1,16 @@
-<h1>Create New Contract form to Print as PDF</h1>
+
+<img src="/images/HHHPUM.jpg"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <img src="/images/HHHPaddress.jpg",style="float:right">
 
 <%= form_for(@pending) do |f|%>
 	<p>
 	
-	<%=f.label :contract_id, "Contract ID:" %> <%= 6543 %>
+	<%=f.label :contract_id, "Contract ID:" %> <%=f.text_field :contract_id%>
 	</p>
 	<p>
 		<%=f.label :course_id, "Course & Section:" %><%=f.text_field :course_id, :size => "8", :placeholder => "EECE 7012", :width => 1 %> <%=f.label :creditHours, "Credit Hours:" %><%=f.text_field :creditHours, :size => "1",:placeholder => "3" %> <%=f.label :year, "Semester/Year:" %><%=f.text_field :semester, :size => "4",:placeholder => "semester" %><%=f.text_field :year, :size => "4",:placeholder => "year" %>
 	</p>
 	<p>
-		<%=f.label :firstName, "Student:" %><%=f.text_field :firstName, :placeholder => "First name" %><%=f.text_field :lastName, :placeholder => "Last name" %><%=f.label :uid, "UUID:" %><%=f.text_field :uid, :size => "8" %>
+		<%=f.label :firstName, "Student:" %><%=f.text_field :firstName, :placeholder => "First name" %><%=f.text_field :lastName, :placeholder => "Last name" %><%=f.label :uid, "UUID:" %><%=f.text_field :uid, :size => "10" %>
 	</p>
 	
 	<p>
@@ -20,16 +21,35 @@
 		<%=f.label :profName, "Instructor:" %><%=f.text_field :profName, :placeholder => "Professor's name"  %><%=f.label :profEmail, "Instructor's Email:" %><%=f.text_field :profEmail, :placeholder => "iprofessor@memphis.edu" %>
 	</p>
 	
-	<table border="0" style="width:40%">
+	<table border="0" style="width:85%">
 	<td>
 		<p>
 	1. What is the rationale for taking this course on a contract basis?
 	</p>
 
+	<p>
+		&nbsp &nbsp &nbsp &nbsp
+	</p>
+	<p>
+		&nbsp &nbsp &nbsp &nbsp
+	</p>
+
+
+
 
 
 	<p>
-	2. Describe the Honors component of the course, discussing both the nature of the project and the way in which this project constitutes “Honors.”  Be as specific as possible in describing what it is you will do, including references to specific readings and/or methodologies where appropriate.  You may attach additional materials, such as a bibliography, outline, etc. to lend additional detail.  
+	2. Describe the Honors component of the course, discussing both the nature of the<br> project and the way in which this project constitutes “Honors.”  Be as specific as<br> possible in describing what it is you will do, including references to specific <br>readings and/or methodologies where appropriate.  You may attach additional <br>materials, such as a bibliography, outline, etc. to lend additional detail.  
+	</p>
+
+	<p>
+		&nbsp &nbsp &nbsp &nbsp
+	</p>
+	<p>
+		&nbsp &nbsp &nbsp &nbsp
+	</p>
+	<p>
+		&nbsp &nbsp &nbsp &nbsp
 	</p>
 
 
@@ -40,10 +60,23 @@
 
 
 
+
 	<p>
-		3. How does the Honors component differ from normal course expectations?  Will the Honors component substitute for a regular course requirement? 
+		3. How does the Honors component differ from normal course expectations?  Will the <br>Honors component substitute for a regular course requirement? 
 
 	</p>
+
+	<p>
+		&nbsp &nbsp &nbsp &nbsp
+	</p>
+	<p>
+		&nbsp &nbsp &nbsp &nbsp
+	</p>
+	<p>
+		&nbsp &nbsp &nbsp &nbsp
+	</p>
+
+
 	</td>
 	</table>
 
