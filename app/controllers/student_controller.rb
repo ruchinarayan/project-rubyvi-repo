@@ -136,9 +136,9 @@ end
   # Confirms the correct user.
   # Confirms the correct user.
   def correct_user
-    #@user = User.find(params[:id])
-    @current_user ||= User.find_by(id: session[:user_id])
-    redirect_to(root_url) unless current_user?(@current_user)
+    @user = User.find(params[:id])
+    #@current_user ||= User.find_by(id: session[:user_id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 
 end
