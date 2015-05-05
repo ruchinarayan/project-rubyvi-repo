@@ -10,9 +10,9 @@ class UsersController < ApplicationController
 
   def showSearch
     @user = User.find(params[:id])
-    @pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Penging model class
+    @pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Pending model class
     @honors = Honor.Keyword_search (params[:search])
-    
+    @students=Student.Keyword_search (params[:search])
   end
 
 

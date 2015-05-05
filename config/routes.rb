@@ -25,8 +25,8 @@ Rails.application.routes.draw do
 
   delete '/pendings/:id', to: 'pendings#destroy', as: 'pend_delete'
 
-  get '/pendings/:id' , to: 'pendings#index', as: 'pending_search_list'
-  post '/pendings', to: 'pendings#index'
+  get '/pendings/index' , to: 'pendings#index', as: 'pending_search_list'
+  post '/pendings/searchList', to: 'pendings#index'
  
   get '/search/:id' , to: 'users#showSearch', as: 'main_search_list'
   post '/search/:id', to: 'users#showSearch'

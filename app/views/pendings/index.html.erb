@@ -21,11 +21,25 @@
                      <td class="motto">
                         <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
                      </td>
+                     <td class="search">
+                     <p><b>Logged in as: </b><i><%= @current_user.email %>  </i><b>Role: </b> 
+                        <i><%= @current_user.role %></i></p>
+                     <p><%= link_to "Log out", logout_path, method: "delete" %></p>
+                     </td>
 
                      
                      </tr>
                     </tbody>
                </table>
+            </td>
+         </tr>
+         <tr>
+            <td > <p> Search for pending contracts with UID or Contract id:                
+               <%= form_tag pending_search_list_path, method: 'get' do %>
+               <%= text_field_tag :search, params[:search] %>
+               <%= submit_tag "Search", :name => nil %> 
+               <!%= link_to_function "Clear", "$('search_field').clear()" %>
+               <% end %> </p>
             </td>
          </tr>
          <tr><td>
@@ -41,15 +55,15 @@
                <table border="2" cellpadding="1" cellspacing="1" width="100%" summary="Honors Contract Dashboard"align="center" >
                   <tbody>
                      <tr>
-                        <th bgcolor="cyan"> Contract id</th>
-                        <th bgcolor="cyan"> UUID</th>
-                        <th bgcolor="cyan"> Name</th>
-                        <th bgcolor="cyan"> Email</th>
-                        <th bgcolor="cyan"> Phone Number</th>
-                        <th bgcolor="cyan"> Course Id</th>
-                        <th bgcolor="cyan"> Semester</th>
-                        <th bgcolor="cyan"> Year</th>
-                        <th bgcolor="cyan"> Professor Name</th>
+                        <th bgcolor="lightgreen"> Contract id</th>
+                        <th bgcolor="lightgreen"> UUID</th>
+                        <th bgcolor="lightgreen"> Name</th>
+                        <th bgcolor="lightgreen"> Email</th>
+                        <th bgcolor="lightgreen"> Phone Number</th>
+                        <th bgcolor="lightgreen"> Course Id</th>
+                        <th bgcolor="lightgreen"> Semester</th>
+                        <th bgcolor="lightgreen"> Year</th>
+                        <th bgcolor="lightgreen"> Professor Name</th>
                         <th bgcolor="Orange"> Action</th>
                         
                      </tr>

@@ -1,15 +1,14 @@
 class PendingsController < ApplicationController
 
-@user
-  before_action :logged_in_user, only: [:show]
-  before_action :correct_user,   only: [:show]
+  before_action :logged_in_user, only: [:show, :index,:search, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:show, :index,:search, :edit, :update, :destroy]
 
   	#@pendings= Pending.all
   	def index
   		if params[:users] != nil
   		@user = User.find(params[:users])
   	    end
-
+      @current_user ||= User.find_by(id: session[:user_id])
   		if params[:search] #if value exists
   			@pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Penging model class
     	else
@@ -67,7 +66,8 @@ class PendingsController < ApplicationController
   # Confirms the correct user.
   def correct_user
     #@user = User.find(params[:id])
-    #redirect_to(root_url) unless current_user?(@user)
+    @current_user ||= User.find_by(id: session[:user_id])
+    redirect_to(root_url) unless current_user?(@current_user)
   end
 
   def new

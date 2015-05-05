@@ -44,8 +44,8 @@ class Honor < ActiveRecord::Base
 
   def self.Keyword_search(keyword)
     keyword = "%"+keyword+"%"
-       # @honors= Honor.where('contract_id LIKE ? or uid LIKE ? or firstName LIKE ? or lastName LIKE ? or email LIKE ? or phoneNumber LIKE ? or semester LIKE ? or profName LIKE ? or profEmail LIKE ? or course_id LIKE ? or year LIKE ? or present_date LIKE ?',keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword)
-    @honors= Honor.where('course_id LIKE ?' ,keyword)
+      @honors= Honor.where('contract_id LIKE ? or uid LIKE ? or course_id LIKE ? or prof_email LIKE ? or semester LIKE ? or year LIKE ?', keyword,keyword,keyword,keyword,keyword,keyword)
+    #@honors= Honor.where('uid LIKE ?' ,keyword)
 
     end
 end
