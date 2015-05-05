@@ -2,23 +2,27 @@
 #
 # Table name: pendings
 #
-#  id           :integer          not null, primary key
-#  contract_id  :integer
-#  uid          :string
-#  firstName    :string
-#  lastName     :string
-#  email        :string
-#  phoneNumber  :string
-#  semester     :string
-#  profName     :string
-#  profEmail    :string
-#  course_id    :string
-#  year         :integer
-#  present_date :string
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  grade        :string
-#  pdf          :binary
+#  id                  :integer          not null, primary key
+#  contract_id         :integer
+#  uid                 :string
+#  firstName           :string
+#  lastName            :string
+#  email               :string
+#  phoneNumber         :string
+#  semester            :string
+#  profName            :string
+#  profEmail           :string
+#  course_id           :string
+#  year                :integer
+#  present_date        :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  grade               :string
+#  pdf                 :binary
+#  attach_file_name    :string
+#  attach_content_type :string
+#  attach_file_size    :integer
+#  	   :datetime
 #
 
 class Pending < ActiveRecord::Base
@@ -36,7 +40,8 @@ class Pending < ActiveRecord::Base
 	validates :course_id, presence: true,   length: {maximum: 100 }
 	validates :year, presence: true, length: {maximum: 100 }
 	validates :present_date, presence: true,   length: {maximum: 100 }
-	 
+    has_attached_file :attach
+
 	
 	def self.Keyword_search(keyword)
     keyword = "%"+keyword+"%"

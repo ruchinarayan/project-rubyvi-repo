@@ -1,11 +1,12 @@
 class PendingsController < ApplicationController
 
 @user
-  before_action :logged_in_user, only: [:show]
-  before_action :correct_user,   only: [:show]
-
+  before_action :logged_in_user, only: [:show, :index,:search, :edit, :update, :destroy] 
+  before_action :correct_user,   only: [:show, :index,:search, :edit, :update, :destroy] 
+   
   	#@pendings= Pending.all
   	def index
+      @current_user ||= User.find_by(id: session[:user_id])
   		if params[:users] != nil
   		@user = User.find(params[:users])
   	    end
@@ -23,13 +24,16 @@ class PendingsController < ApplicationController
 
   
   def search
+    @current_user ||= User.find_by(id: session[:user_id])
   	@pendingConts = Pending.search params[:search]
   end
   def show
+    @current_user ||= User.find_by(id: session[:user_id])
     @pending = Pending.find(params[:id])
   end
   
   def edit
+    @current_user ||= User.find_by(id: session[:user_id])
     @pending = Pending.find(params[:id])
   end
   def update
@@ -50,7 +54,8 @@ class PendingsController < ApplicationController
       redirect_to pendings_list_url
     end
   end
-  def destroy   
+  def destroy 
+    @current_user ||= User.find_by(id: session[:user_id])  
     @pending = Pending.find(params[:id])
     @pending.destroy
   	#redirect_to pendings_list_url(:users => @user.id)
@@ -67,7 +72,8 @@ class PendingsController < ApplicationController
   # Confirms the correct user.
   def correct_user
     #@user = User.find(params[:id])
-    #redirect_to(root_url) unless current_user?(@user)
+    @current_user ||= User.find_by(id: session[:user_id])
+    redirect_to(root_url) unless current_user?(@current_user)
   end
 
   def new

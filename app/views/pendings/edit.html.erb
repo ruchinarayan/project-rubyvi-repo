@@ -47,9 +47,19 @@
 </table>
 <%= link_to "Home", pendings_list_path %>
 </body>
-<%= form_for(@pending) do |f| %>
+<%= form_for(@pending), :html => { :multipart => true } do |f| %>
+
+<h3>Please upload signed copy before accepting and you can make any correction regrading users below</h3>
   <div class="form-all">
     <ul class="form-section page-section">
+      <li class="form-line form-line-column form-col-1" data-type="control_fileupload" id="id_10">
+        <label class="form-label form-label-top" id="label_10" for="input_10"> Upload the document : </label>
+        <div id="cid_10" class="form-input-wide jf-required">
+         <label for="upload_file">Select File</label> : 
+         <%= f.file_field :attach %></p>
+         
+        </div>
+      </li>
       <li id="cid_1" class="form-input-wide" data-type="control_head">
         <div class="form-header-group">
           <div class="header-text httal htvam">
@@ -142,25 +152,18 @@
         <div id="cid_4" class="form-input jf-required">
           <%= f.label :Grade %>:&nbsp;<%= f.text_field :grade, size: 25  %>  
            
-        </div>
+        </div> -->
       </li>
-      <li class="form-line form-line-column form-col-1" data-type="control_fileupload" id="id_10">
-        <label class="form-label form-label-top" id="label_10" for="input_10"> Upload the document : </label>
-        <div id="cid_10" class="form-input-wide jf-required">
-         <label for="upload_file">Select File</label> : 
-         <%= f.file_field :pdf %></p>
-         
-        </div>
-      </li> -->
+      
       <li class="form-line" data-type="control_button" id="id_11">
         <div id="cid_11" class="form-input-wide">
           <div style="margin-left:o156px" class="form-buttons-wrapper">
             <button id="input_11" type="submit" class="form-submit-button">
-              Submit
+              Accept
             </button>
             &nbsp;
-            <button id="input_reset_11" type="reset" class="form-submit-reset">
-              Clear Form
+            <button id="input_cancel_11" type="cancel" class="form-submit-cancel">
+              Cancel
             </button>
           </div>
         </div>

@@ -20,25 +20,18 @@ Course.create!(course_id: 'COMP7012', course_name: 'Software Engineering' )
 
 
 
-Pending.create(contract_id: 1245, uid: "U00053556", firstName: "Krishna", lastName: "chikkala", email: "hsirrk341@gmail.com", phoneNumber: "9016049107", semester: "fall2014", profName: "Ravi1", profEmail: "asdkf@memphis.edu", course_id: "382799", year:2012, present_date: Date.new(1955,3,19))
-Pending.create(contract_id: 1246, uid: "U00053557", firstName: "Ravi", lastName: "goli", email: "ravi@gmail.com", phoneNumber: "90164407", semester: "fall2014", profName: "Ravi2", profEmail: "asdsdsdsdkf@memphis.edu", course_id: "3827", year:2012, present_date: Date.new(1955,3,19))
-Pending.create(contract_id: 1247, uid: "U00053558", firstName: "Ramu", lastName: "gopidi", email: "ramu@gmail.com", phoneNumber: "9016339107", semester: "fall2014", profName: "Ravi3", profEmail: "asadsdkf@memphis.edu", course_id: "38", year:2012, present_date: Date.new(1955,3,19))
-Pending.create(contract_id: 1248, uid: "U00053559", firstName: "Rahul", lastName: "aketi", email: "rahul@gmail.com", phoneNumber: "9012249107", semester: "fall2014", profName: "Ravi4", profEmail: "asadswwdkf@memphis.edu", course_id: "37", year:2012, present_date: Date.new(1955,3,19))
+Pending.create(contract_id: 1245, uid: "U00153556", firstName: "Krishna", lastName: "chikkala", email: "hsirrk341@gmail.com", phoneNumber: "9016049107", semester: "fall2014", profName: "Ravi1", profEmail: "asdkf@memphis.edu", course_id: "382799", year:2012, present_date: Date.new(1955,3,19),attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: "")
+Pending.create(contract_id: 1246, uid: "U00253557", firstName: "Ravi", lastName: "goli", email: "ravi@gmail.com", phoneNumber: "90164407", semester: "fall2014", profName: "Ravi2", profEmail: "asdsdsdsdkf@memphis.edu", course_id: "3827", year:2012, present_date: Date.new(1955,3,19), attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: "")
+Pending.create(contract_id: 1247, uid: "U00353558", firstName: "Ramu", lastName: "gopidi", email: "ramu@gmail.com", phoneNumber: "9016339107", semester: "fall2014", profName: "Ravi3", profEmail: "asadsdkf@memphis.edu", course_id: "38", year:2012, present_date: Date.new(1955,3,19),attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: "")
+Pending.create(contract_id: 1248, uid: "U00453559", firstName: "Rahul", lastName: "aketi", email: "rahul@gmail.com", phoneNumber: "9012249107", semester: "fall2014", profName: "Ravi4", profEmail: "asadswwdkf@memphis.edu", course_id: "37", year:2012, present_date: Date.new(1955,3,19),attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: "")
 
 
+Honor.create(contract_id: 00011,  uid: "U00564017",  course_id: "comp70123",  prof_email: "sflem@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08",attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: "")
+Honor.create(contract_id: 00012,  uid: "U00053557",  course_id: "comp7012",  prof_email: "sflem@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08",attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: "")
 
 
-Honor.create(contract_id: 00001,  uid: "U00564017",  course_id: "comp70123",  prof_email: "sflem@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08")
-
-Honor.create(contract_id: 00001,  uid: "U00053557",  course_id: "comp7012",  prof_email: "sflem@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08")
-
-
- 
-
-
-
-Student.create( UID: "U00053557", firstName: "krishna", lastName: "chikkala", email: "vkchkkla@memphis.edu", phoneNumber: "9016049107",status: "passed" )
-Student.create( UID: "U00053568", firstName: "krishna1", lastName: "chikkala1", email: "xvechik@memphis.edu", phoneNumber: "9016044449107",status: "failed" )
+Student.create( UID: "U00153557", firstName: "krishna", lastName: "chikkala", email: "vkchkkla@memphis.edu", phoneNumber: "9016049107",status: "passed" )
+Student.create( UID: "U00253568", firstName: "krishna1", lastName: "chikkala1", email: "xvechik@memphis.edu", phoneNumber: "9016044449107",status: "failed" )
  
 
 
@@ -66,8 +59,7 @@ Student.create(UID: "U00564022",firstName: "fea",lastName: "tank",email: "fjklda
 
 
 
-Course.create(course_id: 'EECE7012', course_name: 'Software Engineering' )
-Course.create(course_id: 'COMP7012', course_name: 'Software Engineering' )
+
 
 
 # This file should contain all the record creation needed to seed the database with its default values.
@@ -95,29 +87,29 @@ User.create! :email => 'director@memphis.edu', :password => 'letmein', :password
 Student.create( UID: "U0005355", firstName: "krishna", lastName: "chikkala", email: "vkchkkla@memphis.edu", phoneNumber: "9016049107",status: "passed" )
 Student.create( UID: "U0005356", firstName: "Krishna", lastName: "Chikkala", email: "xvechik@memphis.edu", phoneNumber: "9016044449107",status: "failed", 
 	honors: Honor.create([
-		{contract_id: 00001,    course_id: "comp7012",  prof_email: "krishna@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08"},
-		{contract_id: 00002,  course_id: "comp70124",  prof_email: "swroop@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08"},
- 		{contract_id: 00003,  course_id: "comp70125",  prof_email: "ruchi@memphis.edu",  semester: "fall",  year: 2014,  grade: "A",  pdf: "",  dates: "2015-04-09"}
+		{contract_id: 00001,    course_id: "comp7012",  prof_email: "krishna@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08",attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: ""},
+		{contract_id: 00002,  course_id: "comp70124",  prof_email: "swroop@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08",attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: ""},
+ 		{contract_id: 00003,  course_id: "comp70125",  prof_email: "ruchi@memphis.edu",  semester: "fall",  year: 2014,  grade: "A",  pdf: "",  dates: "2015-04-09",attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: ""}
  	]))
  
 Student.create( UID: "U0005357", firstName: "Bob", lastName: "Swam", email: "bob@memphis.edu", phoneNumber: "6044449107",status: "failed", 
 	honors: Honor.create([
-		{contract_id: 00004,    course_id: "comp7012",  prof_email: "krishna@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08"},
-		{contract_id: 00005,    course_id: "comp70124",  prof_email: "swroop@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08"},
- 		{contract_id: 00006,    course_id: "comp70125",  prof_email: "ruchi@memphis.edu",  semester: "fall",  year: 2014,  grade: "A",  pdf: "",  dates: "2015-04-09"}
+		{contract_id: 00004,    course_id: "comp7012",  prof_email: "krishna@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08",attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: ""},
+		{contract_id: 00005,    course_id: "comp70124",  prof_email: "swroop@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08",attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: ""},
+ 		{contract_id: 00006,    course_id: "comp70125",  prof_email: "ruchi@memphis.edu",  semester: "fall",  year: 2014,  grade: "A",  pdf: "",  dates: "2015-04-09",attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: ""}
  	]))
 
 Student.create( UID: "U0005358", firstName: "David", lastName: "Memphis", email: "dav@memphis.edu", phoneNumber: "7044449107",status: "passed", 
 	honors: Honor.create([
-		{contract_id: 00004,    course_id: "comp7012",  prof_email: "krishna@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08"},
-		{contract_id: 00005,    course_id: "comp70124",  prof_email: "swroop@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08"},
- 		{contract_id: 00006,    course_id: "comp70125",  prof_email: "ruchi@memphis.edu",  semester: "fall",  year: 2014,  grade: "A",  pdf: "",  dates: "2015-04-09"},
-		{contract_id: 00007,    course_id: "comp70125",  prof_email: "ruchi@memphis.edu",  semester: "fall",  year: 2014,  grade: "A",  pdf: "",  dates: "2015-04-09"}
+		{contract_id: 00007,    course_id: "comp7012",  prof_email: "krishna@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08",attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: ""},
+		{contract_id: 00111,    course_id: "comp70124",  prof_email: "swroop@memphis.edu",  semester: "spring",  year: 2015,  grade: "A",  pdf: "",  dates: "2015-04-08",attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: ""},
+ 		{contract_id: 00013,    course_id: "comp70125",  prof_email: "ruchi@memphis.edu",  semester: "fall",  year: 2014,  grade: "A",  pdf: "",  dates: "2015-04-09",attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: ""},
+		{contract_id: 00010,    course_id: "comp70125",  prof_email: "ruchi@memphis.edu",  semester: "fall",  year: 2014,  grade: "A",  pdf: "",  dates: "2015-04-09",attach_file_name: "",attach_content_type: "", attach_file_size: "", attach_updated_at: ""}
  	]))
 
-Course.create(course_id: 'comp7012', course_name: 'Software Engineering', honors: Honor.where(course_id: "comp7012"))
- Course.create(course_id: 'comp70124', course_name: 'Software Engineering', honors: Honor.where(course_id: "comp70124"))
- Course.create(course_id: 'comp70125', course_name: 'Software Engineering', honors: Honor.where(course_id: "comp70125"))
+Course.create(course_id: 'comp701254', course_name: 'Software Engineering', honors: Honor.where(course_id: "comp7012"))
+ Course.create(course_id: 'comp701241', course_name: 'Software Engineering', honors: Honor.where(course_id: "comp70124"))
+ Course.create(course_id: 'comp701251', course_name: 'Software Engineering', honors: Honor.where(course_id: "comp70125"))
 
 Professor.create(profName: 'Scott Fleming', profEmail: 'sflem@memphis.edu', honors: Honor.where(prof_email: "sflem@memphis.edu") )
 Professor.create(profName: 'Max Garzon', profEmail: 'mgarzn@memphis.edu', honors: Honor.where(prof_email: "sflem@memphis.edu") )

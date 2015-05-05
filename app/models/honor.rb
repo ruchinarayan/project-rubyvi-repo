@@ -2,21 +2,25 @@
 #
 # Table name: honors
 #
-#  id           :integer          not null, primary key
-#  contract_id  :integer
-#  uid          :string
-#  course_id    :string
-#  prof_email   :string
-#  semester     :string
-#  year         :integer
-#  grade        :string
-#  pdf          :binary
-#  dates        :date
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  student_id   :integer
-#  professor_id :integer
-#  corse_id     :integer
+#  id                  :integer          not null, primary key
+#  contract_id         :integer
+#  uid                 :string
+#  course_id           :string
+#  prof_email          :string
+#  semester            :string
+#  year                :integer
+#  grade               :string
+#  pdf                 :binary
+#  dates               :date
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  student_id          :integer
+#  professor_id        :integer
+#  corse_id            :integer
+#  attach_file_name    :string
+#  attach_content_type :string
+#  attach_file_size    :integer
+#  attach_updated_at   :datetime
 #
 
 class Honor < ActiveRecord::Base
@@ -37,6 +41,7 @@ class Honor < ActiveRecord::Base
    validates :prof_email,
             presence: true,
             length: { maximum: 100 }
+  has_attached_file :attach
 
    belongs_to :professor, class_name: "Professor"
    belongs_to :course, class_name: "Course"

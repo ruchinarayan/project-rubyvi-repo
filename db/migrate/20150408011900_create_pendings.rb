@@ -16,5 +16,6 @@ class CreatePendings < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :pendings, :contract_id, unique: true
   end
 end

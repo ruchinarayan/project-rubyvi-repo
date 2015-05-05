@@ -13,5 +13,6 @@ class CreateHonors < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :honors, :contract_id, unique: true
   end
 end

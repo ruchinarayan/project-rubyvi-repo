@@ -6,5 +6,6 @@ class CreateProfessors < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :professors, :profEmail, unique: true
   end
 end
