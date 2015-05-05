@@ -22,7 +22,8 @@
                         <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
                      </td>
                      <td class="search">
-                     <p><b>Logged in as: Role: </p>
+                    <p><b>Logged in as: Role: </p> 
+                
                      <p><%= link_to "Log out", logout_path, method: "delete" %></p>
                      </td>
                   </tr>
@@ -59,20 +60,31 @@
 </select>
 </td>
 </tr>
+<%= form_for(@valchk, :html => {:action => edit_checklist_path}) do |chklist| %>
 <tr>
 	<td>
-		<div><input type="checkbox" id="c1">UNHP</div>
+		<!--<div><input type="checkbox" id="c1">UNHP</div>
 		<div><input type="checkbox" id="c2">Honors Experience-Junior Year</div>
 		<div id="d1" hidden="true"><input type="checkbox" id="s1c3">Honors Experience-Senior Year</div>
 		<div id="d2"><input type="checkbox" id="s2c3">Honors Thesis-Senior Year</div>
-		<div><input type="checkbox" id="c4">GPA: 3.25</div>
-		<div align="center">
+		<div><input type="checkbox" id="c4">GPA: 3.25</div> -->
+
+		<div>UID : <%= chklist.text_field :uid %></div>
+		<div><%= chklist.check_box :unhp %>UNHP</div>
+		<div><%= chklist.check_box :honexpju %>Honors Experience-Junior Year</div>
+		<div id="d1" hidden="true"><%= chklist.check_box :honexpse %>Honors Experience-Senior Year</div>
+		<div id="d2"><%= chklist.check_box :honthese %>Honors Thesis-Senior Year</div>
+		<div><%= chklist.check_box :gpa %>GPA: 3.25</div>
+		<!--<div align="center">
            <button type="submit" class="form-submit-button">
               Save
             </button>
-		</div>
+		</div> 
+		<div align="center"><%= chklist.submit 'Save' %></div>-->
 	</td>
 </tr>
+<% end %>
+
 <tr>
 <th align="center" bgcolor="lightblue">Notes</th>
 </tr>

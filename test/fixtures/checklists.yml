@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  uid: MyString
+  unhp: false
+  honexpju: false
+  honexpse: false
+  honthese: false
+  gpa: false
+
+two:
+  uid: MyString
+  unhp: false
+  honexpju: false
+  honexpse: false
+  honthese: false
+  gpa: false

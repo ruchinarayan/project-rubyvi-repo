@@ -57,9 +57,11 @@ def show
       if params[:search]    
      @pendings = Honor.where(uid: params[:search])
      @student = Student.where(UID: params[:search] ).take
+     @valchk = Checklist.find_by(uid: @student.UID)
     else
       if params[:id] != nil
       @student = Student.find(params[:id])
+      @valchk = Checklist.find_by(uid: @student.UID)
     end
       @pendings= Honor.all
     end
@@ -78,6 +80,39 @@ if @student.update(params.require(:student).permit(:UID, :firstName, :lastName, 
       redirect_to message_student_path
   end
 end
+
+  def saveChecklist
+        #To add an entry
+        @saveGradChk = Checklist.new
+
+  end
+
+    def submitChecklist
+       #To submit the entered data
+       @checklist = Checklist.find_by(uid: params[:saveGradChk][:uid])
+      if @checklist
+       #@checklist.update(params.require(:saveGradChk).permit(:uid, :unhp, :honexpju, :honexpse, :honthese, :gpa))
+       @checklist.unhp = params[:saveGradChk][:unhp]
+       @checklist.honexpju = params[:saveGradChk][:honexpju]
+       @checklist.honexpse = params[:saveGradChk][:honexpse]
+       @checklist.honthese = params[:saveGradChk][:honthese]
+       @checklist.gpa = params[:saveGradChk][:gpa]
+      else
+       @saveGradChk = Checklist.new(params.require(:saveGradChk).permit(:uid, :unhp, :honexpju, :honexpse, :honthese, :gpa))
+       @saveGradChk.save
+     end
+         redirect_to index_search_list_path        
+
+  end
+
+#    def submitChecklist
+#            @saveGradChk = Checklist.new(params.require(:saveGradChk).permit(:uid, :unhp, :honexpju, :honexpse, :honthese, :gpa))
+#           if @saveGradChk.save
+#              redirect_to index_search_list_path
+#           else
+#              redirect_to index_search_list_path
+#          end
+#  end
 
 
 end
