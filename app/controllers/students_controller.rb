@@ -1,7 +1,8 @@
 class StudentsController < ApplicationController
 
-before_action :logged_in_user, only: [:show]
-before_action :correct_user,   only: [:show]
+@user
+before_action :logged_in_user, only: [:show, :edit, :update]
+before_action :correct_user,   only: [:show, :edit, :update]
 
 def new
   	@student =Student.new
@@ -39,9 +40,10 @@ def index
   def logged_in_user
     unless logged_in?
       flash[:danger] = "Please log in."
-      redirect_to login_url
+      redirect_to login_url(@user)
     end
   end
+
 
   # Confirms the correct user.
   def correct_user

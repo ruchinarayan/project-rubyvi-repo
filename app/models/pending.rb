@@ -23,7 +23,6 @@
 #  updated_at           :datetime         not null
 #  grade                :string
 #  pdf                  :string
-#
 
 class Pending < ActiveRecord::Base
 	 
@@ -40,7 +39,7 @@ class Pending < ActiveRecord::Base
 	validates :course_id, presence: true,   length: {maximum: 100 }
 	validates :year, presence: true, length: {maximum: 100 }
 	validates :present_date, presence: true,   length: {maximum: 100 }
-    has_attached_file :pAttach, :path => ":rails_root/public:url"
+   # has_attached_file :pAttach, :path => ":rails_root/public:url"
    # attr_accessible :pdf
    mount_uploader :pdf, PdfUploader
 	

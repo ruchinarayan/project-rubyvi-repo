@@ -1,25 +1,23 @@
-class CoursesController < ApplicationController
-@user
+class ProfessorsController < ApplicationController
+	@user
 before_action :logged_in_user, only: [:show, :edit, :update, :index,:new,:create ]
-# before_action :correct_user,   only: [:show]
+before_action :correct_user,   only: [:show, :index]
 
 
   def index
-     
-  	@courses=Course.all
+  	@professors=Professor.all
   end
   def new
-    # @user = User.find(params[:id])
-     @current_user ||= User.find_by(id: session[:user_id]) 
-  	@course = Course.new 
+    @current_user ||= User.find_by(id: session[:user_id])
+  	@professor = Professor.new 
   end
 def create
-  @course = Course.new(params.require(:course).permit(:course_id,:course_name))
-  	if  @course.save
-      flash[:danger] = "successfully stored"
+  @professor = Professor.new(params.require(:professor).permit(:profName,:profEmail))
+  	if  @professor.save
+  		flash[:danger] = "successfully stored"
   		redirect_to new_honor_path
   	else
-      flash[:danger] = "some error with input data. Try again!!"
+  		flash[:danger] = "some error with input data. Try again!!"
   		redirect_to new_honor_path
   	end 
  end 
@@ -32,6 +30,8 @@ def create
     end
   end
 
+  # Confirms the correct user.
+ 
  def correct_user
     #@user = User.find(params[:id])
     @current_user ||= User.find_by(id: session[:user_id])

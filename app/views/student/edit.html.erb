@@ -1,5 +1,4 @@
-
- 
+<% provide(:title, 'Edit Student Details') %>
 <link href="1.css" rel="stylesheet" type="text/css" /> 
 <link type="text/css" rel="stylesheet" href="2.css" /> 
 <style type="text/css">
@@ -36,8 +35,10 @@
                      <td class="motto">
                         <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
                      </td>
-                     <td class="search">
-                      
+                      <td class="name">
+                       <p><b>Logged in as: </b><i><%= @current_user.email %>  </i><b>Role: </b> 
+    <i><%= @current_user.role %></i></p>
+                     <p><%= link_to "Home", homePage_url(1) %>  &nbsp;<%= link_to "Log out", logout_path, method: "delete" %></p>
                      </td>
                   </tr>
                </tbody></table>
@@ -45,7 +46,7 @@
          </tr>
 
 </table>
-<%= link_to "Home", pendings_list_path %>
+
 </body>
 <%= form_for(@student) do |f| %>
   <div class="form-all">

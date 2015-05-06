@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  #For the Contract form that populates pending table
+  get '/pendings/new', to: 'pendings#new', as: 'new_pending'
+  post '/pendings', to: 'pendings#create'
+  #For the Contract form that populates pending table
+
   get 'student/studentList'
   get 'honors/index'
 
@@ -25,8 +30,8 @@ Rails.application.routes.draw do
 
   delete '/pendings/:id', to: 'pendings#destroy', as: 'pend_delete'
 
-  get '/pendings/:id' , to: 'pendings#index', as: 'pending_search_list'
-  post '/pendings', to: 'pendings#index'
+  get '/pendings/index' , to: 'pendings#index', as: 'pending_search_list'
+  post '/pendings/searchList', to: 'pendings#index'
  
   get '/search/:id' , to: 'users#showSearch', as: 'main_search_list'
   post '/search/:id', to: 'users#showSearch'
@@ -45,7 +50,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users
-
+  resources :professors
   resources :honors
   resources :student
   resources :courses
@@ -88,9 +93,22 @@ put '/displayStudent/:id', to: 'honors#update'
   patch '/contracts/:id', to: 'contracts#update'
   put '/contracts/:id', to: 'contracts#update'
 
+    
+  #get '/student/:id', to: 'student#saveChecklist', as: 'checklist'
+  #post '/student/:id', to: 'student#submitChecklist', as: 'edit_checklist'
 
-  get '/pendings/new', to: 'pendings#new', as: 'new_pending'
-  post '/pendings', to: 'pendings#create'
+
+  #get '/pendings/new', to: 'pendings#new', as: 'new_pending'
+  #post '/pendings', to: 'pendings#create'
+
+
+  get '/student/:id', to: 'student#saveChecklist'
+  post '/student/:id', to: 'student#submitChecklist'
+
+get '/gradCheckStu/:id/edit', to: 'checklists#edit', as: "gradcheck_edit"
+patch '/gradCheckStu/:id', to: 'checklists#update', as: 'checklist'
+put '/gradCheckStu/:id', to: 'checklists#update'
+
   #Possibly a post to pending here
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -148,4 +166,4 @@ put '/displayStudent/:id', to: 'honors#update'
   #     resources :products
   #   end
 end
-
+ 

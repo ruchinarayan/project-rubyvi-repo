@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150506005517) do
+=======
+ActiveRecord::Schema.define(version: 20150504211113) do
+
+  create_table "checklists", force: :cascade do |t|
+    t.string   "uid"
+    t.boolean  "unhp"
+    t.boolean  "honexpju"
+    t.boolean  "honexpse"
+    t.boolean  "honthese"
+    t.boolean  "gpa"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+>>>>>>> f1d54ffe7b3d0cdae8391bd99dbf500b0e659d7d
 
   create_table "contracts", force: :cascade do |t|
     t.integer  "contract_identity"
@@ -90,7 +105,12 @@ ActiveRecord::Schema.define(version: 20150506005517) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "grade"
+<<<<<<< HEAD
     t.string   "pdf"
+=======
+    t.binary   "pdf"
+    t.integer  "creditHours"
+>>>>>>> f1d54ffe7b3d0cdae8391bd99dbf500b0e659d7d
   end
 
   add_index "pendings", ["contract_id"], name: "index_pendings_on_contract_id", unique: true

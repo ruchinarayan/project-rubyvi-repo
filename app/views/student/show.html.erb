@@ -1,4 +1,5 @@
-<% provide(:title, "Display-Student") %>
+<% provide(:title, "view student")%>
+
 <!DOCTYPE html>
 <head>
 <%= stylesheet_link_tag "students.scss" %>
@@ -22,10 +23,14 @@
                         <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
                      </td>
                      <td class="search">
-                     <p><b>Logged in as: Role: </p>
-                     <p><%= link_to "Log out", logout_path, method: "delete" %></p>
+ 
+                     <p><b>Logged in as: </b><i><%= @current_user.email %>  </i><b>Role: </b> 
+    <i><%= @current_user.role %></i></p>
+                     <p><%= link_to "Home", homePage_url(1) %>  &nbsp;<%= link_to "Log out", logout_path, method: "delete" %></p>
+ 
                      </td>
                   </tr>
+                  <tr> <th><h2> Student Details: </h2> </th></tr>
                </tbody></table>
             </td>
          </tr>
@@ -33,7 +38,7 @@
 
 <table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
 	<tr>
-      <td>Enter UID of Student to search student details with registered courses: </td>
+      <td><b>Enter UID of Student to search student details with registered courses: </b></td>
 	</tr>
 </table>
 <table border="0" cellpadding="1" cellspacing="1" width="50%" align="center" >
@@ -46,10 +51,13 @@
     </td>
 	</tr>
 </table>
+<br/>
 <div>
 <table border="2" cellpadding="1" cellspacing="1" width="15%" align="right" >
 <tr>
+
 <th bgcolor="lightblue">Graduation Checklist</th>
+ 
 </tr>
 <tr>
 <td align="center">
@@ -59,22 +67,38 @@
 </select>
 </td>
 </tr>
+<%= form_for(@valchk) do |chklist| %>
 <tr>
 	<td>
-		<div><input type="checkbox" id="c1">UNHP</div>
+		<!--<div><input type="checkbox" id="c1">UNHP</div>
 		<div><input type="checkbox" id="c2">Honors Experience-Junior Year</div>
 		<div id="d1" hidden="true"><input type="checkbox" id="s1c3">Honors Experience-Senior Year</div>
 		<div id="d2"><input type="checkbox" id="s2c3">Honors Thesis-Senior Year</div>
-		<div><input type="checkbox" id="c4">GPA: 3.25</div>
-		<div align="center">
+		<div><input type="checkbox" id="c4">GPA: 3.25</div> 
+
+		<div>UID : <%= chklist.text_field :uid %></div>-->
+		<div><%= chklist.check_box :unhp, :disabled => true %>UNHP</div>
+		<div><%= chklist.check_box :honexpju, :disabled => true %>Honors Experience-Junior Year</div>
+		<div id="d1" hidden="true"><%= chklist.check_box :honexpse, :disabled => true %>Honors Experience-Senior Year</div>
+		<div id="d2"><%= chklist.check_box :honthese, :disabled => true %>Honors Thesis-Senior Year</div>
+		<div><%= chklist.check_box :gpa, :disabled => true %>GPA: 3.25</div>
+		<!--<div align="center">
            <button type="submit" class="form-submit-button">
               Save
             </button>
 		</div>
+		<div align="center"><%= chklist.submit 'Save' %></div> -->
+		<div align="center"><%= link_to "Modify Graduation Checklist", gradcheck_edit_path(@valchk), :method => :get %></div>
 	</td>
 </tr>
+<% end %>
+
+
+
 <tr>
+
 <th align="center" bgcolor="lightblue">Notes</th>
+
 </tr>
 <tr>
 <td align="center">
@@ -91,21 +115,19 @@
 <table border="2" cellpadding="1" cellspacing="1" width="50%" align="center" >
 
 <tr>
+
 <th bgcolor="lightblue">First Name</th>
 <th bgcolor="lightblue">Last Name</th>
 <th bgcolor="lightblue">UID</th>
-<th bgcolor="lightblue">Start Date</th>
-<th bgcolor="lightblue">End Date</th>
 <th bgcolor="lightblue">Edit</th>
+
 </tr>
 
 <tr>
 	<% if @student != nil then %>
 	<td align="center"><%= @student.firstName %></td>
 	<td align="center"><%= @student.lastName %></td>
-	<td align="center"><%= @student.UID %></td>
-	<td align="center">NA</td>
-    <td align="center">NA</td>
+	<td align="center"><%= @student.UID %></td> 
     <td align="center"><%= link_to "Edit Student Details", edit_student_path(@student) %></td>
     <% end %>
 </tr>
@@ -154,15 +176,17 @@
 <tr>
 	<td>
 	 <% if @student != nil then %>
-	 <%= link_to "Add New Course", new_honor_path(:student => @student.id) , :class => "button", :method => :get %>
+	 <%= link_to "Add New Honor", new_honor_path(:student => @student.id) , :class => "button", :method => :get %> &nbsp;&nbsp;&nbsp;<%= link_to "Export to Excel", honor_export_path(format: "csv")%> 
 	 <% end %>
 	</td>
+
 </tr>
-<tr height="20px" align="right"><td><%= link_to "Export to Excel", honor_export_path(format: "csv")%> </td></tr>
+<tr height="20px" align="right"><td> </td></tr>
 </table>
 <table align="center">
 <tr><td>
-<%= link_to "Home", pendings_list_path %>
+
+
 </td></tr>
 
 </table>

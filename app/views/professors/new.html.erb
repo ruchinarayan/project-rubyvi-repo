@@ -1,4 +1,5 @@
-<% provide(:title, 'Edit Honor details') %>
+ <% provide(:title, 'Add new Professor') %>
+ 
 <link href="1.css" rel="stylesheet" type="text/css" /> 
 <link type="text/css" rel="stylesheet" href="2.css" /> 
 <style type="text/css">
@@ -19,6 +20,7 @@
         font-size:14px;
     }
 </style>
+
 <body>
 <table class="bigtable" align="center" border="0" cellpadding="0" cellspacing="0" summary="www -  - ">
          <tbody><tr>
@@ -34,63 +36,63 @@
                      <td class="motto">
                         <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
                      </td>
-                       <td class="search">
-                   <p><b>Logged in as: </b><i><%= @current_user.email %>  </i><b>Role: </b> 
+                     <td class="search">
+                      <p><b>Logged in as: </b><i><%= @current_user.email %>  </i><b>Role: </b> 
     <i><%= @current_user.role %></i></p>
-                    <p><%= link_to "Home", homePage_url(1) %>  &nbsp;<%= link_to "Log out", logout_path, method: "delete" %></p>
+                        <p><%= link_to "Home", homePage_url(1) %>  &nbsp;<%= link_to "Log out", logout_path, method: "delete" %></p>
                      </td>
                   </tr>
                </tbody></table>
             </td>
          </tr>
+
 </table>
+
 </body>
-<%= form_for(@honor) do |f| %>
+<%= form_for(@professor) do |f| %>
   <div class="form-all">
     <ul class="form-section page-section">
       <li id="cid_1" class="form-input-wide" data-type="control_head">
         <div class="form-header-group">
           <div class="header-text httal htvam">
             <h2 id="header_1" class="form-header">
-              Edit Honor Details
+              Add New Professor
             </h2>
           </div>
         </div>
       </li>
-       <li class="form-line" data-type="control_textbox" id="id_5">
-        <label class="form-label form-label-left form-label-auto" id="label_5" for="input_5"> Course Id </label>
-        <div id="cid_5" class="form-input jf-required">
-		<td><%= f.text_field :course_id %></td>
-        </div>
-      </li>
       <li class="form-line" data-type="control_textbox" id="id_4">
-        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4"> Professor's Email </label>
+        <label class="form-label form-label-left form-label-auto" id="label_4" for="input_4">Professor Name(full name) </label>
         <div id="cid_4" class="form-input jf-required">
-		<td><%= f.text_field :prof_email %></td>
+          <%= f.text_field :profName, size: 25  %>  
+           
         </div>
       </li>
       <li class="form-line" data-type="control_textbox" id="id_3">
-        <label class="form-label form-label-left form-label-auto" id="label_3" for="input_3"> Semester </label>
+        <label class="form-label form-label-left form-label-auto" id="label_3" for="input_3"> Professor mail:</label>
         <div id="cid_3" class="form-input jf-required">
-		<td><%= f.text_field :semester %></td>
+         <%= f.text_field :profEmail, size: 25  %>
         </div>
-      </li>
-      <li class="form-line" data-type="control_dropdown" id="id_14">
-        <label class="form-label form-label-left form-label-auto" id="label_14" for="input_14"> Grade </label>
-        <div id="cid_14" class="form-input jf-required">
-		<td><%= f.text_field :grade %></td>
-        </div>
-      </li>
+      </li> 
       <li class="form-line" data-type="control_button" id="id_11">
         <div id="cid_11" class="form-input-wide">
           <div style="margin-left:o156px" class="form-buttons-wrapper">
             <button id="input_11" type="submit" class="form-submit-button">
               Submit
             </button>
+            &nbsp;
+            <button id="input_reset_11" type="reset" class="form-submit-reset">
+              Clear Form
+            </button>
           </div>
         </div>
       </li>
+      <li style="display:none">
+        Should be Empty:
+        
+      </li>
     </ul>
   </div>
+  
+   
 <% end %>
-

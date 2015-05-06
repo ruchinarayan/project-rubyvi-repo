@@ -15,6 +15,7 @@
 #
 
 
+
 class Student < ActiveRecord::Base
 	validates :UID, presence: true,   length: {maximum: 12 }
 	validates :firstName, presence: true,   length: {maximum: 10 }
@@ -37,5 +38,12 @@ end
 	has_many :honors, class_name: "Honor"
 	has_many :professors, through: :honors
 	has_many :courses, through: :honors
-end
 
+	def self.Keyword_search(keyword)
+     keyword = "%"+keyword+"%"
+     @students= Student.where('firstName LIKE ? or uid LIKE ? or lastName LIKE ? or email LIKE ? or phoneNumber LIKE ? or status LIKE ?', keyword,keyword,keyword,keyword,keyword,keyword)
+    #@honors= Honor.where('uid LIKE ?' ,keyword)
+
+    end
+end
+ 

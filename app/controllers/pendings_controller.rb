@@ -1,16 +1,22 @@
 class PendingsController < ApplicationController
 
+<<<<<<< HEAD
 @user
   before_action :logged_in_user, only: [:show, :index,:search, :edit, :update, :destroy] 
   before_action :correct_user,   only: [:show, :index,:search, :edit, :update, :destroy] 
    
+=======
+  before_action :logged_in_user, only: [:show, :index,:search, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:show, :index,:search, :edit, :update, :destroy]
+
+>>>>>>> f1d54ffe7b3d0cdae8391bd99dbf500b0e659d7d
   	#@pendings= Pending.all
   	def index
       @current_user ||= User.find_by(id: session[:user_id])
   		if params[:users] != nil
   		@user = User.find(params[:users])
   	    end
-
+      @current_user ||= User.find_by(id: session[:user_id])
   		if params[:search] #if value exists
   			@pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Penging model class
     	else
@@ -52,7 +58,8 @@ class PendingsController < ApplicationController
       @honor= Honor.new(:contract_id => @pending.contract_id,:uid => @pending.uid,:course_id => @pending.course_id,
        :prof_email => @pending.profEmail,:semester => @pending.semester,:year => @pending.year,:grade => @pending.grade,:pdf => '',:dates => @pending.present_date)
        @honor.pdf = @pending.pdf
-       if @honor.save and @professor.save and @student.save
+       @checklist = Checklist.new(:uid => @pending.uid,unhp => "f",honexpju => "f",honexpse => "f",honthese => "f",gpa => "f" ) 
+      if @honor.save and @professor.save and @student.save and @checklist.save
         @pending.destroy
         redirect_to pendings_list_url
       else
@@ -89,11 +96,29 @@ class PendingsController < ApplicationController
     redirect_to(root_url) unless current_user?(@current_user)
   end
 
+  #contract form to populate pending
   def new
     @pending = Pending.new
   end
 
+  # def create
+  #   @pending = Pending.new
+  # end
+
+  #used to post to the pending table
   def create
-  end
+
+      @pending = Pending.new(params.require(:pending).permit(:uid, :firstName, :lastName, :email, :phoneNumber, :semester, :profName, :profEmail, :course_id, :year, :present_date, :contract_id, :creditHours))
+      @pending.present_date = Date.current
+      #@pending.contract_id = 
+      if  @pending.save
+        redirect_to root_url
+        flash[:danger] = "Thank you.  Your Contract is being Processed."
+      else
+        redirect_to new_pending_url   #reverse these once index is up
+        flash[:danger] = "We are experiencing technical dificulties. Please try again"
+      end 
+  end 
+
 
 end

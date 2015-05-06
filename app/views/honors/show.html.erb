@@ -1,7 +1,7 @@
 
  
 
-<% provide(:title, 'Add new course') %>
+<% provide(:title, 'Course details') %>
  
 <link href="1.css" rel="stylesheet" type="text/css" /> 
 <link type="text/css" rel="stylesheet" href="2.css" /> 
@@ -40,7 +40,7 @@
                         <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
                      </td>
                      <td class="search">
-                      
+                      <%= link_to "Home", homePage_url(1) %>
                      </td>
                   </tr>
                </tbody></table>
@@ -48,7 +48,7 @@
          </tr>
 
 </table>
-<%= link_to "Home", pendings_list_path %>
+ 
 </body>
 
   <div class="form-all">

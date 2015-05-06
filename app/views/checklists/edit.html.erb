@@ -1,0 +1,104 @@
+<% provide(:title, 'Modify Graduation checklist') %>
+<link href="1.css" rel="stylesheet" type="text/css" /> 
+<link type="text/css" rel="stylesheet" href="2.css" /> 
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<style type="text/css">
+  
+</style>
+<body>
+<table class="bigtable" align="center" border="0" cellpadding="0" cellspacing="0" summary="www -  - ">
+         <tbody><tr>
+            <td valign="top" colspan="3" class="topstripes" align="left"><image_tag("/images/spacer.gif",size:"1")></td>
+         </tr>
+         <tr>
+            <td valign="top" colspan="3">
+               <table border="0" cellpadding="0" cellspacing="0" width="100%" summary="University of Memphis brand logo">
+                  <tbody><tr>
+                     <td class="logo">
+                        <a href="http://www.memphis.edu/"><img src="/images/brandnew.jpg" alt="University of Memphis logo" border="0" width="174" height="89"></a>
+                     </td>
+                     <td class="motto">
+                        <a href="http://www.memphis.edu/honors/" title="Honors Program"><img height="94" border="0" width="534" alt="Honors Program" src="/images/honors_brand.jpg" align="left"></a>
+                     </td>
+                       <td class="search">
+                   <p><b>Logged in as: </b><i><%= @current_user.email %>  </i><b>Role: </b> 
+    <i><%= @current_user.role %></i></p>
+                    <p><%= link_to "Home", homePage_url(1) %>  &nbsp;<%= link_to "Log out", logout_path, method: "delete" %></p>
+                     </td>
+                  </tr>
+               </tbody></table>
+            </td>
+         </tr>
+</table>
+</body>
+
+
+<br><br>
+<%= form_for(@valchk) do |chklist| %>
+  <div class="form-all">
+    <ul class="form-section page-section">
+      <li id="cid_1" class="form-input-wide" data-type="control_head">
+        <div class="form-header-group">
+          <div class="header-text httal htvam">
+            <h2 id="header_1" class="form-header">
+              Graduation Checklist
+            </h2>
+          </div>
+        </div>
+      </li>
+      <li>
+</body>
+  
+      </li>
+  <table>
+    <tr>
+      <td>
+        <select id="honours" onchange="showGradList();">
+        <option value="1">1. University Honors with Thesis</option>
+        <option value="2">2. University Honors</option>
+        </select>
+      </td>
+    </tr>
+    <!--
+<tr>
+  <td width="60%">  UID </td>
+    <td><%= chklist.text_field :uid %></td>
+</tr>-->
+<tr>
+  <td> UNHP </td>
+   <td><%= chklist.check_box :unhp %></td>
+</tr>
+<tr>
+  <td>Honors Experience-Junior Year</td>
+  <td><%= chklist.check_box :honexpju %></td>
+</tr>
+<!--
+<div id="d1" hidden="true">
+<tr>
+    <td>Honors Experience-Senior Year</td>
+    <td><%= chklist.check_box :honexpse %></td>
+</tr>
+</div>
+-->
+<div id="d2">
+<tr>
+    <td>Honors Thesis-Senior Year</td>
+    <td><%= chklist.check_box :honthese %></td>
+</tr>
+</div>
+<tr>
+    <td>GPA: 3.25</td>
+    <td><%= chklist.check_box :gpa %></td>
+</tr>
+<tr><td>
+<button  type="submit" >
+              Submit
+            </button></td>
+  </tr>
+</table>
+     
+
+
+<% end %>
+

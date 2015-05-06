@@ -24,7 +24,7 @@
 #
 
 class Honor < ActiveRecord::Base
-  has_attached_file :hAttach, :path => ":rails_root/public:url"
+ # has_attached_file :hAttach, :path => ":rails_root/public:url"
 	# before_save { self.prof_email = prof_email.downcase }
  #  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
  #  validates :prof_email,
@@ -47,14 +47,14 @@ class Honor < ActiveRecord::Base
    belongs_to :professor, class_name: "Professor"
    belongs_to :course, class_name: "Course"
    belongs_to :student, class_name: "Student"
-   attr_accessible :pdf
+  # attr_accessible :pdf
    mount_uploader :pdf, PdfUploader
   def self.Keyword_search(keyword)
     keyword = "%"+keyword+"%"
-       # @honors= Honor.where('contract_id LIKE ? or uid LIKE ? or firstName LIKE ? or lastName LIKE ? or email LIKE ? or phoneNumber LIKE ? or semester LIKE ? or profName LIKE ? or profEmail LIKE ? or course_id LIKE ? or year LIKE ? or present_date LIKE ?',keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword,keyword)
-    @honors= Honor.where('course_id LIKE ?' ,keyword)
-    end
-
+      @honors= Honor.where('contract_id LIKE ? or uid LIKE ? or course_id LIKE ? or prof_email LIKE ? or semester LIKE ? or year LIKE ?', keyword,keyword,keyword,keyword,keyword,keyword)
+    #@honors= Honor.where('uid LIKE ?' ,keyword)
+  end
+  
   def self.to_csv(options = {})
    CSV.generate(options) do |csv|
     csv << column_names
@@ -64,3 +64,4 @@ class Honor < ActiveRecord::Base
   end
 end
 end
+ 

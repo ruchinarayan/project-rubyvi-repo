@@ -33,7 +33,7 @@
          </tr>
          <tr>
             <td > <p>Search for pending contracts with UID or Contract id:                
-               <%= form_tag pending_search_list_path, method:  'get' do %>
+               <%= form_tag main_search_list_path, method:  'get' do %>
                <%= text_field_tag :search, params[:search] %>
                <%= submit_tag "Search", :name => nil %> 
                <!%= link_to_function "Clear", "$('search_field').clear()" %>
@@ -53,8 +53,8 @@
                      </tr>
                      <tr>
                         <td align= center>There are  <%= link_to (Pending.all).length, pendings_list_path(:users => @user.id) %> pending Honor's contract requests </td>
-                        <td align= center>There are  <%= link_to (Honor.all).length, pending_path(:id => @user.id) %> active Honor's contracts</td>
-                        <td align= center>There are  <%= link_to "X", pending_path(:id => @user.id) %> Deactivated/Deleted Honor's contracts.</td>
+                        <td align= center>There are  <%= link_to (Honor.all).length, student_List_path %> active Honor's contracts</td>
+                        <td align= center>There are  <%= link_to "X", pendings_list_path %> Deactivated/Deleted Honor's contracts.</td>
 
                      </tr>
 
@@ -70,6 +70,8 @@
 
           <tr>
             <td >
+               <% if !@pendings.empty?%>
+               <p>Search Result in Pending Contract List 
                <table border="2" cellpadding="1" cellspacing="1" width="100%" summary="Honors Contract search list"align="center" >
                   <tbody>
                      <tr>
@@ -85,10 +87,7 @@
                         <th bgcolor="Orange"> Action</th>
                         
                      </tr>
-                     <tr>
-                     <td > <p>Search Result in Pending Contract List </p>
-                     </td>
-                     </tr>
+                     
                      <% @pendings.each do |pending|%>
                      <tr>
                      <td><%=pending.contract_id %></td>
@@ -104,38 +103,59 @@
                      </td>
                      </tr>
                      <% end %>
-
+                  </tbody>  
+                  </table> 
+               <% end %> </p>
+               </td>
+            </tr>
+            <tr>
+            <td >
+               <% if !@honors.empty?%>
+               <p>Search Result in Active Contract List 
+               <table border="2" cellpadding="1" cellspacing="1" width="100%" summary="Honors Contract search list"align="center" >
+                  <tbody>
                      <tr>
-                     <td > <p>Search Result in Active Contract List: </p>
-                     </td>
+                        <th bgcolor="lightgreen"> Contract id</th>
+                        <th bgcolor="lightgreen"> UUID</th>
+                        <th bgcolor="lightgreen"> Name</th>
+                        <th bgcolor="lightgreen"> Email</th>
+                        <th bgcolor="lightgreen"> Phone Number</th>
+                        <th bgcolor="lightgreen"> Course Id</th>
+                        <th bgcolor="lightgreen"> Semester</th>
+                        <th bgcolor="lightgreen"> Year</th>
+                        <th bgcolor="lightgreen"> Professor Name</th>
+                        <th bgcolor="Orange"> Action</th>
+                        
                      </tr>
-                     <% @honors.each do |honor|%>
-                     <tr>
-                     <td><%=honor.contract_id %></td>
-                     <td><%=honor.uid %></td>
-                     <td><!%=honor.firstName+" "+ honor.lastName %></td>
-                     <td><!%=honor.email %></td>
-                     <td><!%=honor.phoneNumber %></td>
-                     <td><%=honor.course_id %></td>
-                     <td><%=honor.semester %></td>
-                     <td><%=honor.year %></td>
-                     <td><!%=honor.profName %></td>
-                     <td>[<%= link_to "Show details ", pendings_list_path(honor) %>,<%= link_to "Edit ", pendings_list_path(honor) %>,<%= link_to "Delete", pendings_path(honor), method: :delete %>] 
-                     </td>
-                     </tr>
-                     <% end %>
-
-                    </tbody>
-               </table>
+                        <% @students.each do|student| %>
+                          <% if student.status!="fail" %>
+                           <% @honors.each do |honor| %>
+                            <% if honor.uid==student.UID %>
+                               <tr height="20px">
+                               <td><%= honor.contract_id%></td>
+                               <td><%= student.UID %></td>
+                               <td><%=(student.firstName+" "+student.lastName)%></td>
+                               <td><%= student.email %> </td>
+                               <td><%= student.phoneNumber%></td>
+                               <td><%= honor.course_id%></td>
+                               <td><%= honor.semester%></td>
+                               <td><%= honor.year%></td>
+                               <td><%= honor.prof_email%></td>
+                              <td>[<%= link_to "Show details ", student_path(student) %>,<!%= link_to "Edit ", pendings_list_path(honor) %>,<!%= link_to "Delete", pendings_path(honor), method: :delete %>] 
+                              </td>
+                                </tr>
+                              <%end%>
+                             <%end%>
+                            <%end%>
+                          <%end%>
+                  </tbody>  
+                  </table>
+               <% end %></p>
             </td>
-         </tr>
-
-
-
-
-
-         <!https://we.riseup.net/rails/simple-search-tutorial>
-
+            </tr>
+                     
+        <!https://we.riseup.net/rails/simple-search-tutorial>
+   </tbody>
 </table>
 
 <center>
