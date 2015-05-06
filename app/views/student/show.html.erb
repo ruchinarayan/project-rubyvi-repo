@@ -67,7 +67,7 @@
 </select>
 </td>
 </tr>
-<%= form_for(@valchk, :html => {:action => edit_checklist_path}) do |chklist| %>
+<%= form_for(@valchk) do |chklist| %>
 <tr>
 	<td>
 		<!--<div><input type="checkbox" id="c1">UNHP</div>
@@ -88,6 +88,7 @@
             </button>
 		</div>
 		<div align="center"><%= chklist.submit 'Save' %></div> -->
+		<div align="center"><%= link_to "Modify Graduation Checklist", gradcheck_edit_path(@valchk), :method => :get %></div>
 	</td>
 </tr>
 <% end %>

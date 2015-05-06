@@ -39,7 +39,8 @@ class PendingsController < ApplicationController
       @professor=Professor.new(:profName => @pending.profName,:profEmail => @pending.profEmail)
       @honor=Honor.new(:contract_id => @pending.contract_id,:uid => @pending.uid,:course_id => @pending.course_id,
        :prof_email => @pending.profEmail,:semester => @pending.semester,:year => @pending.year,:grade => @pending.grade,:pdf => '',:dates => @pending.present_date)
-      if @honor.save and @professor.save and @student.save
+      @checklist = Checklist.new(:uid => @pending.uid,unhp => "f",honexpju => "f",honexpse => "f",honthese => "f",gpa => "f" ) 
+      if @honor.save and @professor.save and @student.save and @checklist.save
         @pending.destroy
         redirect_to pendings_list_url
       else
