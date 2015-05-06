@@ -7,7 +7,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @students = Student.all 
-    @honors =Honor.all 
+    @honors =Honor.all
+
+     
     @activecount =0
     @students.each do|student| 
     if student.status!="fail" then

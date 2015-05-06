@@ -1,13 +1,14 @@
 class StudentController < ApplicationController
 @user
 before_action :logged_in_user, only: [:show, :edit, :update, :index,:new ]
-before_action :correct_user,   only: [:show, :edit, :update,:index, :new]
+before_action :correct_user,   only: [ :edit, :update,:index, :new]
 
   def index
 
-    @current_user ||= User.find_by(id: session[:user_id])
+    # @current_user ||= User.find_by(id: session[:user_id])
     @students=Student.all
-    @user = User.find(params[:id])
+    # @user = User.find(params[:id])
+     @user ||= User.find_by(id: session[:user_id])
     @honors= Honor.all
     respond_to do |format|
     format.html
@@ -35,7 +36,6 @@ end
 
   def failStu
   	@failstud = Student.all 
-
   end
 
   def studentIfo
@@ -51,7 +51,9 @@ def new
 
   end
 def edit
-  @current_user ||= User.find_by(id: session[:user_id])
+  # @current_user ||= User.find_by(id: session[:user_id])
+  # @user = User.find(params[:id])
+   @user ||= User.find_by(id: session[:user_id])
 @student = Student.find(params[:id])
 end
 
@@ -60,7 +62,8 @@ end
 #end
 
 def show
-   @current_user ||= User.find_by(id: session[:user_id])
+   @user ||= User.find_by(id: session[:user_id])
+    # @user = User.find(params[:user_id])
       if params[:search]    
      @pendings = Honor.where(uid: params[:search])
      @student = Student.where(UID: params[:search] ).take
@@ -76,7 +79,8 @@ def show
 end
 
 def notes
-  @current_user ||= User.find_by(id: session[:user_id])
+ # @user = User.find(params[:id])
+  @user ||= User.find_by(id: session[:user_id])
   @student = Student.find(params[:id])
   end 
  
@@ -133,11 +137,9 @@ end
   end
 
 
-  # Confirms the correct user.
-  # Confirms the correct user.
-  def correct_user
-    @user = User.find(params[:id])
-    #@current_user ||= User.find_by(id: session[:user_id])
+ def correct_user
+    # @user = User.find(params[:id])
+    @user ||= User.find_by(id: session[:user_id])
     redirect_to(root_url) unless current_user?(@user)
   end
 

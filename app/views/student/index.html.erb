@@ -17,9 +17,9 @@
                       <img height="94" border="0" width="534" src="/images/honors_brand.jpg" align="left">
                      </td>
                       <td class="name">
-                     <p><b>Logged in as: </b><i><%= @user.email %>  </i><b>Role: </b> <i><%= @user.role %>  </i></p>
-                     <p><%= link_to "Home", homePage_path %>&nbsp;&nbsp;&nbsp;<%= link_to "Log out", logout_path, method: "delete" %></p>
-
+                      <p><b>Logged in as: </b><i><%= @user.email %>  </i><b>Role: </b> 
+    <i><%= @user.role %></i></p>
+                     <p><%= link_to "Home", homePage_url(1) %>  &nbsp;<%= link_to "Log out", logout_path, method: "delete" %></p>
                      </td>
                      <tr> <th><h2>Active Contracts: </h2> </th></tr>
                 </tr>

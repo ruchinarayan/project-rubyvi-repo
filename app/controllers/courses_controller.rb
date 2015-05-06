@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
 @user
 before_action :logged_in_user, only: [:show, :edit, :update, :index,:new,:create ]
-# before_action :correct_user,   only: [:show]
+ before_action :correct_user,   only: [:show]
 
 
   def index
@@ -10,7 +10,7 @@ before_action :logged_in_user, only: [:show, :edit, :update, :index,:new,:create
   end
   def new
     # @user = User.find(params[:id])
-     @current_user ||= User.find_by(id: session[:user_id]) 
+      @user ||= User.find_by(id: session[:user_id])
   	@course = Course.new 
   end
 def create
@@ -34,7 +34,7 @@ def create
 
  def correct_user
     #@user = User.find(params[:id])
-    @current_user ||= User.find_by(id: session[:user_id])
+    @user ||= User.find_by(id: session[:user_id])
     redirect_to(root_url) unless current_user?(@current_user)
   end
 end
