@@ -6,8 +6,20 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-  end
+    @students = Student.all 
+    @honors =Honor.all 
+    @activecount =0
+    @students.each do|student| 
+    if student.status!="fail" then
+    @honors.each do |honor| 
+    if honor.uid==student.UID then 
+    @activecount = @activecount+1
 
+end
+end
+end
+end
+end
   def showSearch
     @user = User.find(params[:id])
     @pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Pending model class
