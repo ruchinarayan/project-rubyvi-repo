@@ -87,7 +87,6 @@ def show
  
     end
 
-
     else
       if params[:id] != nil
       @student = Student.find(params[:id])
