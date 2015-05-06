@@ -151,6 +151,7 @@
 </tr>
 <% if @student != nil then %>
 <% @pendings.each do |f|%>
+<% if f.uid==@student.UID %>
 <tr>
 	
 	<td align="center"><%= f.course_id %></td>
@@ -162,6 +163,7 @@
      
      </td>
 </tr>
+<% end %>
 <% end %>
 
 <% end %>

@@ -63,21 +63,37 @@ end
 
 def show
    @user ||= User.find_by(id: session[:user_id])
-    # @user = User.find(params[:user_id])
       if params[:search]    
      @pendings = Honor.where(uid: params[:search])
      @student = Student.where(UID: params[:search] ).take
-     @valchk = Checklist.find_by(uid: @student.UID)
+     # @valchk = Checklist.find_by(uid: @student.UID)
+    
+    if Checklist.find_by(uid: @student.UID) != nil
+      @valchk = Checklist.find_by(uid: @student.UID)
+    else
+  # @valchk.uid = @student.UID
+  @valchk = Checklist.create(uid: @student.UID,unhp: 'f',honexpju: 'f',honexpse: 'f',honthese: 'f',gpa: 'f')
+ 
+    end
+
+
     else
       if params[:id] != nil
       @student = Student.find(params[:id])
-      @valchk = Checklist.find_by(uid: @student.UID)
+     # @valchk = Checklist.find_by(uid: @student.UID)
+
+      if Checklist.find_by(uid: @student.UID) != nil
+        @valchk = Checklist.find_by(uid: @student.UID)
+       else
+        #@valchk.uid = @student.UID
+       @valchk = Checklist.create(uid: @student.UID,unhp: 'f',honexpju: 'f',honexpse: 'f',honthese: 'f',gpa: 'f')
+ 
+      end
     end
       @pendings= Honor.all
     end
 
 end
-
 def notes
  # @user = User.find(params[:id])
   @user ||= User.find_by(id: session[:user_id])
