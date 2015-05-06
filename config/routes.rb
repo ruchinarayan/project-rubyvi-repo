@@ -68,6 +68,8 @@ Rails.application.routes.draw do
   get  'student/show/:id', to: 'student#export', as: 'honor_export'
  # get  '/student/:id', to: 'users#show'
 
+ get  '/student/indexDeact/:id', to: 'student#deacList',  as: 'deac_student_List'
+
   get '/student/:id' , to: 'student#show', as: 'index_search_list'
   get '/student/:id' , to: 'student#search', as: 'search_student'
   post '/student' , to: 'student#search'

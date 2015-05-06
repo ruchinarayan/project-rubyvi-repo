@@ -55,7 +55,7 @@
                      <tr>
                         <td align= center>There are  <%= link_to content_tag(:strong,(Pending.all).length), pendings_list_path(:users => @user.id) %> pending Honor's contract requests </td>
                         <td align= center>There are  <%= link_to content_tag(:strong,(@activecount.inspect)), student_List_path %> active Honor's contracts</td>
-                        <td align= center>There are  <%= link_to content_tag(:strong,("X")), pendings_list_path %> Deactivated/Deleted Honor's contracts.</td>
+                        <td align= center>There are  <%= link_to content_tag(:strong,(@count.inspect)), deac_student_List_path %> Deactivated/Deleted Honor's contracts.</td>
                      </tr>
 
                     </tbody>
