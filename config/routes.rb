@@ -98,8 +98,8 @@ put '/displayStudent/:id', to: 'honors#update'
   #post '/student/:id', to: 'student#submitChecklist', as: 'edit_checklist'
 
 
-  get '/pendings/new', to: 'pendings#new', as: 'new_pending'
-  post '/pendings', to: 'pendings#create'
+  #get '/pendings/new', to: 'pendings#new', as: 'new_pending'
+  #post '/pendings', to: 'pendings#create'
 
 
   get '/student/:id', to: 'student#saveChecklist'
