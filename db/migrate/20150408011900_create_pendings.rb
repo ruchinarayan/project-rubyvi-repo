@@ -13,7 +13,6 @@ class CreatePendings < ActiveRecord::Migration
       t.string :course_id
       t.integer :year
       t.string :present_date
-      t.has_attached_file :pAttach
       t.timestamps null: false
     end
     add_index :pendings, :contract_id, unique: true

@@ -47,7 +47,7 @@ class Honor < ActiveRecord::Base
    belongs_to :professor, class_name: "Professor"
    belongs_to :course, class_name: "Course"
    belongs_to :student, class_name: "Student"
-  # attr_accessible :pdf
+   attr_accessible :pdf
    mount_uploader :pdf, PdfUploader
   def self.Keyword_search(keyword)
     keyword = "%"+keyword+"%"

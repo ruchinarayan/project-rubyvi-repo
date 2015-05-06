@@ -40,7 +40,7 @@ class Pending < ActiveRecord::Base
 	validates :year, presence: true, length: {maximum: 100 }
 	validates :present_date, presence: true,   length: {maximum: 100 }
    # has_attached_file :pAttach, :path => ":rails_root/public:url"
-   # attr_accessible :pdf
+    attr_accessible :pdf
    mount_uploader :pdf, PdfUploader
 	
 	def self.Keyword_search(keyword)

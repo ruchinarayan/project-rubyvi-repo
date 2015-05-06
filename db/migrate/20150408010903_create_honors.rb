@@ -10,7 +10,6 @@ class CreateHonors < ActiveRecord::Migration
       t.string :grade
       t.string :pdf
       t.date :dates
-      t.has_attached_file :hAttach
       t.timestamps null: false
     end
     add_index :honors, :contract_id, unique: true
