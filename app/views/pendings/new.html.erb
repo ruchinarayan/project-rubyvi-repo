@@ -1,25 +1,57 @@
 
-<img src="/images/HHHPUM.jpg"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <img src="/images/HHHPaddress.jpg",style="float:right">
+<img src="/images/HHHPUM.jpg"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="/images/HHHPaddress.jpg",style="float:right">
 
 <%= form_for(@pending) do |f|%>
 	<p>
 	
-	<%=f.label :contract_id, "Contract ID:" %> <%=f.text_field :contract_id%>
+		<%=f.label :contract_id, "Contract ID:" %> <%= f.text_field :contract_id, :value => ((Time.now.to_i) % 2147483647), :readonly => true %>
 	</p>
 	<p>
-		<%=f.label :course_id, "Course & Section:" %><%=f.text_field :course_id, :size => "8", :placeholder => "EECE 7012", :width => 1 %> <%=f.label :creditHours, "Credit Hours:" %><%=f.text_field :creditHours, :size => "1",:placeholder => "3" %> <%=f.label :year, "Semester/Year:" %><%=f.text_field :semester, :size => "4",:placeholder => "semester" %><%=f.text_field :year, :size => "4",:placeholder => "year" %>
+		<%=f.label :course_id, "Course & Section:" %><%=f.text_field :course_id, :size => "8", :placeholder => "EECE 7012", :width => 1 %> &nbsp; <%=f.label :creditHours, "Credit Hours:" %><%=f.text_field :creditHours, :size => "1",:placeholder => "3" %> &nbsp; <%=f.label :year, "Semester/Year:" %><%=f.text_field :semester, :size => "4",:placeholder => "semester" %><%=f.text_field :year, :size => "4",:placeholder => "year" %>
 	</p>
+
+	<table border="0" style="width:75%">
+		<tr>
+			<td>
 	<p>
-		<%=f.label :firstName, "Student:" %><%=f.text_field :firstName, :placeholder => "First name" %><%=f.text_field :lastName, :placeholder => "Last name" %><%=f.label :uid, "UUID:" %><%=f.text_field :uid, :size => "10" %>
+		<%=f.label :firstName, "Student:" %><%=f.text_field :firstName, :placeholder => "First name", :size => "8" %><%=f.text_field :lastName, :placeholder => "Last name", :size => "9" %>
 	</p>
+			</td>
+			<td>
+				<p>
+					<%=f.label :uid, "UUID:" %><%=f.text_field :uid, :size => "24" %>
+	</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+	<p>
+		<%=f.label :phoneNumber, "Student Phone:" %><%=f.text_field :phoneNumber, :size => "15" %>
+	</p>
+</td>
+<td>
+<p>
+	<%=f.label :email,"Student Email:" %><%=f.text_field :email, :placeholder => "istudent@memphis.edu", :size => "16" %>
+	</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+	<p>
+		<%=f.label :profName, "Instructor:" %><%=f.text_field :profName, :placeholder => "Dr. Smith"  %>
+
+</p>
+</td>
+<td>
+<p>
+		<%=f.label :profEmail, "Instructor's Email:" %>
 	
-	<p>
-		<%=f.label :phoneNumber, "Student Phone:" %><%=f.text_field :phoneNumber %><%=f.label :email,"Student Email:" %><%=f.text_field :email, :placeholder => "istudent@memphis.edu" %>
+
+	<%=f.text_field :profEmail, :placeholder => "jsmith@memphis.edu" , :size => "13"%>
 	</p>
-	
-	<p>
-		<%=f.label :profName, "Instructor:" %><%=f.text_field :profName, :placeholder => "Professor's name"  %><%=f.label :profEmail, "Instructor's Email:" %><%=f.text_field :profEmail, :placeholder => "iprofessor@memphis.edu" %>
-	</p>
+			</td>
+		</tr>
+	</table>
 	
 	<table border="0" style="width:85%">
 	<td>
@@ -27,9 +59,6 @@
 	1. What is the rationale for taking this course on a contract basis?
 	</p>
 
-	<p>
-		&nbsp &nbsp &nbsp &nbsp
-	</p>
 	<p>
 		&nbsp &nbsp &nbsp &nbsp
 	</p>
@@ -48,9 +77,7 @@
 	<p>
 		&nbsp &nbsp &nbsp &nbsp
 	</p>
-	<p>
-		&nbsp &nbsp &nbsp &nbsp
-	</p>
+	
 
 
 
@@ -67,20 +94,72 @@
 	</p>
 
 	<p>
-		&nbsp &nbsp &nbsp &nbsp
+		&nbsp; &nbsp; &nbsp; &nbsp;
 	</p>
 	<p>
-		&nbsp &nbsp &nbsp &nbsp
+		&nbsp; &nbsp; &nbsp; &nbsp;
 	</p>
-	<p>
-		&nbsp &nbsp &nbsp &nbsp
-	</p>
+	
 
 
 	</td>
 	</table>
 
-	Signatures of Agreement and Approval
+	<b>Signatures of Agreement and Approval
+	</b>
+
+
+	<table border="0" style="width:85%">
+		<tr>
+			&nbsp;
+		</tr>
+		<tr>
+			<td>
+				__________________________
+			</td>
+			<td>
+				__________________________
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Student Signature
+			</td>
+			<td>
+				Faculty Signature
+			</td>
+		</tr>
+		<tr>
+			&nbsp;
+		</tr>
+		<tr>
+			<td>
+				Approved by:
+			</td>
+		</tr>
+		<tr>
+			&nbsp;
+		</tr>
+		<tr>
+			<td>
+				__________________________
+			</td>
+			<td>
+				__________________________
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Instructor’s Department Head or Departmental Honors Coordinator
+			</td>
+			<td>
+				Hardin Honors Director
+			</td>
+		</tr>
+
+
+
+	</table>
 
 	<p>
 		<%=link_to 'Please Click To Print and Complete Form Before submitting', 'pendings/new',:onclick => 'window.print(); return false;'%>
