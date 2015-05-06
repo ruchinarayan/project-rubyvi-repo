@@ -30,6 +30,7 @@
  
                      </td>
                   </tr>
+                  <tr> <th><h2> Student Details: </h2> </th></tr>
                </tbody></table>
             </td>
          </tr>
@@ -169,7 +170,7 @@
 <tr>
 	<td>
 	 <% if @student != nil then %>
-	 <%= link_to "Add New Course", new_honor_path(:student => @student.id) , :class => "button", :method => :get %> &nbsp;&nbsp;&nbsp;<%= link_to "Export to Excel", honor_export_path(format: "csv")%> 
+	 <%= link_to "Add New Honor", new_honor_path(:student => @student.id) , :class => "button", :method => :get %> &nbsp;&nbsp;&nbsp;<%= link_to "Export to Excel", honor_export_path(format: "csv")%> 
 	 <% end %>
 	</td>
 
