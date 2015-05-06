@@ -1,0 +1,16 @@
+0：00-2:48 Introduction of this project
+
+3:00-6:00 Franz： Student contract, print honor contract for student
+
+6:00-8:00 Iqbal：login and mainpage, Mainsearch function which can use any key words.
+
+8:00-9:30  swaroop: pending contracts, model migrations and associtaions ,PDF upload
+
+9:40-14:00  Venkata： Krishna  Add new professors and new courses,Authentication and Authorization for student controller.
+            Ruchi：  studentchecklist and modify it,UI modifcation of display of student and edit student  
+			
+14:10-16:10   Yehui： export all student information and all active honor contracts.
+		      search specific student by using UID.
+		
+
+
