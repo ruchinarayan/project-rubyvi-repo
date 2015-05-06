@@ -21,7 +21,10 @@ class PendingsController < ApplicationController
         @students=Student.all
     end
 
-
+ # protected
+ # def configure_permitted_parameters
+  #  devise_parameter_sanitizer.for(:pending) << :pAttach
+  #end
   
   def search
     @current_user ||= User.find_by(id: session[:user_id])
@@ -36,22 +39,32 @@ class PendingsController < ApplicationController
     @current_user ||= User.find_by(id: session[:user_id])
     @pending = Pending.find(params[:id])
   end
+  #,:pAttach_file_name,:pAttach_content_type,:pAttach_file_size,:pAttach_updated_at
+  def user_params
+    params.require(:pending).permit(:contract_id,:uid,:firstName,:lastName,:email,:phoneNumber,:semester,:profName,
+      :profEmail,:course_id,:year,:present_date,:grade,:pdf)
+  end
   def update
     @pending = Pending.find(params[:id])
-    if @pending.update(params.require(:pending).permit(:contract_id,:uid,:firstName,:lastName,:email,:phoneNumber,:semester,:profName,
-      :profEmail,:course_id,:year,:present_date,:grade,:pdf))
+    if @pending.update_attributes(user_params)
       @student=Student.new(:UID => @pending.uid,:firstName => @pending.firstName,:lastName => @pending.lastName,:email => @pending.email,:phoneNumber => @pending.phoneNumber, :status => "active")
       @professor=Professor.new(:profName => @pending.profName,:profEmail => @pending.profEmail)
-      @honor=Honor.new(:contract_id => @pending.contract_id,:uid => @pending.uid,:course_id => @pending.course_id,
+      @honor= Honor.new(:contract_id => @pending.contract_id,:uid => @pending.uid,:course_id => @pending.course_id,
        :prof_email => @pending.profEmail,:semester => @pending.semester,:year => @pending.year,:grade => @pending.grade,:pdf => '',:dates => @pending.present_date)
-      if @honor.save and @professor.save and @student.save
+       @honor.pdf = @pending.pdf
+       if @honor.save and @professor.save and @student.save
         @pending.destroy
         redirect_to pendings_list_url
       else
-        redirect_to pendings_list_url
+        @honor.destroy
+        @professor.destroy
+        @student.destroy
+        flash[:notice] = "Edit failed"
+        render 'edit'
       end
     else
-      redirect_to pendings_list_url
+      flash[:notice] = "Edit failed"
+      render 'edit'
     end
   end
   def destroy 

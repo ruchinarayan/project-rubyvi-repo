@@ -137,7 +137,12 @@
 	<td align="center"><%= f.prof_email %></td>
 	<td>
      [<%= link_to "Edit", course_edit_path(f), :method => :get %>]
-     [<%= link_to "Show" %>]
+     [
+     <% if f.pdf.url.nil? %>
+            No Scanned Available
+          <% else %>
+            <a href="<%= f.pdf.url %>">Show</a>
+            <% end %>]
      </td>
 </tr>
 <% end %>

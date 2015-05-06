@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504232955) do
+ActiveRecord::Schema.define(version: 20150506005517) do
 
   create_table "contracts", force: :cascade do |t|
     t.integer  "contract_identity"
@@ -39,6 +39,11 @@ ActiveRecord::Schema.define(version: 20150504232955) do
 
   add_index "courses", ["course_id"], name: "index_courses_on_course_id", unique: true
 
+  create_table "datafiles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "honors", force: :cascade do |t|
     t.integer  "contract_id"
     t.string   "uid"
@@ -47,17 +52,17 @@ ActiveRecord::Schema.define(version: 20150504232955) do
     t.string   "semester"
     t.integer  "year"
     t.string   "grade"
-    t.binary   "pdf"
+    t.string   "pdf"
     t.date     "dates"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.string   "hAttach_file_name"
+    t.string   "hAttach_content_type"
+    t.integer  "hAttach_file_size"
+    t.datetime "hAttach_updated_at"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.integer  "student_id"
     t.integer  "professor_id"
     t.integer  "corse_id"
-    t.string   "attach_file_name"
-    t.string   "attach_content_type"
-    t.integer  "attach_file_size"
-    t.datetime "attach_updated_at"
   end
 
   add_index "honors", ["contract_id"], name: "index_honors_on_contract_id", unique: true
@@ -78,14 +83,14 @@ ActiveRecord::Schema.define(version: 20150504232955) do
     t.string   "course_id"
     t.integer  "year"
     t.string   "present_date"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.string   "pAttach_file_name"
+    t.string   "pAttach_content_type"
+    t.integer  "pAttach_file_size"
+    t.datetime "pAttach_updated_at"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "grade"
-    t.binary   "pdf"
-    t.string   "attach_file_name"
-    t.string   "attach_content_type"
-    t.integer  "attach_file_size"
-    t.datetime "attach_updated_at"
+    t.string   "pdf"
   end
 
   add_index "pendings", ["contract_id"], name: "index_pendings_on_contract_id", unique: true

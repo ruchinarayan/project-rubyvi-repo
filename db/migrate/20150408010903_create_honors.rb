@@ -8,9 +8,9 @@ class CreateHonors < ActiveRecord::Migration
       t.string :semester
       t.integer :year
       t.string :grade
-      t.binary :pdf
+      t.string :pdf
       t.date :dates
-
+      t.has_attached_file :hAttach
       t.timestamps null: false
     end
     add_index :honors, :contract_id, unique: true
