@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @honors =Honor.all
     @count=0 
     @students.each do|student| 
-     if student.status=="failed" then 
+     if student.status=="faild" then 
       @count=@count+1
       end 
     end 
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     end
    end
   end
-  
+
   def showSearch
     @user = User.find(params[:id])
     @pendings= Pending.Keyword_search (params[:search]) # going to Keyword_search method in Pending model class
