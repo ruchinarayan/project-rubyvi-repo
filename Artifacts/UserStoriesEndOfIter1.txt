@@ -17,10 +17,10 @@ Title : Update Student's course Information   (Ruchi)
 Description : As a secretary, I want to modify student's course information because if the entered details are wrong or changed, it can be modified.
 
 Title: View Pending Contract (Swaroop)
-Description: As an admin, I want to view the pending Honor’s Contracts for reference.
+Description: As an admin, I want to view the pending Honorâ€™s Contracts for reference.
 
 Title: Reject application (swaroop)
-Description: As an admin, I want to reject pending Honor’s Contract of specific student if student doesn't meet requirements.
+Description: As an admin, I want to reject pending Honorâ€™s Contract of specific student if student doesn't meet requirements.
 Priority: 20
 
 Title: Search certain student (Yehui)
@@ -48,10 +48,10 @@ Title : Add extra Notes (Venkata(vkchkkla))
 Description: As an Admin, I want to add notes/comments on student for future references.
 
 Priority: 30
-Title: Export all students’ information (Yehui)
-Description: Admins will be able to export all students’ information in one time.
+Title: Export all studentsâ€™ information (Yehui)
+Description: Admins will be able to export all studentsâ€™ information in one time.
 
-Title: Export certain student’s information (Yehui)
+Title: Export certain studentâ€™s information (Yehui)
 Description: Admins can export certain student information that he or she looks for. 
 
 Priority: 40
@@ -62,6 +62,13 @@ Priority: 50
 Title: Add New Course manually (Venkata(vkchkkla))
 
 Description: As an admin, I want to  add a new course details while manually entering honor details.
+
+
+Title: Add New Professor manually (Venkata(vkchkkla))
+
+Description: As an admin, I want to  add a new Professor details while manually entering honor details.
+
+
 
 Title: List all Honor's contract Pending for approval (Iqbal)
 Description: As an admin, I want to see all the pending contract request application submitted by student for approval and I should have the link to view, approve or reject the contract.
@@ -74,4 +81,16 @@ Title: User access control to the Honor's contract system(Iqbal)
 Description: As an admin, I want have a user access system so that I can login to the system with user name and password but other unauthorized user should not be able to login.
 
 Title: List all activity honor contracts(Yehui)
-Description: As an admin, I want to see all  honor contracts from students which admin proved .
+Description: As an admin, I want to see all  honor contracts from students which admin proved.
+
+Title: Save contract copy(Swaroop)
+Description: As an admin, I want to save the contract copy of a student.
+
+Title: Modify and save Honor Type (Ruchi)
+Description: As an admin, I want to view the honor's type based on University Honors/ University Honors with thesis for each Honors' graduate 
+and modifying the honor's type if required to change.
+
+
+
+
+
