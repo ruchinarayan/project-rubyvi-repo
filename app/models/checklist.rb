@@ -12,6 +12,5 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-
-class Checklist < ActiveRecord::Base
+class Checklist < ActiveRecord::Base	
 end
