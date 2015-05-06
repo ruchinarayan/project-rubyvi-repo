@@ -17,6 +17,17 @@ before_action :correct_user,   only: [ :edit, :update,:index, :new]
   end
 end
 
+def deacList
+    @students=Student.all
+    @user ||= User.find_by(id: session[:user_id])
+    @honors= Honor.all
+    respond_to do |format|
+    format.html
+    format.csv { send_data(@students.to_csv) }
+   # format.xls
+  end
+end
+
  def export
    # @Honors = Honor.find(params[:id])
     @Honors = Honor.all

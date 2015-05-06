@@ -50,7 +50,7 @@
 </tr>
   
   <% @students.each do|student| %>
-  <% if student.status=="failed" %>
+  <% if student.status=="passed" %>
    <% @honors.each do |honor| %>
     <% if honor.uid==student.UID %>
   <tr height="20px">
