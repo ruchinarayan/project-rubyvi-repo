@@ -50,21 +50,23 @@ class PendingsController < ApplicationController
       @student=Student.new(:UID => @pending.uid,:firstName => @pending.firstName,:lastName => @pending.lastName,:email => @pending.email,:phoneNumber => @pending.phoneNumber, :status => "active")
       @professor=Professor.new(:profName => @pending.profName,:profEmail => @pending.profEmail)
       @honor= Honor.new(:contract_id => @pending.contract_id,:uid => @pending.uid,:course_id => @pending.course_id,
-       :prof_email => @pending.profEmail,:semester => @pending.semester,:year => @pending.year,:grade => @pending.grade,:pdf => '',:dates => @pending.present_date)
+       :prof_email => @pending.profEmail,:semester => @pending.semester,:year => @pending.year,:grade => '',:dates => @pending.present_date)
        @honor.pdf = @pending.pdf
        @checklist = Checklist.new(:uid => @pending.uid,:unhp => "f",:honexpju => "f",:honexpse => "f",:honthese => "f",:gpa => "f" ) 
-      if @honor.save and @professor.save and @student.save and @checklist.save
+      if @professor.save and @student.save and @honor.save
+        @checklist.save
         @pending.destroy
+        flash[:notice] = "Accepted Successfully"
         redirect_to pendings_list_url
       else
         @honor.destroy
         @professor.destroy
         @student.destroy
-        flash[:notice] = "Edit failed"
+        flash[:notice] = "save failed"
         render 'edit'
       end
     else
-      flash[:notice] = "Edit failed"
+      flash[:notice] = "Accept failed"
       render 'edit'
     end
   end
