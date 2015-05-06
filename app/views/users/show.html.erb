@@ -42,6 +42,7 @@
 
          </tr>
 
+<!-- (Honor.all).length -->
          <tr>
             <td >
                <table border="2" cellpadding="1" cellspacing="1" width="100%" summary="Honors Contract Dashboard"align="center" >
@@ -52,8 +53,8 @@
                         <th bgcolor="gray"> Deactivated/Deleted Contracts</th>
                      </tr>
                      <tr>
-                        <td align= center>There are  <%= link_to (Pending.all).length, pendings_list_path(:users => @user.id) %> pending Honor's contract requests </td>
-                        <td align= center>There are  <%= link_to (Honor.all).length, student_List_path %> active Honor's contracts</td>
+                        <td align= center>There are  <%= link_to content_tag(:strong,(Pending.all).length), pendings_list_path(:users => @user.id) %> pending Honor's contract requests </td>
+                        <td align= center>There are  <%= link_to @activecount.inspect, student_List_path %> active Honor's contracts</td>
                         <td align= center>There are  <%= link_to "X", pendings_list_path %> Deactivated/Deleted Honor's contracts.</td>
                      </tr>
 
