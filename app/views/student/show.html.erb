@@ -150,6 +150,7 @@
 	<th bgcolor="lightblue"></th>
 </tr>
 <% if @student != nil then %>
+<% session[:user_krikk] = @student.id %>
 <% @pendings.each do |f|%>
 <% if f.uid==@student.UID %>
 <tr>

@@ -45,7 +45,7 @@ before_action :correct_user,   only: [ :edit, :update,:index_search_list_url]
      @honor = Honor.find(params[:id])
      if @honor.update(params.require(:honor).permit(:course_id,:prof_email ,:semester, :grade))
           flash[:danger] = "Successfully saved!!"
-          redirect_to index_search_list_url(@honor)
+          redirect_to index_search_list_url(session[:user_krikk])
     else
       flash[:danger] = "some error!!"
          redirect_to index_search_list_url
