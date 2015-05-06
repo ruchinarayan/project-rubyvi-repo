@@ -74,14 +74,14 @@
 		<div><input type="checkbox" id="c2">Honors Experience-Junior Year</div>
 		<div id="d1" hidden="true"><input type="checkbox" id="s1c3">Honors Experience-Senior Year</div>
 		<div id="d2"><input type="checkbox" id="s2c3">Honors Thesis-Senior Year</div>
-		<div><input type="checkbox" id="c4">GPA: 3.25</div> -->
+		<div><input type="checkbox" id="c4">GPA: 3.25</div> 
 
-		<div>UID : <%= chklist.text_field :uid %></div>
-		<div><%= chklist.check_box :unhp %>UNHP</div>
-		<div><%= chklist.check_box :honexpju %>Honors Experience-Junior Year</div>
-		<div id="d1" hidden="true"><%= chklist.check_box :honexpse %>Honors Experience-Senior Year</div>
-		<div id="d2"><%= chklist.check_box :honthese %>Honors Thesis-Senior Year</div>
-		<div><%= chklist.check_box :gpa %>GPA: 3.25</div>
+		<div>UID : <%= chklist.text_field :uid %></div>-->
+		<div><%= chklist.check_box :unhp, :disabled => true %>UNHP</div>
+		<div><%= chklist.check_box :honexpju, :disabled => true %>Honors Experience-Junior Year</div>
+		<div id="d1" hidden="true"><%= chklist.check_box :honexpse, :disabled => true %>Honors Experience-Senior Year</div>
+		<div id="d2"><%= chklist.check_box :honthese, :disabled => true %>Honors Thesis-Senior Year</div>
+		<div><%= chklist.check_box :gpa, :disabled => true %>GPA: 3.25</div>
 		<!--<div align="center">
            <button type="submit" class="form-submit-button">
               Save

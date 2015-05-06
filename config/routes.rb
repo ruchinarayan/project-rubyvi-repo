@@ -93,7 +93,7 @@ put '/displayStudent/:id', to: 'honors#update'
   patch '/contracts/:id', to: 'contracts#update'
   put '/contracts/:id', to: 'contracts#update'
 
-  
+    
   #get '/student/:id', to: 'student#saveChecklist', as: 'checklist'
   #post '/student/:id', to: 'student#submitChecklist', as: 'edit_checklist'
 
