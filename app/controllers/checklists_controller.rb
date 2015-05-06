@@ -1,7 +1,7 @@
 class ChecklistsController < ApplicationController
 
 def edit
-   @current_user ||= User.find_by(id: session[:user_id])
+   @user ||= User.find_by(id: session[:user_id])
      @valchk = Checklist.find(params[:id])
 end
 
