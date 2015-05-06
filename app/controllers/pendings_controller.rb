@@ -1,15 +1,9 @@
 class PendingsController < ApplicationController
 
-<<<<<<< HEAD
-@user
-  before_action :logged_in_user, only: [:show, :index,:search, :edit, :update, :destroy] 
-  before_action :correct_user,   only: [:show, :index,:search, :edit, :update, :destroy] 
-   
-=======
   before_action :logged_in_user, only: [:show, :index,:search, :edit, :update, :destroy]
   before_action :correct_user,   only: [:show, :index,:search, :edit, :update, :destroy]
 
->>>>>>> f1d54ffe7b3d0cdae8391bd99dbf500b0e659d7d
+
   	#@pendings= Pending.all
   	def index
       @current_user ||= User.find_by(id: session[:user_id])

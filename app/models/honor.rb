@@ -2,25 +2,21 @@
 #
 # Table name: honors
 #
-#  id                   :integer          not null, primary key
-#  contract_id          :integer
-#  uid                  :string
-#  course_id            :string
-#  prof_email           :string
-#  semester             :string
-#  year                 :integer
-#  grade                :string
-#  pdf                  :string
-#  dates                :date
-#  hAttach_file_name    :string
-#  hAttach_content_type :string
-#  hAttach_file_size    :integer
-#  hAttach_updated_at   :datetime
-#  created_at           :datetime         not null
-#  updated_at           :datetime         not null
-#  student_id           :integer
-#  professor_id         :integer
-#  corse_id             :integer
+#  id           :integer          not null, primary key
+#  contract_id  :integer
+#  uid          :string
+#  course_id    :string
+#  prof_email   :string
+#  semester     :string
+#  year         :integer
+#  grade        :string
+#  pdf          :string
+#  dates        :date
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  student_id   :integer
+#  professor_id :integer
+#  corse_id     :integer
 #
 
 class Honor < ActiveRecord::Base
@@ -47,8 +43,8 @@ class Honor < ActiveRecord::Base
    belongs_to :professor, class_name: "Professor"
    belongs_to :course, class_name: "Course"
    belongs_to :student, class_name: "Student"
-   attr_accessible :pdf
-   mount_uploader :pdf, PdfUploader
+  # attr_accessible :pdf
+   #mount_uploader :pdf, PdfUploader
   def self.Keyword_search(keyword)
     keyword = "%"+keyword+"%"
       @honors= Honor.where('contract_id LIKE ? or uid LIKE ? or course_id LIKE ? or prof_email LIKE ? or semester LIKE ? or year LIKE ?', keyword,keyword,keyword,keyword,keyword,keyword)

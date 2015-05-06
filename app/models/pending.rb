@@ -2,27 +2,25 @@
 #
 # Table name: pendings
 #
-#  id                   :integer          not null, primary key
-#  contract_id          :integer
-#  uid                  :string
-#  firstName            :string
-#  lastName             :string
-#  email                :string
-#  phoneNumber          :string
-#  semester             :string
-#  profName             :string
-#  profEmail            :string
-#  course_id            :string
-#  year                 :integer
-#  present_date         :string
-#  pAttach_file_name    :string
-#  pAttach_content_type :string
-#  pAttach_file_size    :integer
-#  pAttach_updated_at   :datetime
-#  created_at           :datetime         not null
-#  updated_at           :datetime         not null
-#  grade                :string
-#  pdf                  :string
+#  id           :integer          not null, primary key
+#  contract_id  :integer
+#  uid          :string
+#  firstName    :string
+#  lastName     :string
+#  email        :string
+#  phoneNumber  :string
+#  semester     :string
+#  profName     :string
+#  profEmail    :string
+#  course_id    :string
+#  year         :integer
+#  present_date :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  grade        :string
+#  pdf          :string
+#  creditHours  :integer
+#
 
 class Pending < ActiveRecord::Base
 	 
@@ -40,8 +38,8 @@ class Pending < ActiveRecord::Base
 	validates :year, presence: true, length: {maximum: 100 }
 	validates :present_date, presence: true,   length: {maximum: 100 }
    # has_attached_file :pAttach, :path => ":rails_root/public:url"
-    attr_accessible :pdf
-   mount_uploader :pdf, PdfUploader
+   # attr_accessible :pdf
+   #mount_uploader :pdf, PdfUploader
 	
 	def self.Keyword_search(keyword)
     keyword = "%"+keyword+"%"

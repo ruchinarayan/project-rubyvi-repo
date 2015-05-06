@@ -1,6 +1,7 @@
 # == Schema Information
 #
 # Table name: pendings
+#
 #  id           :integer          not null, primary key
 #  contract_id  :integer
 #  uid          :string
@@ -17,7 +18,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  grade        :string
-#  pdf          :binary
+#  pdf          :string
 #  creditHours  :integer
 #
 

@@ -2,25 +2,21 @@
 #
 # Table name: honors
 #
-#  id                   :integer          not null, primary key
-#  contract_id          :integer
-#  uid                  :string
-#  course_id            :string
-#  prof_email           :string
-#  semester             :string
-#  year                 :integer
-#  grade                :string
-#  pdf                  :string
-#  dates                :date
-#  hAttach_file_name    :string
-#  hAttach_content_type :string
-#  hAttach_file_size    :integer
-#  hAttach_updated_at   :datetime
-#  created_at           :datetime         not null
-#  updated_at           :datetime         not null
-#  student_id           :integer
-#  professor_id         :integer
-#  corse_id             :integer
+#  id           :integer          not null, primary key
+#  contract_id  :integer
+#  uid          :string
+#  course_id    :string
+#  prof_email   :string
+#  semester     :string
+#  year         :integer
+#  grade        :string
+#  pdf          :string
+#  dates        :date
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  student_id   :integer
+#  professor_id :integer
+#  corse_id     :integer
 #
 
 require 'test_helper'

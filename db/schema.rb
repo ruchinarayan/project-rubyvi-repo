@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150506005517) do
-=======
-ActiveRecord::Schema.define(version: 20150504211113) do
 
   create_table "checklists", force: :cascade do |t|
     t.string   "uid"
@@ -26,7 +23,6 @@ ActiveRecord::Schema.define(version: 20150504211113) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
->>>>>>> f1d54ffe7b3d0cdae8391bd99dbf500b0e659d7d
 
   create_table "contracts", force: :cascade do |t|
     t.integer  "contract_identity"
@@ -69,12 +65,8 @@ ActiveRecord::Schema.define(version: 20150504211113) do
     t.string   "grade"
     t.string   "pdf"
     t.date     "dates"
-    t.string   "hAttach_file_name"
-    t.string   "hAttach_content_type"
-    t.integer  "hAttach_file_size"
-    t.datetime "hAttach_updated_at"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "student_id"
     t.integer  "professor_id"
     t.integer  "corse_id"
@@ -98,19 +90,11 @@ ActiveRecord::Schema.define(version: 20150504211113) do
     t.string   "course_id"
     t.integer  "year"
     t.string   "present_date"
-    t.string   "pAttach_file_name"
-    t.string   "pAttach_content_type"
-    t.integer  "pAttach_file_size"
-    t.datetime "pAttach_updated_at"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "grade"
-<<<<<<< HEAD
     t.string   "pdf"
-=======
-    t.binary   "pdf"
     t.integer  "creditHours"
->>>>>>> f1d54ffe7b3d0cdae8391bd99dbf500b0e659d7d
   end
 
   add_index "pendings", ["contract_id"], name: "index_pendings_on_contract_id", unique: true
