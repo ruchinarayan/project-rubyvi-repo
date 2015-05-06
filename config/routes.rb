@@ -93,8 +93,12 @@ put '/displayStudent/:id', to: 'honors#update'
   post '/pendings', to: 'pendings#create'
 
 
-  get '/student/:id', to: 'student#saveChecklist', as: 'checklist'
-  post '/student/:id', to: 'student#submitChecklist', as: 'edit_checklist'
+  get '/student/:id', to: 'student#saveChecklist'
+  post '/student/:id', to: 'student#submitChecklist'
+
+get '/gradCheckStu/:id/edit', to: 'checklists#edit', as: "gradcheck_edit"
+patch '/gradCheckStu/:id', to: 'checklists#update', as: 'checklist'
+put '/gradCheckStu/:id', to: 'checklists#update'
   #Possibly a post to pending here
 
   # The priority is based upon order of creation: first created -> highest priority.
